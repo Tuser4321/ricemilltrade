@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Rice Mill Trade</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>⚙️ RM Trade Admin</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active" data-section="dashboard"><span>📊</span> Dashboard</a>
+        <a href="#" class="nav-link" data-section="site"><span>🏢</span> Site Control</a>
+        <a href="#" class="nav-link" data-section="products"><span>📦</span> Products</a>
+        <a href="#" class="nav-link" data-section="team"><span>👥</span> Team</a>
+    <div class="main-content">
+      <div class="topbar">
+        <h1 id="page-title">Dashboard</h1>
+        <div class="user-info">
+          <span id="current-user">Admin</span>
+        </div>
+      </div>
+
+      <!-- Dashboard Section -->
+      <section id="section-dashboard" class="content-section">
+        <div class="stat-cards">
+          <div class="stat-card"><div><h3 id="stat-products">0</h3><p>Products</p></div><div class="icon">📦</div></div>
+          <div class="stat-card"><div><h3 id="stat-team">0</h3><p>Team Members</p></div><div class="icon">👥</div></div>
+          <div class="stat-card"><div><h3 id="stat-admins">0</h3><p>Admin Users</p></div><div class="icon">🔐</div></div>
+          <div class="stat-card"><div><h3>WhatsApp</h3><p>8801348249343</p></div><div class="icon">💬</div></div>
+        </div>
+        <div class="alert alert-info">
+          <strong>Quick Actions:</strong> Use the sidebar to manage products, team, site settings, and admin users.
+        </div>
+      </section>
+
+      <!-- Site Control Section -->
+      <section id="section-site" class="content-section hidden">
+        <div class="table-wrap">
+          <h3 style="padding: 20px 24px; border-bottom: 1px solid var(--admin-border); margin: 0;">Site Control</h3>
+          <div style="padding: 24px;">
+            <div class="input-group">
+              <label>Company Name</label>
+              <input type="text" id="site-name" value="Rice Mill Trade">
+            </div>
+            <div class="input-group">
+              <label>Tagline (English)</label>
+              <input type="text" id="site-tagline" value="Your reliable partner in your business">
+            </div>
+            <div class="input-group">
+              <label>Phone</label>
+              <input type="text" id="site-phone" value="+880 1348 249343">
+            </div>
+            <div class="input-group">
+              <label>Email</label>
+              <input type="email" id="site-email" value="info@ricemilltrade.com">
+            </div>
+            <div class="input-group">
+              <label>Main Office Address</label>
+              <input type="text" id="site-mainaddr" value="Head Office: 123 Industrial Area, Tongi, Gazipur, Bangladesh">
+            </div>
+            <div class="input-group">
+              <label>Old Office Address</label>
+              <input type="text" id="site-oldaddr" value="Old Office: 45 Old Market Road, Dhaka, Bangladesh">
+            </div>
+            <button class="btn btn-primary" onclick="siteConfig.save()">Save Site Settings</button>
+          </div>
+        </div>
+        <a href="#" class="nav-link" data-section="features"><span>🔧</span> Features</a>
+        <a href="#" class="nav-link" data-section="admins"><span>🔐</span> Admin Users</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn btn-danger btn-sm" style="width:100%;" onclick="auth.logout()">Logout</button>
+      </div>
+    </aside>
+        <div class="table-wrap" style="margin-top: 20px;">
+          <h3 style="padding: 20px 24px; border-bottom: 1px solid var(--admin-border); margin: 0;">Social Media Links</h3>
+          <div style="padding: 24px;">
+            <div class="input-group">
+              <label>Facebook URL</label>
+              <input type="text" id="social-facebook" value="https://facebook.com/ricemilltrade">
+            </div>
+            <div class="input-group">
+              <label>WhatsApp URL</label>
+              <input type="text" id="social-whatsapp" value="https://wa.me/8801348249343">
+            </div>
+            <div class="input-group">
+              <label>LinkedIn URL</label>
+              <input type="text" id="social-linkedin" value="https://linkedin.com/company/ricemilltrade">
+            </div>
+            <div class="input-group">
+              <label>YouTube URL</label>
+              <input type="text" id="social-youtube" value="https://youtube.com/@ricemilltrade">
+            </div>
+            <button class="btn btn-primary" onclick="siteConfig.saveSocial()">Save Social Links</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="section-products" class="content-section hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3>Product Management</h3>
+          <button class="btn btn-primary" onclick="products.openModal()">+ Add Product</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th><th>Name</th><th>Model</th><th>Category</th><th>Description</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section id="section-team" class="content-section hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3>Team Management</h3>
+          <button class="btn btn-primary" onclick="team.openModal()">+ Add Member</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Photo</th><th>Name</th><th>Title</th><th>Email</th><th>Phone</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="team-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="section-features" class="content-section hidden">
+        <div class="features-list">
+          <div class="feature-item" style="padding: 20px 24px; border-bottom: 1px solid var(--admin-border);">
+            <div>
+              <h4>WhatsApp Inquiry</h4>
+              <p>Enable WhatsApp inquiry buttons on product pages.</p>
+            </div>
+            <div class="toggle active" id="toggle-whatsapp" onclick="features.toggle('whatsapp')"></div>
+          </div>
+          <div class="feature-item" style="padding: 20px 24px; border-bottom: 1px solid var(--admin-border);">
+            <div>
+              <h4>Solar Offerings</h4>
+              <p>Show solar energy solutions on the website.</p>
+            </div>
+            <div class="toggle active" id="toggle-solar" onclick="features.toggle('solar')"></div>
+          </div>
+          <div class="feature-item" style="padding: 20px 24px;">
+            <div>
+              <h4>B2B Quotation Form</h4>
+              <p>Enable the B2B quotation contact form.</p>
+            </div>
+            <div class="toggle active" id="toggle-quotation" onclick="features.toggle('quotation')"></div>
+          </div>
+        </div>
+        <div style="margin-top: 30px;">
+          <button class="btn btn-primary" onclick="features.save()">Save Feature Settings</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Product Modal -->
+  <div class="modal-overlay hidden" id="product-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="product-modal-title">Add Product</h3>
+        <button class="modal-close" onclick="products.closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="product-form">
+          <input type="hidden" id="product-id">
+          <div class="input-group">
+            <label>Product Name</label>
+            <input type="text" id="product-name" required>
+          </div>
+          <div class="input-group">
+            <label>Model / Code</label>
+            <input type="text" id="product-model" required>
+          </div>
+          <div class="input-group">
+            <label>Category</label>
+            <select id="product-category">
+              <option value="spare-parts">Auto Rice Mill Spare Parts</option>
+              <option value="reconditioned">Reconditioned Machinery</option>
+              <option value="solar">Solar & Renewable Energy</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Description</label>
+            <textarea id="product-desc" rows="3"></textarea>
+          </div>
+          <div class="input-group">
+            <label>Image Path</label>
+            <input type="text" id="product-image" placeholder="e.g., assets/images/products/spare-parts/image.jpg.jpeg">
+          </div>
+          <div class="input-group">
+            <label>Specs (comma-separated)</label>
+            <input type="text" id="product-specs" placeholder="e.g., Material: Steel, Size: 10mm">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="products.closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="products.save()">Save Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Modal -->
+  <div class="modal-overlay hidden" id="team-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="team-modal-title">Add Team Member</h3>
+        <button class="modal-close" onclick="team.closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="team-form">
+          <input type="hidden" id="team-id">
+          <div class="input-group">
+            <label>Name</label>
+            <input type="text" id="team-name" required>
+          </div>
+          <div class="input-group">
+            <label>Title</label>
+            <input type="text" id="team-title" required>
+          </div>
+          <div class="input-group">
+            <label>Bio</label>
+            <textarea id="team-bio" rows="3"></textarea>
+          </div>
+          <div class="input-group">
+            <label>Image Path</label>
+            <input type="text" id="team-image" placeholder="e.g., assets/images/team/photo.jpg.jpeg">
+          </div>
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="team-email">
+          </div>
+          <div class="input-group">
+            <label>Phone</label>
+            <input type="text" id="team-phone">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="team.closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="team.save()">Save Member</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin User Modal -->
+  <div class="modal-overlay hidden" id="admin-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="admin-modal-title">Add Admin User</h3>
+        <button class="modal-close" onclick="admins.closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="admin-form">
+          <input type="hidden" id="admin-id">
+          <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="admin-username" required>
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="admin-password" required>
+          </div>
+          <div class="input-group">
+            <label>Role</label>
+            <select id="admin-role">
+              <option value="superadmin">Super Admin</option>
+              <option value="admin">Admin</option>
+              <option value="editor">Editor</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="admins.closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="admins.save()">Save Admin</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
+      <!-- Admin Users Section -->
+      <section id="section-admins" class="content-section hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3>Admin User Management</h3>
+          <button class="btn btn-primary" onclick="admins.openModal()">+ Add Admin</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th><th>Role</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admins-table-body"></tbody>
+          </table>
+        </div>
+      </section>

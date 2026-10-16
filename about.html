@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Rice Mill Trade</title>
+  <meta name="description" content="About Rice Mill Trade - Leading B2B supplier of rice mill machinery, spare parts, and solar energy solutions in Bangladesh.">
+  <meta property="og:title" content="About Us | Rice Mill Trade">
+  <meta property="og:description" content="Learn about Rice Mill Trade, our story, and our leadership team.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ricemilltrade.com/about.html">
+  <meta property="og:image" content="assets/images/brand/Company Name and Logo Colour.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Rice Mill Trade",
+    "url": "https://ricemilltrade.com/about.html",
+    "logo": "https://ricemilltrade.com/assets/images/brand/Company Name and Logo Colour.png",
+    "telephone": "+8801348249343",
+    "email": "info@ricemilltrade.com",
+    "foundingDate": "2005",
+    "founder": {"@type": "Person", "name": "Rezaul Karim"}
+  }
+  </script>
+</head>
+<body>
+  <div class="lang-toggle">
+    <button class="lang-btn" id="lang-toggle-btn" title="Toggle Language">বাংলা</button>
+  </div>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/images/brand/Company Name and Logo Colour.png" alt="Rice Mill Trade Logo">
+        <span>Rice Mill Trade</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+          <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+          <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="admin/login.html" data-i18n="nav.admin">Admin</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/8801348249343" class="whatsapp-btn" target="_blank">💬 WhatsApp Us</a>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </header>
+
+  <section class="section section-sm">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="about.title">About Us</h2>
+        <p>Our story, leadership, and commitment to excellence.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
+        <div>
+          <h3 style="color: var(--primary); margin-bottom: 20px;">Our Story</h3>
+          <p data-i18n="about.intro">Rice Mill Trade is a leading B2B supplier of rice mill machinery, spare parts, and renewable energy solutions in Bangladesh.</p>
+          <p style="margin-bottom: 25px;">With years of industry experience, we provide reliable, high-quality products and engineering support to rice mill owners across the country. We specialize in Auto Rice Mill Spare Parts, Reconditioned Machinery, and Solar & Renewable Energy solutions.</p>
+          <p><strong>Tagline:</strong> <span data-i18n="hero.tagline">Your reliable partner in your business</span></p>
+        </div>
+        <div>
+          <h3 style="color: var(--primary); margin-bottom: 20px;">Contact Quick Links</h3>
+          <p>📞 <a href="https://wa.me/8801348249343" target="_blank">+880 1348 249343 (WhatsApp)</a></p>
+          <p>✉️ info@ricemilltrade.com</p>
+          <p>📍 Head Office: 123 Industrial Area, Tongi, Gazipur, Bangladesh</p>
+          <p>🏢 Old Office: 45 Old Market Road, Dhaka, Bangladesh</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sm">
+    <div class="container">
+      <div class="section-title">
+        <h2>Leadership Team</h2>
+        <p>Meet the directors behind Rice Mill Trade.</p>
+      </div>
+      <div class="team-grid" id="team-grid">
+        <!-- Team populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>Rice Mill Trade</h3>
+        <p>Your reliable partner in rice mill machinery, spare parts, and solar energy solutions across Bangladesh.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>📞 +880 1348 249343</p>
+        <p>✉️ info@ricemilltrade.com</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Rice Mill Trade. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Load team data
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('data/team.json');
+        const data = await res.json();
+        const grid = document.getElementById('team-grid');
+        const lang = localStorage.getItem('ricemill_lang') || 'en';
+        data.team.forEach(m => {
+          const card = document.createElement('div');
+          card.className = 'team-card';
+          card.innerHTML = `
+            <img src="${m.image}" alt="${m.name}" onerror="this.src='assets/images/brand/Company Name and Logo Colour.png'">
+            <div class="team-card-content">
+              <h3>${m.name}</h3>
+              <div class="title">${m.title}</div>
+              <p>${m.bio}</p>
+              <div class="team-contact">
+                <a href="mailto:${m.email}" title="Email">✉️</a>
+                <a href="https://wa.me/${m.phone.replace(/[^0-9]/g,'')}" target="_blank" title="WhatsApp">💬</a>
+              </div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      } catch(e) { console.error('Failed to load team:', e); }
+    });
+  </script>
+</body>
+</html>

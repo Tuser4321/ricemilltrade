@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Rice Mill Trade</title>
+  <link rel="stylesheet" href="../admin/css/admin.css">
+</head>
+<body class="login-page">
+  <div class="login-card">
+    <h2>Admin Login</h2>
+    <p>Sign in to manage Rice Mill Trade</p>
+    <div id="login-alert" class="alert alert-error hidden"></div>
+    <form id="login-form">
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" name="username" required placeholder="Enter username">
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password" required placeholder="Enter password">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+    <p style="margin-top: 20px; text-align: center; font-size: 0.9rem; color: var(--admin-muted);">
+      Default: admin / admin123
+    </p>
+  </div>
+  <script src="../admin/js/admin.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const username = fd.get('username');
+      const password = fd.get('password');
+      const alertEl = document.getElementById('login-alert');
+      try {
+        const res = await fetch('../data/site.json');
+        const site = await res.json();
+        const admin = site.admins.find(a => a.username === username && a.password === password);
+        if (admin) {
+          localStorage.setItem('rmt_admin', JSON.stringify(admin));
+          window.location.href = 'dashboard.html';
+        } else {
+          alertEl.classList.remove('hidden');
+          alertEl.textContent = 'Invalid username or password.';
+        }
+      } catch (err) {
+        alertEl.classList.remove('hidden');
+        alertEl.textContent = 'Login error. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>
