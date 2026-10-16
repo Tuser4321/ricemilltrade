@@ -17,6 +17,10 @@
         <a href="#" class="nav-link" data-section="site"><span>🏢</span> Site Control</a>
         <a href="#" class="nav-link" data-section="products"><span>📦</span> Products</a>
         <a href="#" class="nav-link" data-section="team"><span>👥</span> Team</a>
+        <a href="#" class="nav-link" data-section="features"><span>🔧</span> Features</a>
+        <a href="#" class="nav-link" data-section="admins"><span>🔐</span> Admin Users</a>
+      </nav>
+    </aside>
     <div class="main-content">
       <div class="topbar">
         <h1 id="page-title">Dashboard</h1>
@@ -314,4 +318,48 @@
             <tbody id="admins-table-body"></tbody>
           </table>
         </div>
-      </section>
+      </section>  <!-- Product Modal -->
+  <div class="modal-overlay hidden" id="product-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="product-modal-title">Add Product</h3><button class="modal-close" onclick="products.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="product-form"><input type="hidden" id="product-id">
+        <div class="input-group"><label>Product Name</label><input type="text" id="product-name" required></div>
+        <div class="input-group"><label>Model / Code</label><input type="text" id="product-model" required></div>
+        <div class="input-group"><label>Category</label><select id="product-category"><option value="spare-parts">Auto Rice Mill Spare Parts</option><option value="reconditioned">Reconditioned Machinery</option><option value="solar">Solar &amp; Renewable Energy</option></select></div>
+        <div class="input-group"><label>Description</label><textarea id="product-desc" rows="3"></textarea></div>
+        <div class="input-group"><label>Image Path</label><input type="text" id="product-image" placeholder="e.g., assets/images/products/spare-parts/image.jpg.jpeg"></div>
+        <div class="input-group"><label>Specs (comma-separated)</label><input type="text" id="product-specs" placeholder="e.g., Material: Steel, Size: 10mm"></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="products.closeModal()">Cancel</button><button class="btn btn-primary" onclick="products.save()">Save Product</button></div>
+    </div>
+  </div>
+  <!-- Team Modal -->
+  <div class="modal-overlay hidden" id="team-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="team-modal-title">Add Team Member</h3><button class="modal-close" onclick="team.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="team-form"><input type="hidden" id="team-id">
+        <div class="input-group"><label>Name</label><input type="text" id="team-name" required></div>
+        <div class="input-group"><label>Title</label><input type="text" id="team-title" required></div>
+        <div class="input-group"><label>Bio</label><textarea id="team-bio" rows="3"></textarea></div>
+        <div class="input-group"><label>Image Path</label><input type="text" id="team-image" placeholder="e.g., assets/images/team/photo.jpg.jpeg"></div>
+        <div class="input-group"><label>Email</label><input type="email" id="team-email"></div>
+        <div class="input-group"><label>Phone</label><input type="text" id="team-phone"></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="team.closeModal()">Cancel</button><button class="btn btn-primary" onclick="team.save()">Save Member</button></div>
+    </div>
+  </div>
+  <!-- Admin User Modal -->
+  <div class="modal-overlay hidden" id="admin-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="admin-modal-title">Add Admin User</h3><button class="modal-close" onclick="admins.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="admin-form"><input type="hidden" id="admin-id">
+        <div class="input-group"><label>Username</label><input type="text" id="admin-username" required></div>
+        <div class="input-group"><label>Password</label><input type="password" id="admin-password" required></div>
+        <div class="input-group"><label>Role</label><select id="admin-role"><option value="superadmin">Super Admin</option><option value="admin">Admin</option><option value="editor">Editor</option></select></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="admins.closeModal()">Cancel</button><button class="btn btn-primary" onclick="admins.save()">Save Admin</button></div>
+    </div>
+  </div>
+  <script src="js/admin.js"></script>
+</body>
+</html>
