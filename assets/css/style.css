@@ -1,4 +1,4 @@
-/* =========================================
+﻿/* =========================================
    Rice Mill Trade - Public Frontend Styles
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,6 +38,7 @@ body.lang-bn { font-family: 'Noto Sans Bengali', 'Noto Sans', 'Segoe UI', Arial,
 .section-title { text-align: center; margin-bottom: 50px; }
 .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
 .section-title p { color: var(--text-light); font-size: 1.1rem; }
+
 .btn {
   display: inline-block;
   padding: 12px 28px;
@@ -64,9 +65,43 @@ body.lang-bn { font-family: 'Noto Sans Bengali', 'Noto Sans', 'Segoe UI', Arial,
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
 .hidden { display: none !important; }
 .text-center { text-align: center; }
+
+/* Language Toggle */
 .lang-toggle { position: fixed; bottom: 30px; right: 30px; z-index: 1000; }
 .lang-btn { background: var(--primary); color: var(--white); border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: var(--transition); }
 .lang-btn:hover { transform: scale(1.1); background: var(--primary-dark); }
+
+/* Floating WhatsApp Button */
+.float-whatsapp {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background: var(--whatsapp);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  text-decoration: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: var(--transition);
+  animation: pulse 2s infinite;
+}
+.float-whatsapp:hover {
+  transform: scale(1.1);
+  background: #20bd5f;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
 /* Header */
 header {
   position: fixed; top: 0; width: 100%; height: var(--header-height);
@@ -79,84 +114,86 @@ header.scrolled { box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
 .logo img { height: 40px; width: auto; }
 .logo span { font-size: 1.1rem; }
 nav ul { display: flex; list-style: none; gap: 28px; }
-nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: var(--transition); }
 nav a:hover { color: var(--primary); }
-.whatsapp-btn {
-  background: var(--whatsapp); color: var(--white); padding: 10px 20px;
-  border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
-  display: flex; align-items: center; gap: 8px; transition: var(--transition);
-}
+.whatsapp-btn { background: var(--whatsapp); color: var(--white); padding: 10px 18px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: var(--transition); }
 .whatsapp-btn:hover { background: #20bd5f; }
-.mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--text-dark); cursor: pointer; }
+.mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
 
 /* Hero */
-.hero { position: relative; padding-top: 140px; padding-bottom: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; opacity: 0.15; z-index: 0; }
+.hero {
+  position: relative;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
-.hero-content { position: relative; z-index: 2; }
-.hero h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
-.hero p { font-size: 1.25rem; margin-bottom: 30px; opacity: 0.95; max-width: 600px; }
-.hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+.hero-content { position: relative; z-index: 1; text-align: center; color: var(--white); padding: 0 20px; }
+.hero-content h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.hero-content p { font-size: 1.2rem; margin-bottom: 25px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+.hero-actions { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
-/* Trust Badges */
-.trust { padding: 40px 0; background: var(--bg-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.trust-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; opacity: 0.7; transition: var(--transition); }
-.trust-logos:hover { opacity: 1; }
+/* Trust */
+.trust { padding: 40px 0; background: var(--bg-light); }
+.trust-logos { display: flex; justify-content: center; gap: 30px; font-size: 2rem; opacity: 0.6; }
 
-/* Featured Products */
-.featured-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: var(--transition); }
-.featured-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-.featured-card img { width: 100%; height: 200px; object-fit: cover; }
-.featured-card-content { padding: 20px; }
-.featured-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--text-dark); }
-.featured-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; }
-.featured-card .model { display: block; font-size: 0.8rem; color: var(--text-light); margin-bottom: 12px; }
-
-/* Product Catalog */
-.filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; justify-content: center; }
-.filter-btn { padding: 10px 22px; border: 1px solid var(--border); background: var(--white); border-radius: 30px; font-size: 0.9rem; cursor: pointer; transition: var(--transition); }
-.filter-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
-.search-box { max-width: 400px; margin: 0 auto 30px; position: relative; }
-.search-box input { width: 100%; padding: 14px 20px 14px 45px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; }
-.search-box::before { content: '\1F50D'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; }
-.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-.product-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-color: var(--primary); }
-.product-card img { width: 100%; height: 220px; object-fit: cover; background: var(--bg-light); }
-.product-card-info { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-.product-card h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--text-dark); }
-.product-card .model { font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px; }
-.product-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 18px; flex: 1; }
-.product-card-actions { display: flex; gap: 10px; margin-top: auto; }
-.product-card-actions .btn { flex: 1; font-size: 0.85rem; padding: 10px; }
-.no-results { text-align: center; padding: 60px; color: var(--text-light); }
-
-/* Solar Solutions */
-.solar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.solar-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 30px; text-align: center; transition: var(--transition); }
-.solar-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-.solar-icon { font-size: 3rem; margin-bottom: 20px; color: var(--accent); }
-.solar-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
-.solar-card p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; }
-/* About Page */
-.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.team-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; text-align: center; transition: var(--transition); }
-.team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-.team-card img { width: 100%; height: 300px; object-fit: cover; background: var(--bg-light); }
-.team-card-content { padding: 25px; }
-.team-card h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); }
-.team-card .title { font-size: 0.95rem; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
-.team-card p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 18px; }
-.team-contact { display: flex; gap: 10px; justify-content: center; }
-.team-contact a { width: 40px; height: 40px; border-radius: 50%; background: var(--bg-light); color: var(--text-dark); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; transition: var(--transition); }
-.team-contact a:hover { background: var(--whatsapp); color: var(--white); }
-
-/* Services Page */
-.service-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 35px 25px; text-align: center; transition: var(--transition); }
-.service-card:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+/* Service Card */
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: var(--transition);
+}
+.service-card:hover {
+  border-color: var(--secondary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
 .service-icon { font-size: 3rem; margin-bottom: 20px; color: var(--secondary); }
 .service-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
 .service-card p { font-size: 0.95rem; color: var(--text-light); }
+
+/* Product Card */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover {
+  border-color: var(--secondary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.product-card img { width: 100%; height: 220px; object-fit: cover; }
+.product-card-info { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.product-card-info .badge { margin-bottom: 10px; }
+.product-card-info h3 { font-size: 1.25rem; margin-bottom: 8px; color: var(--text-dark); }
+.product-card-info .model { font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px; display: block; }
+.product-card-info p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 15px; flex: 1; }
+.product-card-actions { margin-top: auto; }
+
+/* Solar */
+.solar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.solar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 25px;
+  transition: var(--transition);
+  text-align: center;
+}
+.solar-card:hover { border-color: var(--secondary); transform: translateY(-5px); }
+.solar-icon { font-size: 3rem; margin-bottom: 15px; }
+.solar-card h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--primary); }
+.solar-card p { font-size: 0.95rem; color: var(--text-light); }
 
 /* Contact Page */
 .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -198,4 +235,7 @@ footer { background: var(--primary-dark); color: var(--white); padding: 60px 0 2
   .contact-container { grid-template-columns: 1fr; }
   .section { padding: 50px 0; }
   .hero h1 { font-size: 2rem; }
+  .float-whatsapp { bottom: 85px; right: 20px; width: 50px; height: 50px; font-size: 1.6rem; }
+  .lang-toggle { bottom: 20px; right: 20px; }
+  .lang-btn { width: 45px; height: 45px; font-size: 1.1rem; }
 }
