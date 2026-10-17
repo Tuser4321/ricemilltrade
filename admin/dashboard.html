@@ -363,3 +363,105 @@
   <script src="js/admin.js"></script>
 </body>
 </html>
+<section id="section-contact" class="content-section hidden">
+        <div style="padding: 24px;">
+          <h3 style="margin-bottom: 20px; color: var(--admin-primary);">Contact Settings</h3>
+          <div class="input-group"><label>Form Title (English)</label><input type="text" id="contact-formtitle" value="B2B Quotation Form"></div>
+          <div class="input-group"><label>Form Title (Bangla)</label><input type="text" id="contact-formtitlebn" value="বি২বি কোটেশন ফর্ম"></div>
+          <div class="input-group"><label>Form Description (English)</label><textarea id="contact-formdesc" rows="3">Get in touch for B2B quotations, inquiries, and support.</textarea></div>
+          <div class="input-group"><label>Form Description (Bangla)</label><textarea id="contact-formdescbn" rows="3">বি২বি কোটেশন, জিজ্ঞাসা ও সহায়তার জন্য আমাদের সাথে যোগাযোগ করুন।</textarea></div>
+          <div class="input-group"><label>Google Map Embed URL</label><input type="text" id="contact-mapembed" value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.23!2d90.4123!3d23.9876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7f9a1b2c3d%3A0x8a1b2c3d4e5f6a7!2sRice%20Mill%20Trade!5e0!3m2!1sen!2sbd!4v1234567890"></div>
+          <button class="btn btn-primary" onclick="contact.save()">Save Contact Settings</button>
+        </div>
+      </section>
+      <section id="section-design" class="content-section hidden">
+        <div style="padding: 24px;">
+          <h3 style="margin-bottom: 20px; color: var(--admin-primary);">Design Customization</h3>
+          <div class="input-group"><label>Primary Color</label><input type="color" id="design-primary" value="#1a5f7a"></div>
+          <div class="input-group"><label>Secondary Color</label><input type="color" id="design-secondary" value="#e8a33d"></div>
+          <div class="input-group"><label>Font Family</label><input type="text" id="design-font" value="Segoe UI, Noto Sans Bengali, Noto Sans, Arial, sans-serif"></div>
+          <div class="input-group"><label>Logo URL</label><input type="text" id="design-logo" value="assets/images/brand/Company Name and Logo Colour.png"></div>
+          <button class="btn btn-primary" onclick="design.save()">Save Design Settings</button>
+        </div>
+      </section>
+      <section id="section-downloads" class="content-section hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3>Downloads Management</h3>
+          <button class="btn btn-primary" onclick="downloads.openModal()">+ Add Download</button>
+        </div>
+        <div class="table-wrap">
+          <table><thead><tr><th>Name (EN)</th><th>Name (BN)</th><th>File Path</th><th>Category</th><th>Actions</th></tr></thead><tbody id="downloads-table-body"></tbody></table>
+        </div>
+      </section>
+<!-- Service Modal -->
+  <div class="modal-overlay hidden" id="service-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="service-modal-title">Add Service</h3><button class="modal-close" onclick="services.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="service-form"><input type="hidden" id="service-id">
+        <div class="input-group"><label>Service Name (English)</label><input type="text" id="service-name" required></div>
+        <div class="input-group"><label>Service Name (Bangla)</label><input type="text" id="service-namebn" required></div>
+        <div class="input-group"><label>Icon (Emoji)</label><input type="text" id="service-icon" value="" maxlength="2"></div>
+        <div class="input-group"><label>Description (English)</label><textarea id="service-desc" rows="3"></textarea></div>
+        <div class="input-group"><label>Description (Bangla)</label><textarea id="service-descbn" rows="3"></textarea></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="services.closeModal()">Cancel</button><button class="btn btn-primary" onclick="services.save()">Save Service</button></div>
+    </div>
+  </div>
+  <!-- Download Modal -->
+  <div class="modal-overlay hidden" id="download-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="download-modal-title">Add Download</h3><button class="modal-close" onclick="downloads.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="download-form"><input type="hidden" id="download-id">
+        <div class="input-group"><label>Download Name (English)</label><input type="text" id="download-name" required></div>
+        <div class="input-group"><label>Download Name (Bangla)</label><input type="text" id="download-namebn" required></div>
+        <div class="input-group"><label>File Path</label><input type="text" id="download-file" placeholder="e.g., assets/documents/catalog.pdf" required></div>
+        <div class="input-group"><label>Category</label><select id="download-category"><option value="spare-parts">Spare Parts</option><option value="solar">Solar</option><option value="machinery">Machinery</option></select></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="downloads.closeModal()">Cancel</button><button class="btn btn-primary" onclick="downloads.save()">Save Download</button></div>
+    </div>
+  </div>
+  <!-- Product Modal -->
+  <div class="modal-overlay hidden" id="product-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="product-modal-title">Add Product</h3><button class="modal-close" onclick="products.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="product-form"><input type="hidden" id="product-id">
+        <div class="input-group"><label>Product Name</label><input type="text" id="product-name" required></div>
+        <div class="input-group"><label>Model / Code</label><input type="text" id="product-model" required></div>
+        <div class="input-group"><label>Category</label><select id="product-category"><option value="spare-parts">Auto Rice Mill Spare Parts</option><option value="reconditioned">Reconditioned Machinery</option><option value="solar">Solar & Renewable Energy</option></select></div>
+        <div class="input-group"><label>Description</label><textarea id="product-desc" rows="3"></textarea></div>
+        <div class="input-group"><label>Image Path</label><input type="text" id="product-image" placeholder="e.g., assets/images/products/spare-parts/image.jpg.jpeg"></div>
+        <div class="input-group"><label>Specs (comma-separated)</label><input type="text" id="product-specs" placeholder="e.g., Material: Steel, Size: 10mm"></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="products.closeModal()">Cancel</button><button class="btn btn-primary" onclick="products.save()">Save Product</button></div>
+    </div>
+  </div>
+  <!-- Team Modal -->
+  <div class="modal-overlay hidden" id="team-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="team-modal-title">Add Team Member</h3><button class="modal-close" onclick="team.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="team-form"><input type="hidden" id="team-id">
+        <div class="input-group"><label>Name</label><input type="text" id="team-name" required></div>
+        <div class="input-group"><label>Title</label><input type="text" id="team-title" required></div>
+        <div class="input-group"><label>Bio</label><textarea id="team-bio" rows="3"></textarea></div>
+        <div class="input-group"><label>Image Path</label><input type="text" id="team-image" placeholder="e.g., assets/images/team/photo.jpg.jpeg"></div>
+        <div class="input-group"><label>Email</label><input type="email" id="team-email"></div>
+        <div class="input-group"><label>Phone</label><input type="text" id="team-phone"></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="team.closeModal()">Cancel</button><button class="btn btn-primary" onclick="team.save()">Save Member</button></div>
+    </div>
+  </div>
+  <!-- Admin User Modal -->
+  <div class="modal-overlay hidden" id="admin-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 id="admin-modal-title">Add Admin User</h3><button class="modal-close" onclick="admins.closeModal()">&amp;times;</button></div>
+      <div class="modal-body"><form id="admin-form"><input type="hidden" id="admin-id">
+        <div class="input-group"><label>Username</label><input type="text" id="admin-username" required></div>
+        <div class="input-group"><label>Password</label><input type="password" id="admin-password" required></div>
+        <div class="input-group"><label>Role</label><select id="admin-role"><option value="superadmin">Super Admin</option><option value="admin">Admin</option><option value="editor">Editor</option></select></div>
+      </form></div>
+      <div class="modal-footer"><button class="btn btn-outline" onclick="admins.closeModal()">Cancel</button><button class="btn btn-primary" onclick="admins.save()">Save Admin</button></div>
+    </div>
+  </div>
+  <script src="js/admin.js"></script>
+</body>
+</html>
