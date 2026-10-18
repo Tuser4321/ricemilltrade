@@ -1,26 +1,9 @@
-# Large files
-assets/videos/Parbolling_Project.mp4
-
-# OS
-Thumbs.db
-.DS_Store
-desktop.ini
-
-# Logs
-*.log
-npm-debug.log*
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Build
+﻿node_modules/
 dist/
 build/
-node_modules/
-
-# Environment
 .env
 .env.local
+videos/
+*.mp4
+.DS_Store
+Thumbs.db
