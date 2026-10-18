@@ -1,35 +1,38 @@
 [
   {
-    "id": "tm-01",
+    "id": "team-01",
     "name": "Rezaul Karim",
     "nameBn": "রেজাউল করিম",
-    "title": "Managing Director",
-    "titleBn": "ব্যবস্থাপনা পরিচালক",
-    "bio": "Over 15 years of operational expertise in auto rice mill engineering and industrial equipment supply.",
-    "image": "assets/images/team-1.jpg",
-    "email": "rezaul@ricemilltrade.com",
-    "phone": "01348249343"
+    "role": "CEO (Chief Executive Officer)",
+    "roleBn": "প্রধান নির্বাহী কর্মকর্তা (CEO)",
+    "image": "assets/images/team/rezaul-karim.webp",
+    "phone": "01348249343",
+    "email": "ricemilltrade@gmail.com",
+    "bio": "Leading Rice Mill Trade with over 15 years of industry leadership in auto rice mill engineering, machinery procurement, and renewable energy.",
+    "bioBn": "অটো রাইস মিল মেশিনারিজ, জেনুইন স্পেয়ার পার্টস ও রিনিউয়েবল এনার্জি খাতে দীর্ঘ ১৫ বছরেরও বেশি অভিজ্ঞতা নিয়ে প্রতিষ্ঠানটি পরিচালনা করছেন।"
   },
   {
-    "id": "tm-02",
-    "name": "Engr. Mahmudul Hasan",
-    "nameBn": "ইঞ্জি. মাহমুদুল হাসান",
-    "title": "Chief Technical Officer",
-    "titleBn": "প্রধান কারিগরি কর্মকর্তা",
-    "bio": "Expert in automated industrial plant setup, mechanical alignment, and precision spare parts custom fitting.",
-    "image": "assets/images/team-2.jpg",
-    "email": "tech@ricemilltrade.com",
-    "phone": "01348249343"
+    "id": "team-02",
+    "name": "MD. Amirul Islam",
+    "nameBn": "মোঃ আমিরুল ইসলাম",
+    "role": "CFO (Chief Financial Officer)",
+    "roleBn": "প্রধান অর্থ কর্মকর্তা (CFO)",
+    "image": "assets/images/team/amirul-islam.webp",
+    "phone": "01348249343",
+    "email": "ricemilltrade@gmail.com",
+    "bio": "Guiding financial strategy, global vendor relations, and industrial project financing for Rice Mill Trade client partnerships.",
+    "bioBn": "কোম্পানির অর্থনৈতিক পরিকল্পনা, বৈশ্বিক সাপ্লাই চেইন ও ক্লায়েন্টদের বৃহৎ মেগা প্রজেক্টের বাজেট ও বিনিয়োগ ব্যবস্থাপনা তদারকি করেন।"
   },
   {
-    "id": "tm-03",
-    "name": "Tushar Ibrahim",
-    "nameBn": "তুষার ইব্রাহিম",
-    "title": "Head of Operations & Systems",
-    "titleBn": "হেড অব অপারেশনস ও সিস্টেমস",
-    "bio": "Specialist in B2B client management, supply chain coordination, and industrial solar projects execution.",
-    "image": "assets/images/team-3.jpg",
-    "email": "operations@ricemilltrade.com",
-    "phone": "01348249343"
+    "id": "team-03",
+    "name": "Md. Helal Miah",
+    "nameBn": "মোঃ হেলাল মিঞা",
+    "role": "Assistant Manager",
+    "roleBn": "সহকারী ব্যবস্থাপক (Assistant Manager)",
+    "image": "assets/images/team/helal-miah.webp",
+    "phone": "01348249343",
+    "email": "ricemilltrade@gmail.com",
+    "bio": "Managing client relations, fast parts delivery coordination, and on-site technical support response teams across Bangladesh.",
+    "bioBn": "গ্রাহক সেবা, স্পেয়ার পার্টসের দ্রুততম ডেলিভারি নিশ্চিতকরণ এবং ফিল্ড টেকনিশিয়ান টিম সমন্বয়ে নিবেদিতপ্রাণ।"
   }
 ]

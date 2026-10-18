@@ -1,32 +1,56 @@
 {
   "company": {
     "name": "Rice Mill Trade",
+    "nameBn": "রাইস মিল ট্রেড",
+    "domain": "ricemilltrade.com",
     "tagline": "Your reliable partner in your business",
     "taglineBn": "আপনার ব্যবসায় বিশ্বস্ত সহযোগী",
     "phone": "01348249343",
     "whatsapp": "8801348249343",
+    "whatsappDisplay": "+880 1348-249343",
     "email": "ricemilltrade@gmail.com",
-    "mainAddress": "Protikkha 4th Floor, House #13, Road #10, Nikunja-2, Khelkhet, Dhaka-1229",
-    "mainAddressBn": "প্রতীক্ষা (৪র্থ তলা), বাসা #১৩, রোড #১০, নিকুঞ্জ-২, খিলক্ষেত, ঢাকা-১২২৯",
-    "oldAddress": "Ward no. 1, Autpara, Betila, Manikganj Sadar, Manikganj, Dhaka",
-    "oldAddressBn": "ওয়ার্ড নং ১, আউটপাড়া, বেটিলা, মানিকগঞ্জ সদর, মানিকগঞ্জ, ঢাকা"
+    "mainOfficeAddress": "Protikkha (4th Floor), House #13, Road #10, Nikunja-2, Khilkhet, Dhaka-1229, Bangladesh",
+    "mainOfficeAddressBn": "প্রতীক্ষা (৪র্থ তলা), বাড়ি #১৩, রোড #১০, নিকুঞ্জ-২, খিলক্ষেত, ঢাকা-১২২৯, বাংলাদেশ",
+    "manikganjOfficeAddress": "1: 47/1, Autpara, Betila, Manikganj Sadar, Manikganj, Dhaka, Bangladesh",
+    "manikganjOfficeAddressBn": "১: ৪৭/১, আউতপাড়া, বেতিলা, মানিকগঞ্জ সদর, মানিকগঞ্জ, ঢাকা, বাংলাদেশ",
+    "mainOfficeMapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.089851610477!2d90.41724207593257!3d23.815383586274478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70014631317%3A0xe54fb797c27076ec!2sNikunja-2%2C%20Dhaka%201229!5e0!3m2!1sen!2sbd!4v1710000000000!5m2!1sen!2sbd",
+    "manikganjOfficeMapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14603.208571064562!2d89.98822003889158!3d23.861184976722822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe15bb7c0c1b75%3A0x63158c3dbcb7609a!2sBetila%2C%20Manikganj!5e0!3m2!1sen!2sbd!4v1710000000000!5m2!1sen!2sbd",
+    "businessHours": "Sat - Thu: 9:00 AM - 8:00 PM (24/7 WhatsApp Hotline)",
+    "businessHoursBn": "শনি - বৃহস্পতি: সকাল ৯:০০ - রাত ৮:০০ (২৪/৭ হোয়াটসঅ্যাপ হেল্পলাইন)"
   },
-  "features": {
-    "whatsappInquiry": true,
-    "solarOfferings": true,
-    "b2bQuotation": true
+  "branding": {
+    "logo": "assets/images/brand/logo.png",
+    "logoWebp": "assets/images/brand/logo.webp",
+    "heroBg": "assets/images/brand/hero-bg.webp",
+    "visitingCard": "assets/images/brand/visiting-card.webp",
+    "pad": "assets/images/brand/pad.webp"
   },
-  "design": {
-    "primaryColor": "#1a5f7a",
-    "secondaryColor": "#e8a33d",
-    "fontFamily": "Segoe UI, Noto Sans Bengali, sans-serif",
-    "logoUrl": "assets/images/logo.png"
+  "social": {
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com",
+    "linkedin": "https://linkedin.com"
   },
   "admins": [
     {
+      "id": "adm-1",
       "username": "admin",
       "password": "Rezaul9270",
+      "name": "Rezaul Karim",
       "role": "superadmin"
+    },
+    {
+      "id": "adm-2",
+      "username": "amirul",
+      "password": "Amirul2026",
+      "name": "MD. Amirul Islam",
+      "role": "admin"
+    },
+    {
+      "id": "adm-3",
+      "username": "helal",
+      "password": "Helal2026",
+      "name": "Md. Helal Miah",
+      "role": "manager"
     }
   ]
 }

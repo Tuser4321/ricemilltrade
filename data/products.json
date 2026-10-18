@@ -1,62 +1,665 @@
 [
   {
-    "id": "prod-101",
-    "name": "Paddy Dehusker Rubber Roller 10 Inch",
-    "nameBn": "ধান ভানানো রাবার রোলার ১০ ইঞ্চি",
-    "model": "RMT-RR-10",
-    "category": "spare-parts",
-    "description": "Heavy-duty high elasticity rubber roller for high efficiency dehusking with minimal grain breakage.",
-    "descriptionBn": "সর্বোচ্চ কার্যক্ষমতা সম্পন্ন রাবার রোলার, যা চাউল ভাঙা ছাড়া দ্রুততম সময়ে তুষ পৃথক করে।",
-    "image": "assets/images/prod-101.jpg",
-    "specs": ["Size: 10 Inch", "Material: Premium Synthetic Rubber", "Durability: 150+ Tons"],
-    "features": ["Heat resistant", "Zero rice cracking", "Long operational life"]
+    "id": "p-boiler-01",
+    "slug": "boiler-air-nozzles",
+    "name": "Boiler Fluidized Bed Air Nozzles",
+    "nameBn": "বয়লার এয়ার নজল (হাই হিট রেজিস্ট্যান্ট)",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/boiler-air-nozzles.webp",
+    "specs": [
+      "Material: High-Grade Heat Resistant Cast Alloy",
+      "Application: Fluidized Bed Combustion (FBC) Boiler",
+      "Features: Uniform Air Distribution, Long Life"
+    ],
+    "description": "Precision engineered boiler air nozzles designed for fluidized bed boilers in auto rice mills, ensuring uniform combustion and high thermal efficiency.",
+    "descriptionBn": "অটো রাইস মিলের এফবিসি বয়লারের জন্য উচ্চ তাপসহনশীল এয়ার নজল, যা সঠিক বাতাস প্রবাহ ও সর্বোচ্চ জ্বালানি দক্ষতা নিশ্চিত করে।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Fluidized Bed Air Nozzles* (বয়লার এয়ার নজল (হাই হিট রেজিস্ট্যান্ট)). Model/ID: p-boiler-01. Please send pricing, stock availability, and technical details.",
+    "featured": true
   },
   {
-    "id": "prod-102",
-    "name": "Rice Whitener Emery Roller",
-    "nameBn": "রাইস হোয়াইটনার এমেরি রোলার",
-    "model": "RMT-WR-350",
-    "category": "spare-parts",
-    "description": "Precision silicon carbide emery roller for superior rice polishing and uniform whiteness.",
-    "descriptionBn": "চাউলে মসৃণ ও আকর্ষণীয় উজ্জ্বলতা আনার জন্য সিলিকন কার্বাইডযুক্ত টেকসই হোয়াইটনার রোলার।",
-    "image": "assets/images/prod-102.jpg",
-    "specs": ["Grit Size: 30/36/46", "Inner Diameter: Standard", "Balance: Dynamic Balanced"],
-    "features": ["High polishing effect", "Low energy consumption", "Even wear out"]
+    "id": "p-boiler-02",
+    "slug": "boiler-air-pressure-gauge-mmwc1000",
+    "name": "Boiler Low Pressure Draft Gauge (0-1000 mmWC)",
+    "nameBn": "বয়লার ড্রাফট ও এয়ার প্রেসার গেজ (০-১০০০ mmWC)",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/boiler-air-pressure-gauge-mmwc1000.webp",
+    "specs": [
+      "Range: 0-1000 mmWC (Capsule Type)",
+      "Mounting: Bottom / Back Connection",
+      "Body: Stainless Steel / Brass Internals"
+    ],
+    "description": "Sensitive capsule draft pressure gauge for accurate monitoring of boiler furnace draft, flue gas, and combustion air pressure.",
+    "descriptionBn": "বয়লার ফার্নেস ও এয়ার ডাক্টের অতি সূক্ষ্ম বাতাসের চাপ ও ড্রাফট নিখুঁতভাবে পরিমাপের নির্ভরযোগ্য ক্যাপসুল গেজ।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Low Pressure Draft Gauge (0-1000 mmWC)* (বয়লার ড্রাফট ও এয়ার প্রেসার গেজ (০-১০০০ mmWC)). Model/ID: p-boiler-02. Please send pricing, stock availability, and technical details.",
+    "featured": true
   },
   {
-    "id": "prod-103",
-    "name": "Reconditioned Satake Color Sorter 6 Chute",
-    "nameBn": "রীকন্ডিশন্ড সাতাশ কালার সোর্টার ৬ শুট",
-    "model": "SATAKE-CS-6",
-    "category": "reconditioned",
-    "description": "Fully refurbished Japanese color sorter machine with ultra-high resolution CCD cameras.",
-    "descriptionBn": "জাপানি প্রযুক্তির সম্পূর্ণ ওভারহোল্ডকৃত কালার সোর্টার, যা চাউলের মান শতভাগ নিখুঁত করে।",
-    "image": "assets/images/prod-103.jpg",
-    "specs": ["Chutes: 6", "Capacity: 4-6 Ton/Hour", "Camera: 2048 Pixel CCD"],
-    "features": ["High accuracy", "Low rejection loss", "1 Year Service Warranty"]
+    "id": "p-boiler-03",
+    "slug": "boiler-fusible-plug-double",
+    "name": "Boiler Double Fusible Plug (Safety Fitting)",
+    "nameBn": "বয়লার ফিউসিবল প্লাগ ডাবল (নিরাপত্তা যন্ত্রাংশ)",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/boiler-fusible-plug-double.webp",
+    "specs": [
+      "Type: Double Core Fusible Safety Plug",
+      "Thread: Standard BSP/NPT",
+      "Material: Heavy Cast Gunmetal / Bronze"
+    ],
+    "description": "Vital safety fitting for fire-tube boilers that melts under low water conditions to extinguish combustion fire and prevent boiler explosion.",
+    "descriptionBn": "বয়লারে পানির স্তর নিচে নেমে গেলে স্বয়ংক্রিয়ভাবে গলে গিয়ে ফার্নেসে বাষ্প ঢুকিয়ে আগুন নিভিয়ে বিস্ফোরণ রোধ করার বিশ্বস্ত নিরাপত্তা প্লাগ।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Double Fusible Plug (Safety Fitting)* (বয়লার ফিউসিবল প্লাগ ডাবল (নিরাপত্তা যন্ত্রাংশ)). Model/ID: p-boiler-03. Please send pricing, stock availability, and technical details.",
+    "featured": false
   },
   {
-    "id": "prod-104",
-    "name": "Heavy Industrial Solar Inverter 50KW",
-    "nameBn": "ইন্ডাস্ট্রিয়াল সোলার ইনভার্টার ৫০ কিলোওয়াট",
-    "model": "RMT-SLR-50K",
-    "category": "solar",
-    "description": "High-capacity grid-tied solar inverter designed specifically for heavy industrial motor loads.",
-    "descriptionBn": "রাইস মিল ও ভারী ইন্ডাস্ট্রির উচ্চ লোড সহ্যক্ষমতাসম্পন্ন থ্রি-ফেজ অন-গ্রিড ইনভার্টার।",
-    "image": "assets/images/prod-104.jpg",
-    "specs": ["Power Output: 50KW", "Phase: Three Phase", "Efficiency: 98.6%"],
-    "features": ["MPPT Tracking", "IP65 Waterproof", "Remote Monitoring"]
+    "id": "p-boiler-04",
+    "slug": "boiler-fusible-plug-single",
+    "name": "Boiler Single Fusible Plug",
+    "nameBn": "বয়লার ফিউসিবল প্লাগ সিঙ্গেল",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/boiler-fusible-plug-single.webp",
+    "specs": [
+      "Type: Single Fusible Core",
+      "Thread: Standard Heavy Duty Thread",
+      "Material: Bronze / Brass with Tin Core"
+    ],
+    "description": "Reliable standard single core fusible safety plug for industrial steam boiler safety compliance.",
+    "descriptionBn": "ইন্ডাস্ট্রিয়াল স্টিম বয়লারের স্ট্যান্ডার্ড সিঙ্গেল কোর ফিউসিবল সেফটি প্লাগ।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Single Fusible Plug* (বয়লার ফিউসিবল প্লাগ সিঙ্গেল). Model/ID: p-boiler-04. Please send pricing, stock availability, and technical details.",
+    "featured": false
   },
   {
-    "id": "prod-105",
-    "name": "Paddy Cleaner Vibrating Screen Mesh",
-    "nameBn": "ধান পরিষ্কারক ভাইব্রেটিং স্ক্রিন মেস",
-    "model": "RMT-VSM-02",
-    "category": "spare-parts",
-    "description": "Stainless steel heavy mesh screen for removing straw, stones, and dust from raw paddy.",
-    "descriptionBn": "কাঁচা ধান থেকে ময়লা, খড় ও পাথর দ্রুত আলাদা করতে স্টেইনলেস স্টিলের তৈরি স্ক্রিন।",
-    "image": "assets/images/prod-105.jpg",
-    "specs": ["Material: SS 304", "Mesh Hole: Custom Available", "Frame: Reinforced Iron"],
-    "features": ["Anti-clogging design", "High throughput", "Rust proof"]
+    "id": "p-boiler-05",
+    "slug": "boiler-tube-cleaning-wire-brush",
+    "name": "Boiler Tube Cleaning Steel Wire Brush",
+    "nameBn": "বয়লার টিউব ক্লিনিং স্টিল ওয়্যার ব্রাশ",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/boiler-tube-cleaning-wire-brush.webp",
+    "specs": [
+      "Bristles: High Tensile Tempered Steel Wire",
+      "Sizes: 2 inch, 2.5 inch, 3 inch, 3.5 inch",
+      "Threaded rod attachment"
+    ],
+    "description": "Heavy-duty round twisted wire brush for de-scaling soot, carbon deposits, and slag inside boiler smoke tubes.",
+    "descriptionBn": "বয়লারের স্মোক টিউবের ভেতরের সুট, কার্বন ও স্কেল পরিষ্কার করার মজবুত স্প্রিং স্টিল ওয়্যার ব্রাশ।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Tube Cleaning Steel Wire Brush* (বয়লার টিউব ক্লিনিং স্টিল ওয়্যার ব্রাশ). Model/ID: p-boiler-05. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-boiler-06",
+    "slug": "steam-pressure-gauge-4-inch",
+    "name": "Industrial Steam Pressure Gauge 4 Inch",
+    "nameBn": "ইন্ডাস্ট্রিয়াল স্টিম প্রেসার গেজ ৪ ইঞ্চি",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/steam-pressure-gauge-4-inch.webp",
+    "specs": [
+      "Dial Size: 4 Inch (100mm)",
+      "Range: 0-25 kg/cm2 / 0-400 PSI",
+      "Casing: Stainless Steel 304, Glycerin Filled / Dry"
+    ],
+    "description": "Heavy duty bourdon tube steam pressure gauge with high vibration resistance for rice mill steam boilers and parboiling pipelines.",
+    "descriptionBn": "রাইস মিলের স্টিম লাইন ও বয়লার পাইপলাইনে নিখুঁত ও নির্ভরযোগ্য বাষ্পের চাপ প্রদর্শনের জন্য ৪ ইঞ্চি প্রেসার গেজ।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Industrial Steam Pressure Gauge 4 Inch* (ইন্ডাস্ট্রিয়াল স্টিম প্রেসার গেজ ৪ ইঞ্চি). Model/ID: p-boiler-06. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-boiler-07",
+    "slug": "steam-pressure-gauge-6-inch",
+    "name": "Heavy Duty Steam Pressure Gauge 6 Inch",
+    "nameBn": "হেভি ডিউটি স্টিম প্রেসার গেজ ৬ ইঞ্চি",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/steam-pressure-gauge-6-inch.webp",
+    "specs": [
+      "Dial Size: 6 Inch (150mm)",
+      "Range: 0-30 kg/cm2 (Bar/PSI Dual)",
+      "Connection: 1/2 inch BSP/NPT Stainless Steel"
+    ],
+    "description": "Large dial high-accuracy master steam pressure gauge for main boiler header and high-pressure steam distribution control.",
+    "descriptionBn": "মেইন বয়লার হেডার ও দূর থেকে স্পষ্ট চাপ পর্যবেক্ষণের জন্য ৬ ইঞ্চি ডায়াল সাইজের প্রিমিয়াম স্টিম গেজ।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Steam Pressure Gauge 6 Inch* (হেভি ডিউটি স্টিম প্রেসার গেজ ৬ ইঞ্চি). Model/ID: p-boiler-07. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-boiler-08",
+    "slug": "chemical-dosing-pump",
+    "name": "Boiler Water Chemical Dosing Pump",
+    "nameBn": "বয়লার ওয়াটার কেমিক্যাল ডোজিং পাম্প",
+    "category": "pumps",
+    "categoryBn": "পাম্প ও মেকানিক্যাল যন্ত্রাংশ",
+    "image": "assets/images/products/chemical-dosing-pump.webp",
+    "specs": [
+      "Type: Electronic Diaphragm Metering Pump",
+      "Capacity: Adjustable Flow Rate",
+      "Corrosion Resistant Liquid End"
+    ],
+    "description": "Automated precise chemical metering pump to dose anti-scaling, anti-corrosion, and oxygen-scavenging chemicals into boiler feed water.",
+    "descriptionBn": "বয়লারের পানি শোধনাগার এবং বয়লার টিউব ক্ষয় ও স্কেল জমা রোধে কেমিক্যাল নির্দিষ্ট মাত্রায় ইনজেক্ট করার অটোমেটিক ডোজিং পাম্প।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Water Chemical Dosing Pump* (বয়লার ওয়াটার কেমিক্যাল ডোজিং পাম্প). Model/ID: p-boiler-08. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-boiler-09",
+    "slug": "feed-pump-mechanical-seal",
+    "name": "Boiler Feed Water Pump Mechanical Seal",
+    "nameBn": "বয়লার ফিড ওয়াটার পাম্প মেকানিক্যাল সিল",
+    "category": "pumps",
+    "categoryBn": "পাম্প ও মেকানিক্যাল যন্ত্রাংশ",
+    "image": "assets/images/products/feed-pump-mechanical-seal.webp",
+    "specs": [
+      "Faces: Silicon Carbide / Carbon / Tungsten",
+      "Temperature: Up to 180 deg C",
+      "Application: Multi-Stage High Pressure Feed Pump"
+    ],
+    "description": "High-temperature and high-pressure mechanical face seal preventing feed water leakage in multi-stage boiler water supply pumps.",
+    "descriptionBn": "মাল্টি-স্টেজ হাই প্রেসার বয়লার ফিড পাম্পের উচ্চ তাপমাত্রা ও চাপে পানি লিকেজ রোধে টেকসই মেকানিক্যাল সিল।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Feed Water Pump Mechanical Seal* (বয়লার ফিড ওয়াটার পাম্প মেকানিক্যাল সিল). Model/ID: p-boiler-09. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-boiler-10",
+    "slug": "feed-pump-ss-disc-nrv",
+    "name": "Boiler Feed Pump SS Disc Non-Return Valve (NRV)",
+    "nameBn": "বয়লার ফিড পাম্প এসএস ডিস্ক টাইপ নন-রিটার্ন ভাল্ব",
+    "category": "pumps",
+    "categoryBn": "পাম্প ও মেকানিক্যাল যন্ত্রাংশ",
+    "image": "assets/images/products/feed-pump-ss-disc-nrv.webp",
+    "specs": [
+      "Material: Full Stainless Steel SS304/SS316",
+      "Type: Disc Check Valve (Wafer/Threaded)",
+      "Pressure Rating: PN40 / High Pressure"
+    ],
+    "description": "Stainless steel disc type non-return check valve to prevent backflow of high pressure steam and boiling water into the pump.",
+    "descriptionBn": "উচ্চ চাপের গরম পানি ও স্টিমের উল্টো প্রবাহ রোধে বয়লার ফিড লাইনের জন্য স্টেইনলেস স্টিলের তৈরি নন-রিটার্ন ভাল্ব।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Feed Pump SS Disc Non-Return Valve (NRV)* (বয়লার ফিড পাম্প এসএস ডিস্ক টাইপ নন-রিটার্ন ভাল্ব). Model/ID: p-boiler-10. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-boiler-11",
+    "slug": "mobrey-magnetic-level-switch",
+    "name": "Mobrey Boiler Water Level Magnetic Switch",
+    "nameBn": "মুব্রে বয়লার ওয়াটার লেভেল ম্যাগনেটিক সুইচ",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/mobrey-magnetic-level-switch.webp",
+    "specs": [
+      "Type: Snap-Action Magnetic Switch",
+      "Housing: Flameproof / Weatherproof",
+      "Application: Mobrey Level Controller Column"
+    ],
+    "description": "Precision magnetic snap-action switch providing high and low water alarm and feed pump automatic cut-in/cut-out signals.",
+    "descriptionBn": "বয়লারের পানির স্তর কমে গেলে পাম্প অন-অফ এবং বিপৎসীমা সংকেত পাঠানোর জন্য বিখ্যাত মুব্রে ম্যাগনেটিক সুইচ।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Mobrey Boiler Water Level Magnetic Switch* (মুব্রে বয়লার ওয়াটার লেভেল ম্যাগনেটিক সুইচ). Model/ID: p-boiler-11. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-boiler-12",
+    "slug": "mobrey-magnetic-rod",
+    "name": "Mobrey Level Controller Float Magnetic Rod Assembly",
+    "nameBn": "মুব্রে লেভেল কন্ট্রোলার ফ্লোট ম্যাগনেটিক রড",
+    "category": "boiler",
+    "categoryBn": "বয়লার ও স্টিম পার্টস",
+    "image": "assets/images/products/mobrey-magnetic-rod.webp",
+    "specs": [
+      "Rod Material: Stainless Steel with Magnetic Core",
+      "High heat & pressure endurance",
+      "Direct replacement for Mobrey chambers"
+    ],
+    "description": "Stainless steel magnetic float arm and rod for transfer of water level position across non-magnetic chamber walls.",
+    "descriptionBn": "বয়লারের স্টিম চেম্বার থেকে ম্যাগনেটিক সুইচে নির্ভুল সিগন্যাল রূপান্তরের এসএস ম্যাগনেটিক রড ও ফ্লোট অ্যাসেম্বলি।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Mobrey Level Controller Float Magnetic Rod Assembly* (মুব্রে লেভেল কন্ট্রোলার ফ্লোট ম্যাগনেটিক রড). Model/ID: p-boiler-12. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-comp-01",
+    "slug": "compressor-spare-parts-kit",
+    "name": "Screw Air Compressor Maintenance Spares Kit",
+    "nameBn": "স্ক্রু এয়ার কম্প্রেসর মেইনটেন্যান্স ও স্পেয়ার পার্টস",
+    "category": "compressor",
+    "categoryBn": "কম্প্রেসর ও নিউমেটিক্স",
+    "image": "assets/images/products/compressor-spare-parts-kit.webp",
+    "specs": [
+      "Compatibility: Atlas Copco, Ingersoll Rand, Fusheng, Kaeser, Chinese Screw Compressors",
+      "Kit Includes: Valves, Gaskets, O-Rings, Sensors"
+    ],
+    "description": "Comprehensive maintenance replacement parts for industrial screw air compressors used in auto rice mill pneumatic sorters and actuators.",
+    "descriptionBn": "অটো রাইস মিলের কালার সোর্টার ও নিউমেটিক সিলিন্ডার চালিত স্ক্রু কম্প্রেসরের যাবতীয় মেইনটেন্যান্স পার্টস।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Air Compressor Maintenance Spares Kit* (স্ক্রু এয়ার কম্প্রেসর মেইনটেন্যান্স ও স্পেয়ার পার্টস). Model/ID: p-comp-01. Please send pricing, stock availability, and technical details.",
+    "featured": true
+  },
+  {
+    "id": "p-comp-02",
+    "slug": "compressor-air-filter-element",
+    "name": "Industrial Screw Compressor Intake Air Filter",
+    "nameBn": "স্ক্রু কম্প্রেসর ইনটেক এয়ার ফিল্টার",
+    "category": "compressor",
+    "categoryBn": "কম্প্রেসর ও নিউমেটিক্স",
+    "image": "assets/images/products/compressor-air-filter-element.webp",
+    "specs": [
+      "Filtration: 99.8% at 3 micron",
+      "Heavy Duty Pleated Microfiber Media",
+      "Steel Reinforcement Mesh"
+    ],
+    "description": "High efficiency intake air filter cartridge ensuring dust-free air enters the compressor screw air-end, maximizing air-end lifespan.",
+    "descriptionBn": "বায়ু থেকে ধূলিকণা ও ভুসি ছেঁকে স্ক্রু এয়ারএন্ডের নিরাপত্তা নিশ্চিত করার হাই-এফিশিয়েন্সি এয়ার ফিল্টার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Industrial Screw Compressor Intake Air Filter* (স্ক্রু কম্প্রেসর ইনটেক এয়ার ফিল্টার). Model/ID: p-comp-02. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-comp-03",
+    "slug": "compressor-air-filter-wholesale-stock",
+    "name": "Screw Compressor Air Filters (Assorted Stock)",
+    "nameBn": "স্ক্রু কম্প্রেসর এয়ার ফিল্টার কালেকশন (সকল সাইজ)",
+    "category": "compressor",
+    "categoryBn": "কম্প্রেসর ও নিউমেটিক্স",
+    "image": "assets/images/products/compressor-air-filter-wholesale-stock.webp",
+    "specs": [
+      "Sizes: 10HP, 20HP, 30HP, 50HP, 100HP+",
+      "Ready Stock: Multiple Leading Brands & Dimensions"
+    ],
+    "description": "Wide inventory of compressor air filters in various dimensions ready for immediate dispatch to auto rice mills across Bangladesh.",
+    "descriptionBn": "বাংলাদেশের যেকোনো ব্র্যান্ডের স্ক্রু কম্প্রেসরের উপযোগী বিভিন্ন সাইজ ও ক্ষমতার রেডি স্টক এয়ার ফিল্টার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Compressor Air Filters (Assorted Stock)* (স্ক্রু কম্প্রেসর এয়ার ফিল্টার কালেকশন (সকল সাইজ)). Model/ID: p-comp-03. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-comp-04",
+    "slug": "compressor-synthetic-lubricant-oil",
+    "name": "High-Grade Screw Compressor Synthetic Oil (4000/8000 Hrs)",
+    "nameBn": "স্ক্রু কম্প্রেসর সিন্থেটিক লুব্রিকেন্ট অয়েল",
+    "category": "compressor",
+    "categoryBn": "কম্প্রেসর ও নিউমেটিক্স",
+    "image": "assets/images/products/compressor-synthetic-lubricant-oil.webp",
+    "specs": [
+      "Grade: ISO VG 46 / VG 32 Synthetic Rotary Screw Oil",
+      "Service Life: 4,000 to 8,000 Operating Hours",
+      "Anti-foaming, Anti-oxidation"
+    ],
+    "description": "Premium synthetic rotary screw compressor lubricant formulated for extreme operating temperatures in industrial rice mill operations.",
+    "descriptionBn": "টানা চালিত স্ক্রু কম্প্রেসরের দীর্ঘস্থায়িত্ব, কম ঘর্ষণ এবং হিট রেজিস্ট্যান্সের জন্য প্রিমিয়াম সিন্থেটিক লুব্রিকেন্ট।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *High-Grade Screw Compressor Synthetic Oil (4000/8000 Hrs)* (স্ক্রু কম্প্রেসর সিন্থেটিক লুব্রিকেন্ট অয়েল). Model/ID: p-comp-04. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-comp-05",
+    "slug": "screw-compressor-head-air-end",
+    "name": "Screw Compressor Rotary Air-End Head",
+    "nameBn": "স্ক্রু কম্প্রেসর রোটোরি এয়ার-এন্ড হেড",
+    "category": "compressor",
+    "categoryBn": "কম্প্রেসর ও নিউমেটিক্স",
+    "image": "assets/images/products/screw-compressor-head-air-end.webp",
+    "specs": [
+      "Type: Twin Rotary Screw Air-End",
+      "Tolerance: Micron-level precision rotors",
+      "High CFM delivery, low noise"
+    ],
+    "description": "Precision balanced twin-rotor compressor head (air-end) delivering steady continuous compressed air for sorting machines.",
+    "descriptionBn": "কালার সোর্টার ও মিলের সার্বিক বাতাসের জন্য সর্বোচ্চ প্রেসার সরবরাহকারী রোটোরি স্ক্রু এয়ার-এন্ড হেড।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Compressor Rotary Air-End Head* (স্ক্রু কম্প্রেসর রোটোরি এয়ার-এন্ড হেড). Model/ID: p-comp-05. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-comp-06",
+    "slug": "solenoid-valve-auto-drain",
+    "name": "Electronic Auto Drain Solenoid Valve",
+    "nameBn": "কম্প্রেসর অটো ড্রেন সোলেনয়েড ভাল্ব",
+    "category": "compressor",
+    "categoryBn": "কম্প্রেসর ও নিউমেটিক্স",
+    "image": "assets/images/products/solenoid-valve-auto-drain.webp",
+    "specs": [
+      "Voltage: 220V AC / 24V DC",
+      "Timer: Adjustable interval (0.5-45 min) and discharge (0.5-10 sec)",
+      "Pressure: 0-16 Bar"
+    ],
+    "description": "Timed electronic solenoid auto-drain valve to automatically purge accumulated water condensate from compressor air tanks and moisture traps.",
+    "descriptionBn": "কম্প্রেসরের এয়ার ট্যাংক ও ড্রায়ার থেকে জমে থাকা পানি স্বয়ংক্রিয়ভাবে বাইরে নিষ্কাশনকারী টাইমার সোলেনয়েড ভাল্ব।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Electronic Auto Drain Solenoid Valve* (কম্প্রেসর অটো ড্রেন সোলেনয়েড ভাল্ব). Model/ID: p-comp-06. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-mill-01",
+    "slug": "silky-polisher-screen-shell",
+    "name": "Rice Silky Polisher Screen Shell",
+    "nameBn": "রাইস সিল্কি পলিশার স্ক্রিন শেল",
+    "category": "milling",
+    "categoryBn": "রাইস মিলিং ও মেশিনারিজ পার্টস",
+    "image": "assets/images/products/silky-polisher-screen-shell.webp",
+    "specs": [
+      "Material: Special Heat-Treated Alloy Steel",
+      "Perforation: Anti-breakage slotted design",
+      "Compatibility: Standard Single/Double Roller Silkies"
+    ],
+    "description": "Hardened alloy steel slotted screen shell for water mist silky polishers, giving rice grains a brilliant pearly shine with minimal broken rice.",
+    "descriptionBn": "সিল্কি পলিশারে চাউল চকচকে ও মসৃণ করার জন্য বিশেষ অ্যালয় স্টিলের টেকসই ছিদ্রযুক্ত স্ক্রিন শেল।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Rice Silky Polisher Screen Shell* (রাইস সিল্কি পলিশার স্ক্রিন শেল). Model/ID: p-mill-01. Please send pricing, stock availability, and technical details.",
+    "featured": true
+  },
+  {
+    "id": "p-mill-02",
+    "slug": "silky-shell-and-worm-assembly",
+    "name": "Silky Polisher Shell & Screw Worm Shaft Assembly",
+    "nameBn": "সিল্কি শেল ও স্ক্রু ওয়ার্ম শ্যাফ্ট অ্যাসেম্বলি",
+    "category": "milling",
+    "categoryBn": "রাইস মিলিং ও মেশিনারিজ পার্টস",
+    "image": "assets/images/products/silky-shell-and-worm-assembly.webp",
+    "specs": [
+      "Assembly: Hardened Screw Conveyor Worm + Perforated Polisher Shell",
+      "Finish: Smooth wear-resistant alloy coating",
+      "Balanced dynamically"
+    ],
+    "description": "Complete matched assembly of feeding screw worm shaft and screen shell for water silky polishing machines.",
+    "descriptionBn": "পানি স্প্রে সিল্কি পলিশারের ধান/চাউল ফিডিং ওয়ার্ম স্ক্রু ও ফ্রেম শেল কমপ্লিট সেট।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Silky Polisher Shell & Screw Worm Shaft Assembly* (সিল্কি শেল ও স্ক্রু ওয়ার্ম শ্যাফ্ট অ্যাসেম্বলি). Model/ID: p-mill-02. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-mill-03",
+    "slug": "silky-water-air-mixing-sprayer-nozzle",
+    "name": "Silky Mist Polisher Water & Air Mixing Sprayer",
+    "nameBn": "সিল্কি ওয়াটার ও এয়ার মিক্সিং স্প্রেয়ার নজল",
+    "category": "milling",
+    "categoryBn": "রাইস মিলিং ও মেশিনারিজ পার্টস",
+    "image": "assets/images/products/silky-water-air-mixing-sprayer-nozzle.webp",
+    "specs": [
+      "Material: Stainless Steel SS304 Nozzle with Brass Atomizer",
+      "Function: Micro-fine atomization of water into polishing chamber"
+    ],
+    "description": "Dual-fluid atomizing spray nozzle that mixes pressurized air and water into ultra-fine micro-mist for brilliant rice polishing.",
+    "descriptionBn": "পলিশিং চেম্বারে পানি ও বাতাসের নিখুঁত সংমিশ্রণে অতি সূক্ষ্ম কুয়াশার মতো স্প্রে তৈরি করে চাউলের গ্লেজ বৃদ্ধি করার স্প্রেয়ার নজল।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Silky Mist Polisher Water & Air Mixing Sprayer* (সিল্কি ওয়াটার ও এয়ার মিক্সিং স্প্রেয়ার নজল). Model/ID: p-mill-03. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-mill-04",
+    "slug": "rice-whitener-emery-stone-roller",
+    "name": "Rice Whitener Emery Stone Polishing Roller",
+    "nameBn": "রাইস হোয়াইটনার এমেরি স্টোন রোলার",
+    "category": "milling",
+    "categoryBn": "রাইস মিলিং ও মেশিনারিজ পার্টস",
+    "image": "assets/images/products/rice-whitener-emery-stone-roller.webp",
+    "specs": [
+      "Grit: 30 / 36 / 46 Emery Silicon Carbide",
+      "Dynamic Balancing: 100% Factory Balanced",
+      "Durability: High wear resistance"
+    ],
+    "description": "Precision balanced abrasive emery stone roller for vertical and horizontal rice whitening machines, gently removing bran without grain stress.",
+    "descriptionBn": "চাউলের কুঁড়া বা লাল আবরণ আলতোভাবে তুলে ফেলে ধবধবে সাদা করতে অভিজ্ঞ মিলারদের প্রথম পছন্দের এমেরি স্টোন রোলার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Rice Whitener Emery Stone Polishing Roller* (রাইস হোয়াইটনার এমেরি স্টোন রোলার). Model/ID: p-mill-04. Please send pricing, stock availability, and technical details.",
+    "featured": true
+  },
+  {
+    "id": "p-mill-05",
+    "slug": "all-hole-size-rice-mill-screen",
+    "name": "Rice Milling & Sifter Screens (All Hole Sizes)",
+    "nameBn": "রাইস মিলের সকল সাইজের সিভ ও স্ক্রিন চালনি",
+    "category": "milling",
+    "categoryBn": "রাইস মিলিং ও মেশিনারিজ পার্টস",
+    "image": "assets/images/products/all-hole-size-rice-mill-screen.webp",
+    "specs": [
+      "Materials: High Carbon Hardened Steel & Stainless Steel",
+      "Hole Types: Slotted, Round, Dimple, Oblong",
+      "Sizes: All custom gauge & hole diameters"
+    ],
+    "description": "Complete selection of precision punched perforations for paddy cleaners, hullers, polishers, and bran separators.",
+    "descriptionBn": "ধান ক্লিনার, হালার, হোয়াইটনার ও কুঁড়া চালনির জন্য বিভিন্ন সাইজের গোল ও খাঁজকাটা স্ক্রিন।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Rice Milling & Sifter Screens (All Hole Sizes)* (রাইস মিলের সকল সাইজের সিভ ও স্ক্রিন চালনি). Model/ID: p-mill-05. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-mill-06",
+    "slug": "destoner-dimple-perforated-screen",
+    "name": "Paddy Destoner Dimple Perforated Screen",
+    "nameBn": "প্যাডি ডি-স্টোনার ডিম্পল স্ক্রিন শিট",
+    "category": "milling",
+    "categoryBn": "রাইস মিলিং ও মেশিনারিজ পার্টস",
+    "image": "assets/images/products/destoner-dimple-perforated-screen.webp",
+    "specs": [
+      "Pattern: Embossed Dimple / Fish Scale Mesh",
+      "Material: Cold Rolled Wear-Resistant Steel",
+      "Function: Separation of stones from paddy/rice"
+    ],
+    "description": "Embossed dimple textured screen that utilizes specific gravity and vibration to cleanly separate stones from paddy grain.",
+    "descriptionBn": "নির্দিষ্ট গ্র্যাভিটি ও কম্পনের মাধ্যমে চাল বা ধান থেকে নিখুঁতভাবে পাথর আলাদা করার ডিম্পল স্ক্রিন শিট।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Paddy Destoner Dimple Perforated Screen* (প্যাডি ডি-স্টোনার ডিম্পল স্ক্রিন শিট). Model/ID: p-mill-06. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-mill-07",
+    "slug": "screw-feeder-speed-controller-meter",
+    "name": "Screw Feeder Digital Speed Controller Meter",
+    "nameBn": "স্ক্রু ফিডার স্পিড কন্ট্রোলার ডিজিটাল মিটার",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/screw-feeder-speed-controller-meter.webp",
+    "specs": [
+      "Input: AC 220V",
+      "Display: 4-Digit Bright LED",
+      "Output: Variable DC/AC Drive Signal"
+    ],
+    "description": "Precision variable speed indicator and regulator panel meter to control paddy and rice feed rate into milling machines.",
+    "descriptionBn": "মেশিনে ধান বা চাউল সরবরাহের গতি নিখুঁতভাবে নিয়ন্ত্রণ করার ডিজিটাল স্পিড কন্ট্রোলার মিটার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Feeder Digital Speed Controller Meter* (স্ক্রু ফিডার স্পিড কন্ট্রোলার ডিজিটাল মিটার). Model/ID: p-mill-07. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-mag-01",
+    "slug": "hopper-magnet-stainless-steel-ss304",
+    "name": "Sanitary Stainless Steel Hopper Magnet (SS304)",
+    "nameBn": "হপার ম্যাগনেট এসএস ৩০৪ (ফুড গ্রেড শক্তিশালী চৌম্বক)",
+    "category": "magnets",
+    "categoryBn": "ম্যাগনেট ও ক্লিনিং সিস্টেম",
+    "image": "assets/images/products/hopper-magnet-stainless-steel-ss304.webp",
+    "specs": [
+      "Material: SS304 Stainless Steel Housing",
+      "Magnet: Rare Earth Neodymium (NdFeB) 10,000+ Gauss",
+      "Grid: Custom Size Grate"
+    ],
+    "description": "High-intensity rare-earth permanent magnetic grate designed to trap all ferrous tramp iron, nails, and wire from grain flow in hoppers.",
+    "descriptionBn": "খাদ্য নিরাপত্তা নিশ্চিত করতে হপারের ভেতর দিয়ে যাওয়া ধান/চাল থেকে পেরেক, তার ও লোহার গুঁড়া শতভাগ আটকানোর শক্তিশালী এসএস ম্যাগনেট।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Sanitary Stainless Steel Hopper Magnet (SS304)* (হপার ম্যাগনেট এসএস ৩০৪ (ফুড গ্রেড শক্তিশালী চৌম্বক)). Model/ID: p-mag-01. Please send pricing, stock availability, and technical details.",
+    "featured": true
+  },
+  {
+    "id": "p-mag-02",
+    "slug": "hopper-magnet-mild-steel",
+    "name": "Industrial Hopper Magnet MS Frame",
+    "nameBn": "ইন্ডাস্ট্রিয়াল হপার ম্যাগনেট এমএস ফ্রেম",
+    "category": "magnets",
+    "categoryBn": "ম্যাগনেট ও ক্লিনিং সিস্টেম",
+    "image": "assets/images/products/hopper-magnet-mild-steel.webp",
+    "specs": [
+      "Frame: Durable Mild Steel Frame",
+      "Magnets: Powerful Ceramic / Alnico / Neodymium",
+      "Shape: Round / Rectangular Custom"
+    ],
+    "description": "Robust magnetic trap grid for raw grain intake pits and chutes to protect mill rollers and destoner screens from iron debris damage.",
+    "descriptionBn": "ইনটেক পিট ও চালনির মুখে স্থাপনযোগ্য লোহার যন্ত্রাংশকে ধ্বংসের হাত থেকে রক্ষাকারী হেভি ডিউটি ম্যাগনেট।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Industrial Hopper Magnet MS Frame* (ইন্ডাস্ট্রিয়াল হপার ম্যাগনেট এমএস ফ্রেম). Model/ID: p-mag-02. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-elec-01",
+    "slug": "pt100-rtd-temperature-sensor",
+    "name": "PT100 RTD Industrial Temperature Sensor Probe",
+    "nameBn": "পিটি১০০ আরটিডি ইন্ডাস্ট্রিয়াল টেম্পারেচার সেন্সর",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/pt100-rtd-temperature-sensor.webp",
+    "specs": [
+      "Type: PT100 3-Wire Class A Sensor",
+      "Sheath: Stainless Steel 316",
+      "Range: -50 deg C to +400 deg C"
+    ],
+    "description": "High accuracy RTD platinum sensor probe for monitoring steam temperature, drying hot air, and boiler flue gas heat.",
+    "descriptionBn": "ধান শুকানো, পারবয়লিং ড্রায়ার ও স্টিম পাইপলাইনের তাপমাত্রা নিখুঁতভাবে মনিটরিং করার স্টেইনলেস স্টিল সেন্সর।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *PT100 RTD Industrial Temperature Sensor Probe* (পিটি১০০ আরটিডি ইন্ডাস্ট্রিয়াল টেম্পারেচার সেন্সর). Model/ID: p-elec-01. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-elec-02",
+    "slug": "temperature-controller-meter-tc513",
+    "name": "Digital PID Temperature Controller Meter (TC-513)",
+    "nameBn": "ডিজিটাল টেম্পারেচার কন্ট্রোলার মিটার (টিসি-৫১৩)",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/temperature-controller-meter-tc513.webp",
+    "specs": [
+      "Model: TC-513 PID Dual Display",
+      "Input: Universal (PT100, K-Type Thermocouple)",
+      "Output: Relay / SSR"
+    ],
+    "description": "Intelligent PID temperature controller with dual digital LED readout for precise automated temperature regulation in paddy dryers and boilers.",
+    "descriptionBn": "ধান ড্রায়ার ও বয়লারে কাঙ্ক্ষিত তাপমাত্রা স্বয়ংক্রিয়ভাবে ধরে রাখার জন্য বিশ্বস্ত ডিজিটাল পিআইডি কন্ট্রোলার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Digital PID Temperature Controller Meter (TC-513)* (ডিজিটাল টেম্পারেচার কন্ট্রোলার মিটার (টিসি-৫১৩)). Model/ID: p-elec-02. Please send pricing, stock availability, and technical details.",
+    "featured": true
+  },
+  {
+    "id": "p-elec-03",
+    "slug": "star-delta-motor-starter-timer",
+    "name": "Heavy Duty Star-Delta Motor Starter Timer Relay",
+    "nameBn": "স্টার-ডেল্টা মোটর স্টার্টার টাইমার রিলে",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/star-delta-motor-starter-timer.webp",
+    "specs": [
+      "Range: 0-30 Seconds / 0-60 Seconds",
+      "Contacts: Instant + Delayed Changeover",
+      "Mounting: DIN Rail / Panel"
+    ],
+    "description": "Specialized transition delay timer relay ensuring smooth starting of high-horsepower auto rice mill induction motors without power tripping.",
+    "descriptionBn": "মিলের বড় হর্সপাওয়ারের মোটরগুলোকে মসৃণভাবে চালু করে অতিরিক্ত বিদ্যুৎ লোড ও ড্রপ ঠেকানোর স্টার-ডেল্টা টাইমার রিলে।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Star-Delta Motor Starter Timer Relay* (স্টার-ডেল্টা মোটর স্টার্টার টাইমার রিলে). Model/ID: p-elec-03. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-elec-04",
+    "slug": "phase-failure-voltage-protection-relay",
+    "name": "Motor Phase Failure & Voltage Protection Relay",
+    "nameBn": "মোটর ফেজ ফেইলিওর ও সিকোয়েন্স প্রোটেকশন রিলে",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/phase-failure-voltage-protection-relay.webp",
+    "specs": [
+      "Protection: Phase Loss, Phase Sequence, Over/Under Voltage",
+      "Reset: Automatic / Manual",
+      "LED Indication"
+    ],
+    "description": "Essential industrial electrical protection relay to instantly trip motors during phase outage or reversal, preventing costly motor burnouts.",
+    "descriptionBn": "বিদ্যুতের যেকোনো একটি ফেজ চলে গেলে বা ভোল্টেজ ওঠা-নামা করলে সাথে সাথে মোটর বন্ধ করে লাখ টাকার মোটর পোড়া থেকে বাঁচানোর ডিভাইস।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Motor Phase Failure & Voltage Protection Relay* (মোটর ফেজ ফেইলিওর ও সিকোয়েন্স প্রোটেকশন রিলে). Model/ID: p-elec-04. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-elec-05",
+    "slug": "magnetic-contactor-auxiliary-block-2no-2nc",
+    "name": "Magnetic Contactor Auxiliary Contact Block (2NO + 2NC)",
+    "nameBn": "ম্যাগনেটিক কন্টাক্টর অক্সিলারি কন্টাক্ট ব্লক (২NO + ২NC)",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/magnetic-contactor-auxiliary-block-2no-2nc.webp",
+    "specs": [
+      "Configuration: 2 Normally Open + 2 Normally Closed",
+      "Mounting: Front snap-on clip for standard contactors",
+      "Rating: AC-15 10A"
+    ],
+    "description": "Front-mounting auxiliary contact block expanding the switching capability of industrial magnetic motor starters in mill control panels.",
+    "descriptionBn": "রাইস মিলের মূল মোটর কন্ট্রোল প্যানেলে ম্যাগনেটিক কন্টাক্টরের সাথে সংযুক্ত করার ফ্রন্ট মাউন্টিং অক্সিলারি ব্লক।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Magnetic Contactor Auxiliary Contact Block (2NO + 2NC)* (ম্যাগনেটিক কন্টাক্টর অক্সিলারি কন্টাক্ট ব্লক (২NO + ২NC)). Model/ID: p-elec-05. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-elec-06",
+    "slug": "industrial-control-power-transformer",
+    "name": "Step-Down Industrial Control Power Transformer",
+    "nameBn": "কন্ট্রোল পাওয়ার স্টেপ-ডাউন ট্রান্সফরমার",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/industrial-control-power-transformer.webp",
+    "specs": [
+      "Primary: 415V / 220V AC",
+      "Secondary: 24V / 110V / 220V AC",
+      "Copper Wound with Isolation Barrier"
+    ],
+    "description": "Heavy-duty copper wound control circuit transformer supplying safe, isolated auxiliary voltage to mill contactors and solenoids.",
+    "descriptionBn": "কন্ট্রোল প্যানেল, সেন্সর ও সোলেনয়েড ভাল্বে নিরাপদ বিদ্যুৎ সরবরাহের জন্য স্টেপ-ডাউন কপার ওয়্যার ট্রান্সফরমার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Step-Down Industrial Control Power Transformer* (কন্ট্রোল পাওয়ার স্টেপ-ডাউন ট্রান্সফরমার). Model/ID: p-elec-06. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-elec-07",
+    "slug": "panel-ampere-meter",
+    "name": "Analog / Digital AC Panel Ampere Meter",
+    "nameBn": "প্যানেল এসি অ্যাম্পিয়ার মিটার",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/panel-ampere-meter.webp",
+    "specs": [
+      "Scale: 0-100A / 0-200A / 0-500A (via CT)",
+      "Dial: 96x96 mm Square Flush Mount",
+      "Accuracy Class: 1.5"
+    ],
+    "description": "Precision current monitoring meter displaying real-time motor load on rice mill whitening, polishing, and boiler fan panels.",
+    "descriptionBn": "মিলের প্রতিটি মোটরের ওপর কতখানি লোড পড়ছে তা সার্বক্ষণিক পর্যবেক্ষণের জন্য প্যানেল অ্যাম্পিয়ার মিটার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Analog / Digital AC Panel Ampere Meter* (প্যানেল এসি অ্যাম্পিয়ার মিটার). Model/ID: p-elec-07. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-elec-08",
+    "slug": "panel-ac-volt-meter",
+    "name": "Three-Phase AC Panel Voltage Meter",
+    "nameBn": "থ্রি-ফেজ এসি ভোল্টেজ মিটার",
+    "category": "electrical",
+    "categoryBn": "ইলেকট্রিক্যাল ও অটোমেশন",
+    "image": "assets/images/products/panel-ac-volt-meter.webp",
+    "specs": [
+      "Range: 0-500V AC",
+      "Display: Clear calibrated analog scale / digital",
+      "Protection: High voltage transient withstand"
+    ],
+    "description": "Heavy duty electrical switchboard voltage meter indicating 3-phase line voltage to protect mill equipment from abnormal supply.",
+    "descriptionBn": "মেইন্টার্মিনালে ৩-ফেজ বিদ্যুতের সঠিক ভোল্টেজ যাচাই করার নির্ভরযোগ্য প্যানেল ভোল্ট মিটার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Three-Phase AC Panel Voltage Meter* (থ্রি-ফেজ এসি ভোল্টেজ মিটার). Model/ID: p-elec-08. Please send pricing, stock availability, and technical details.",
+    "featured": false
+  },
+  {
+    "id": "p-vent-01",
+    "slug": "industrial-heavy-duty-exhaust-fans",
+    "name": "Heavy Duty Industrial Ventilation & Exhaust Fans",
+    "nameBn": "ইন্ডাস্ট্রিয়াল হেভি ডিউটি এক্সহস্ট ফ্যান (সকল সাইজ)",
+    "category": "ventilation",
+    "categoryBn": "ভেন্টিলেশন ও ডাস্ট কালেকশন",
+    "image": "assets/images/products/industrial-heavy-duty-exhaust-fans.webp",
+    "specs": [
+      "Sizes: 24 inch, 36 inch, 50 inch Shutter Fans",
+      "Blades: Stainless Steel / High Air Delivery Aluminum",
+      "Motor: Heavy Duty Copper Wire IP55"
+    ],
+    "description": "High CFM industrial wall exhaust fans designed for auto rice mills, removing steam, dust, and excess heat to maintain clean plant air.",
+    "descriptionBn": "রাইস মিলের বয়লার রুম, মিলিং ফ্লোর ও পারবয়লিং এরিয়া থেকে ধুলোবালি ও অতিরিক্ত তাপ দ্রুত বের করে ঠান্ডা রাখার পাওয়ারফুল ফ্যান।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Industrial Ventilation & Exhaust Fans* (ইন্ডাস্ট্রিয়াল হেভি ডিউটি এক্সহস্ট ফ্যান (সকল সাইজ)). Model/ID: p-vent-01. Please send pricing, stock availability, and technical details.",
+    "featured": true
+  },
+  {
+    "id": "p-eng-01",
+    "slug": "diesel-generator-engine-filters",
+    "name": "Heavy Duty Diesel Generator Fuel & Oil Filter",
+    "nameBn": "ডিজেল জেনারেটর ইঞ্জিন ফুয়েল ও লুব ফিল্টার",
+    "category": "spares",
+    "categoryBn": "ইঞ্জিন ও জেনারেটর পার্টস",
+    "image": "assets/images/products/diesel-generator-engine-filters.webp",
+    "specs": [
+      "Type: Spin-On Fuel/Oil Filter Cartridge",
+      "Efficiency: Micronic Pleated Paper",
+      "Application: Cummins, Perkins, Chinese Generator sets"
+    ],
+    "description": "High performance engine filters protecting industrial backup generators from fuel contaminants during grid power outages in rice mills.",
+    "descriptionBn": "লোডশেডিংয়ের সময় মিল সচল রাখতে ব্যবহৃত ব্যাকআপ জেনারেটর ও ইঞ্জিনের জন্য সর্বোচ্চ মানের ফুয়েল ও অয়েল ফিল্টার।",
+    "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Diesel Generator Fuel & Oil Filter* (ডিজেল জেনারেটর ইঞ্জিন ফুয়েল ও লুব ফিল্টার). Model/ID: p-eng-01. Please send pricing, stock availability, and technical details.",
+    "featured": false
   }
 ]

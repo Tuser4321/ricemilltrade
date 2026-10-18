@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Redirect</title>
+  <script>
+    if (localStorage.getItem('rmt_admin_session')) {
+      window.location.replace('dashboard.html');
+    } else {
+      window.location.replace('login.html');
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
