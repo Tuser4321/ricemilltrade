@@ -18,17 +18,88 @@
     "businessHours": "Sat - Thu: 9:00 AM - 8:00 PM (24/7 WhatsApp Hotline)",
     "businessHoursBn": "শনি - বৃহস্পতি: সকাল ৯:০০ - রাত ৮:০০ (২৪/৭ হোয়াটসঅ্যাপ হেল্পলাইন)"
   },
+  "settings": {
+    "hideAllPrices": true
+  },
+  "theme": {
+    "primaryColor": "#0f3460",
+    "secondaryColor": "#e67e22",
+    "accentColor": "#25d366",
+    "themeMode": "light"
+  },
   "branding": {
     "logo": "assets/images/brand/logo.png",
     "logoWebp": "assets/images/brand/logo.webp",
-    "heroBg": "assets/images/brand/hero-bg.webp",
+    "ogImage": "assets/images/brand/meta-og-image.jpg",
+    "heroBg": "assets/images/hero/hero-1-ricemill.webp",
     "visitingCard": "assets/images/brand/visiting-card.webp",
     "pad": "assets/images/brand/pad.webp"
   },
+  "heroSlides": [
+    {
+      "id": "slide-1",
+      "image": "assets/images/hero/hero-1-ricemill.webp",
+      "badge": "🌾 আধুনিক অটো রাইস মিল টেকনোলজি",
+      "badgeEn": "🌾 Modern Auto Rice Mill Technology",
+      "title": "আপনার ব্যবসায় বিশ্বস্ত সহযোগী",
+      "titleEn": "Your Reliable Partner in Your Business",
+      "subtitle": "অটো রাইস মিলের জেনুইন স্পেয়ার পার্টস, নতুন ও পুরাতন মেশিনারী সরবরাহ এবং ইঞ্জিনিয়ারিং সলিউশন।",
+      "subtitleEn": "Auto rice mill genuine spare parts, new & reconditioned machinery supply, and turnkey engineering solutions.",
+      "hasVideo": false
+    },
+    {
+      "id": "slide-2",
+      "image": "assets/images/hero/hero-2-solar.webp",
+      "badge": "☀️ পরিবেশবান্ধব রিনিউয়েবল এনার্জি",
+      "badgeEn": "☀️ Eco-Friendly Renewable Solar Energy",
+      "title": "ইন্ডাস্ট্রিয়াল সোলার পাওয়ার প্রজেক্ট",
+      "titleEn": "Industrial & Commercial Solar Power Projects",
+      "subtitle": "রাইস মিল ও ভারী কারখানার বিদ্যুত খরচ ৬০-৭০% পর্যন্ত সাশ্রয় করার আধুনিক অন-গ্রিড সোলার সিস্টেম।",
+      "subtitleEn": "Slash factory electricity bills by 60-70% with high-efficiency heavy-duty industrial on-grid solar systems.",
+      "hasVideo": false
+    },
+    {
+      "id": "slide-3",
+      "image": "assets/images/hero/hero-3-sorter.webp",
+      "video": "assets/videos/hero-sorter-anim.mp4",
+      "badge": "⚡ হাই-টেক সর্টিং ও অপটিক্যাল অটোমেশন",
+      "badgeEn": "⚡ High-Tech Sorting & Optical Automation",
+      "title": "কালার সোর্টার ও অ্যাডভান্সড মেশিনারিজ",
+      "titleEn": "Precision Optical Color Sorter & Automation",
+      "subtitle": "উচ্চ রেজুলেশনের সিসিডি ক্যামেরা প্রযুক্তি ও স্বয়ংক্রিয় প্রক্রিয়াকরণ ইউনিট (লাইভ এনিমেশন সহ)।",
+      "subtitleEn": "Ultra-high resolution CCD camera technology and precision pneumatic ejection for 100% grain perfection.",
+      "hasVideo": true
+    },
+    {
+      "id": "slide-4",
+      "image": "assets/images/hero/hero-4-boiler.webp",
+      "badge": "🔥 নিরাপদ বয়লার ও স্টিম পাইপিং",
+      "badgeEn": "🔥 Safe Steam Boilers & Heavy Piping",
+      "title": "বয়লার ও পারবয়লিং ইঞ্জিনিয়ারিং",
+      "titleEn": "Boiler & Parboiling Steam Engineering",
+      "subtitle": "এফবিসি বয়লার এয়ার নজল, প্রেসার গেজ, মেকানিক্যাল সিল এবং স্বয়ংক্রিয় ওয়াটার লেভেল কন্ট্রোলার।",
+      "subtitleEn": "Fluidized bed air nozzles, high pressure steam gauges, safety fusible plugs, and automatic Mobrey controllers.",
+      "hasVideo": false
+    },
+    {
+      "id": "slide-5",
+      "image": "assets/images/hero/hero-5-compressor.webp",
+      "badge": "💨 স্ক্রু কম্প্রেসর ও নিউমেটিক্স",
+      "badgeEn": "💨 Rotary Screw Compressors & Spares",
+      "title": "কম্প্রেসর স্পেয়ার্স ও সিন্থেটিক অয়েল",
+      "titleEn": "Industrial Screw Compressors & Spares",
+      "subtitle": "স্ক্রু কম্প্রেসরের এয়ার ফিল্টার, অয়েল সেপারেটর, ইনটেক হেড এবং ৮০০০ ঘণ্টার সিন্থেটিক লুব্রিকেন্ট।",
+      "subtitleEn": "OEM intake air filters, maintenance rebuild kits, solenoid auto drains, and 8,000-hour synthetic compressor oil.",
+      "hasVideo": false
+    }
+  ],
   "social": {
-    "facebook": "https://facebook.com",
-    "youtube": "https://youtube.com",
-    "linkedin": "https://linkedin.com"
+    "facebook": "https://facebook.com/ricemilltrade",
+    "youtube": "https://youtube.com/@ricemilltrade",
+    "linkedin": "https://linkedin.com/company/ricemilltrade",
+    "whatsapp": "8801348249343",
+    "twitter": "",
+    "instagram": ""
   },
   "admins": [
     {

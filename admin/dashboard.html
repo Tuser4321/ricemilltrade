@@ -17,12 +17,13 @@
     <nav class="sidebar-nav">
       <a class="nav-item active" data-section="section-dashboard">📊 ড্যাশবোর্ড ওভারভিউ</a>
       <a class="nav-item" data-section="section-site-control">🏢 কোম্পানি ও সাইট তথ্য</a>
-      <a class="nav-item" data-section="section-products">📦 প্রোডাক্ট ম্যানেজমেন্ট</a>
+      <a class="nav-item" data-section="section-theme">🎨 স্মার্ট থিম ও কালার</a>
+      <a class="nav-item" data-section="section-products">📦 প্রোডাক্ট ও প্রাইস কন্ট্রোল</a>
       <a class="nav-item" data-section="section-services">🛠️ সার্ভিসেস কন্ট্রোল</a>
-      <a class="nav-item" data-section="section-team">👥 পরিচালনা পর্ষদ / টিম</a>
-      <a class="nav-item" data-section="section-brochures">📄 ব্রোশার ও প্রাইস লিস্ট</a>
+      <a class="nav-item" data-section="section-team">👥 পরিচালনা পর্ষদ</a>
+      <a class="nav-item" data-section="section-brochures">📄 ব্রোশার ও মূল্যতালিকা</a>
       <a class="nav-item" data-section="section-users">🔐 ইউজার ও এডমিন এক্সেস</a>
-      <a class="nav-item" data-section="section-backup">💾 ডাটা ব্যাকআপ ও এক্সপোর্ট</a>
+      <a class="nav-item" data-section="section-backup">💾 ব্যাকআপ ও ক্যাশে</a>
     </nav>
     <div class="sidebar-footer">
       <a href="../index.html" target="_blank" style="color:#94a3b8; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px;">
@@ -39,6 +40,7 @@
         <span style="font-weight:700; color:var(--admin-primary); font-size:1.1rem;">রাইস মিল ট্রেড এডমিন কন্ট্রোল</span>
       </div>
       <div class="user-profile">
+        <button class="btn btn-secondary btn-sm" id="topbarClearCacheBtn" title="Clear Cache">🧹 ক্যাশে ক্লিয়ার</button>
         <span class="user-role-badge" id="displayRole">Superadmin</span>
         <span id="displayName" style="font-weight:700; font-size:0.9rem;">Rezaul Karim</span>
         <button class="btn btn-outline-danger btn-sm" id="logoutBtn">লগআউট</button>
@@ -58,7 +60,7 @@
             <div class="stat-icon" style="background:#e0f2fe; color:#0284c7;">📦</div>
             <div>
               <h3 id="statProducts">0</h3>
-              <p>মোট প্রোডাক্টস সংখ্যা</p>
+              <p>মোট প্রোডাক্টস</p>
             </div>
           </div>
           <div class="stat-card">
@@ -79,8 +81,23 @@
             <div class="stat-icon" style="background:#f3e8ff; color:#7e22ce;">📄</div>
             <div>
               <h3 id="statBrochures">6</h3>
-              <p>পিডিএফ প্রাইস লিস্ট ক্যাটালগ</p>
+              <p>পিডিএফ প্রাইস লিস্ট</p>
             </div>
+          </div>
+        </div>
+
+        <!-- Global Price Status Banner -->
+        <div class="admin-card" style="background:#f8fafc; border-left:4px solid var(--admin-secondary);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+              <h4 style="color:var(--admin-primary); margin-bottom:4px;">🔒 গ্লোবাল প্রোডাক্ট প্রাইস কন্ট্রোল (মূল্য প্রদর্শন / গোপন সেটিংস)</h4>
+              <p style="font-size:0.86rem; color:#64748b;">
+                বর্তমান অবস্থা: <strong id="globalPriceStatusText" style="color:#d97706;">সকল পণ্যের মূল্য গোপন (হাইড) রয়েছে</strong> — গ্রাহকরা সরাসরি হোয়াটসঅ্যাপে কোটেশন জানতে পারবেন।
+              </p>
+            </div>
+            <button class="btn btn-secondary" onclick="RMT_ADMIN.switchTab('section-products');">
+              ⚙️ প্রাইস সেটিংস পরিবর্তন করুন
+            </button>
           </div>
         </div>
 
@@ -92,8 +109,8 @@
             <button class="btn btn-primary" onclick="RMT_ADMIN.switchTab('section-products'); RMT_ADMIN.openAddProductModal();">
               ➕ নতুন প্রোডাক্ট যোগ করুন
             </button>
-            <button class="btn btn-secondary" onclick="RMT_ADMIN.switchTab('section-site-control');">
-              ✏️ কোম্পানি ও অফিস তথ্য এডিট
+            <button class="btn btn-secondary" onclick="RMT_ADMIN.switchTab('section-theme');">
+              🎨 প্ল্যাটফর্ম থিম ও কালার কাস্টমাইজ
             </button>
             <button class="btn btn-success" onclick="RMT_ADMIN.switchTab('section-users');">
               👤 নতুন এডমিন ইউজার তৈরি করুন
@@ -108,14 +125,15 @@
         </div>
       </section>
 
-      <!-- 2. Site & Company Information -->
+      <!-- 2. Site & Company Information (With Social Media Links) -->
       <section id="section-site-control" class="content-section">
         <div class="section-heading">
-          <h2>🏢 কোম্পানি ও সাধারণ সাইট সেটিংস</h2>
+          <h2>🏢 কোম্পানি, অফিস ও সোশ্যাল মিডিয়া সেটিংস</h2>
           <button class="btn btn-success" id="saveSiteSettingsBtn">💾 সেটিংস সংরক্ষণ করুন</button>
         </div>
 
         <div class="admin-card">
+          <h3 style="font-size:1.1rem; color:var(--admin-primary); margin-bottom:16px;">১. সাধারণ তথ্য ও হেল্পলাইন</h3>
           <form id="siteSettingsForm">
             <div class="form-grid">
               <div class="form-group">
@@ -139,7 +157,7 @@
                 <input type="text" id="cfg_phone" class="form-control" required>
               </div>
               <div class="form-group">
-                <label class="form-label">হোয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ, উদাঃ 8801348249343)</label>
+                <label class="form-label">হোয়াটসঅ্যাপ বিজনেস নম্বর (উদাঃ 8801348249343)</label>
                 <input type="text" id="cfg_whatsapp" class="form-control" required>
               </div>
               <div class="form-group">
@@ -159,25 +177,113 @@
                 <label class="form-label">মানিকগঞ্জ শাখা অফিসের ঠিকানা (Manikganj Office Address)</label>
                 <input type="text" id="cfg_manikganjAddress" class="form-control">
               </div>
+            </div>
 
-              <div class="form-group full-width">
-                <label class="form-label">ঢাকা অফিস গুগল ম্যাপ এম্বেড লিংক (Embed URL)</label>
-                <input type="text" id="cfg_mainMap" class="form-control">
+            <!-- Social Media Links Section -->
+            <h3 style="font-size:1.1rem; color:var(--admin-primary); margin:24px 0 16px 0; border-top:1px solid var(--admin-border); padding-top:16px;">
+              ২. সোশ্যাল মিডিয়া লিংক সেটিংস (Social Media Links)
+            </h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">ফেসবুক পেজ লিংক (Facebook URL)</label>
+                <input type="url" id="cfg_facebook" class="form-control" placeholder="https://facebook.com/yourpage">
               </div>
-              <div class="form-group full-width">
-                <label class="form-label">মানিকগঞ্জ অফিস গুগল ম্যাপ এম্বেড লিংক (Embed URL)</label>
-                <input type="text" id="cfg_manikganjMap" class="form-control">
+              <div class="form-group">
+                <label class="form-label">ইউটিউব চ্যানেল লিংক (YouTube URL)</label>
+                <input type="url" id="cfg_youtube" class="form-control" placeholder="https://youtube.com/@channel">
+              </div>
+              <div class="form-group">
+                <label class="form-label">লিঙ্কডইন কোম্পানি পেজ (LinkedIn URL)</label>
+                <input type="url" id="cfg_linkedin" class="form-control" placeholder="https://linkedin.com/company/profile">
+              </div>
+              <div class="form-group">
+                <label class="form-label">ইনস্টাগ্রাম লিংক (Instagram URL)</label>
+                <input type="url" id="cfg_instagram" class="form-control" placeholder="https://instagram.com/profile">
+              </div>
+              <div class="form-group">
+                <label class="form-label">টুইটার / এক্স লিংক (Twitter/X URL)</label>
+                <input type="url" id="cfg_twitter" class="form-control" placeholder="https://x.com/profile">
               </div>
             </div>
           </form>
         </div>
       </section>
 
-      <!-- 3. Product Management -->
+      <!-- 3. Smart Theme & Banner Customizer -->
+      <section id="section-theme" class="content-section">
+        <div class="section-heading">
+          <h2>🎨 প্ল্যাটফর্ম থিম, কালার ও ব্যানার কাস্টমাইজেশন</h2>
+          <button class="btn btn-success" id="saveThemeBtn">💾 থিম সংরক্ষণ করুন</button>
+        </div>
+
+        <div class="admin-card">
+          <h3 style="font-size:1.1rem; color:var(--admin-primary); margin-bottom:14px;">১. ওয়েবসাইটের কালার ব্র্যান্ডিং</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">প্রাইমারি কালার (Primary Brand Color)</label>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <input type="color" id="theme_primaryColor" value="#0f3460" style="width:50px; height:40px; border:none; cursor:pointer;">
+                <input type="text" id="theme_primaryColorHex" class="form-control" value="#0f3460" style="max-width:140px;">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">সেকেন্ডারি অ্যাকসেন্ট কালার (Secondary Accent Color)</label>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <input type="color" id="theme_secondaryColor" value="#e67e22" style="width:50px; height:40px; border:none; cursor:pointer;">
+                <input type="text" id="theme_secondaryColorHex" class="form-control" value="#e67e22" style="max-width:140px;">
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size:0.95rem; color:#475569; margin:16px 0 10px 0;">রেডিমেড থিম প্রিসেটস (1-Click Color Presets):</h4>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-sm" style="background:#0f3460; color:#fff;" onclick="RMT_ADMIN.setThemePreset('#0f3460', '#e67e22')">
+              🔵 ক্লাসিক কর্পোরেট (ডিফল্ট)
+            </button>
+            <button class="btn btn-sm" style="background:#065f46; color:#fff;" onclick="RMT_ADMIN.setThemePreset('#065f46', '#f59e0b')">
+              🟢 এগ্রো গ্রিন (Emerald)
+            </button>
+            <button class="btn btn-sm" style="background:#7c2d12; color:#fff;" onclick="RMT_ADMIN.setThemePreset('#7c2d12', '#d97706')">
+              🟠 গোল্ডেন মিলিং (Amber)
+            </button>
+            <button class="btn btn-sm" style="background:#1e293b; color:#fff;" onclick="RMT_ADMIN.setThemePreset('#1e293b', '#3b82f6')">
+              ⚫ মডার্ন টেক (Slate & Blue)
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <h3 style="font-size:1.1rem; color:var(--admin-primary); margin-bottom:14px;">২. হিরো স্লাইডার ও অ্যানিমেটেড ভিডিও ব্যানার (Hero Slides)</h3>
+          <p style="font-size:0.86rem; color:#64748b; margin-bottom:16px;">
+            হোমপেজে ঘূর্ণায়মান ৫টি ব্যানার ইমেজ এবং ৩ নম্বর স্লাইডের স্বয়ংক্রিয় এনিমেটেড ভিডিও স্ট্যাটাস:
+          </p>
+          <div id="adminHeroSlidesList" style="display:flex; flex-direction:column; gap:12px;">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Product & Price Management -->
       <section id="section-products" class="content-section">
         <div class="section-heading">
-          <h2>📦 প্রোডাক্ট ক্যাটালগ ম্যানেজমেন্ট</h2>
+          <h2>📦 প্রোডাক্ট ক্যাটালগ ও মূল্য কন্ট্রোল</h2>
           <button class="btn btn-primary" id="openAddProductBtn">➕ নতুন প্রোডাক্ট যোগ করুন</button>
+        </div>
+
+        <!-- Master Price Toggle Card -->
+        <div class="admin-card" style="background:#fffbeb; border:1.5px solid #fde68a;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+              <h3 style="font-size:1.05rem; color:#92400e; margin-bottom:4px;">🔒 সকল প্রোডাক্টের মূল্য এক ক্লিকে হাইড রাখুন</h3>
+              <p style="font-size:0.86rem; color:#78350f;">
+                এটি অন থাকলে সাইটে সরাসরি পণ্যের মূল্য না দেখিয়ে <strong>"🔒 কোটেশনের জন্য যোগাযোগ করুন"</strong> দেখাবে এবং ক্লায়েন্ট সরাসরি হোয়াটসঅ্যাপে দাম জানতে পারবে।
+              </p>
+            </div>
+            <label style="display:flex; align-items:center; gap:8px; font-weight:700; cursor:pointer; background:#fff; padding:8px 14px; border-radius:8px; border:1px solid #fcd34d;">
+              <input type="checkbox" id="globalHidePricesCheckbox" checked style="transform:scale(1.2);">
+              <span>মূল্য গোপন রাখুন (Hide All Prices)</span>
+            </label>
+          </div>
         </div>
 
         <div class="admin-card">
@@ -202,9 +308,10 @@
                 <tr>
                   <th>ছবি</th>
                   <th>আইডি</th>
-                  <th>পণ্যের নাম (EN)</th>
-                  <th>পণ্যের নাম (BN)</th>
+                  <th>পণ্যের নাম</th>
                   <th>ক্যাটাগরি</th>
+                  <th>নির্ধারিত মূল্য</th>
+                  <th>মূল্য স্ট্যাটাস</th>
                   <th>ফিচার্ড</th>
                   <th>অ্যাকশন</th>
                 </tr>
@@ -217,11 +324,10 @@
         </div>
       </section>
 
-      <!-- 4. Services Management -->
+      <!-- 5. Services Management -->
       <section id="section-services" class="content-section">
         <div class="section-heading">
           <h2>🛠️ সেবাসমূহ ও সলিউশন কন্ট্রোল</h2>
-          <button class="btn btn-success" id="saveServicesBtn">💾 সার্ভিস তথ্য সংরক্ষণ করুন</button>
         </div>
 
         <div class="admin-card">
@@ -232,7 +338,6 @@
                   <th>আইকন</th>
                   <th>সার্ভিস শিরোনাম (EN)</th>
                   <th>সার্ভিস শিরোনাম (BN)</th>
-                  <th>মূল হাইলাইটস সংখ্যা</th>
                   <th>অ্যাকশন</th>
                 </tr>
               </thead>
@@ -244,10 +349,10 @@
         </div>
       </section>
 
-      <!-- 5. Team Management -->
+      <!-- 6. Team Management -->
       <section id="section-team" class="content-section">
         <div class="section-heading">
-          <h2>👥 পরিচালনা পর্ষদ ও ম্যানেজমেন্ট মেম্বার</h2>
+          <h2>👥 পরিচালনা পর্ষদ ও ম্যানেজমেন্ট</h2>
           <button class="btn btn-primary" id="openAddTeamBtn">➕ নতুন মেম্বার যোগ করুন</button>
         </div>
 
@@ -258,9 +363,8 @@
                 <tr>
                   <th>ছবি</th>
                   <th>নাম</th>
-                  <th>পদবী (Designation)</th>
+                  <th>পদবী</th>
                   <th>মোবাইল</th>
-                  <th>ইমেইল</th>
                   <th>অ্যাকশন</th>
                 </tr>
               </thead>
@@ -272,11 +376,10 @@
         </div>
       </section>
 
-      <!-- 6. Brochures & Downloads -->
+      <!-- 7. Brochures & Downloads -->
       <section id="section-brochures" class="content-section">
         <div class="section-heading">
-          <h2>📄 ডাউনলোডযোগ্য ব্রোশার ও প্রাইস লিস্ট</h2>
-          <button class="btn btn-primary" id="openAddBrochureBtn">➕ নতুন ব্রোশার লিংক যোগ করুন</button>
+          <h2>📄 ডাউনলোডযোগ্য ব্রোশার ও মূল্যতালিকা</h2>
         </div>
 
         <div class="admin-card">
@@ -284,10 +387,10 @@
             <table class="admin-table">
               <thead>
                 <tr>
-                  <th>শিরোনাম (Title)</th>
+                  <th>শিরোনাম</th>
                   <th>ক্যাটাগরি</th>
                   <th>ফাইল সাইজ</th>
-                  <th>ফাইলের পাথ</th>
+                  <th>পাথ</th>
                   <th>অ্যাকশন</th>
                 </tr>
               </thead>
@@ -299,7 +402,7 @@
         </div>
       </section>
 
-      <!-- 7. Admins & User Management -->
+      <!-- 8. Admins & User Management -->
       <section id="section-users" class="content-section">
         <div class="section-heading">
           <h2>🔐 ইউজার ও এডমিন এক্সেস ম্যানেজমেন্ট</h2>
@@ -329,16 +432,26 @@
         </div>
       </section>
 
-      <!-- 8. Data Backup, Export & Restore -->
+      <!-- 9. Data Backup & Cache Clear -->
       <section id="section-backup" class="content-section">
         <div class="section-heading">
-          <h2>💾 ডাটা ব্যাকআপ, সেভ ও এক্সপোর্ট</h2>
+          <h2>💾 ডাটা ব্যাকআপ, এক্সপোর্ট ও ক্যাশে ক্লিয়ার</h2>
+        </div>
+
+        <div class="admin-card" style="border-left:4px solid #0284c7;">
+          <h3 style="font-size:1.15rem; color:#0369a1; margin-bottom:8px;">🧹 ব্রাউজার ক্যাশে ক্লিয়ার করুন (Clear Cache)</h3>
+          <p style="font-size:0.9rem; color:#64748b; margin-bottom:14px;">
+            এডমিন প্যানেলে করা যেকোনো পরিবর্তন দেখতে যদি ব্রাউজারে কোনো বিলম্ব হয়, তাহলে এখানে ক্লিক করে সম্পূর্ণ ক্যাশে খালি করে লাইভ সাইট রিফ্রেশ করুন।
+          </p>
+          <button class="btn btn-secondary" id="clearCacheBtn">
+            🧹 ক্যাশে ক্লিয়ার ও রিফ্রেশ করুন
+          </button>
         </div>
 
         <div class="admin-card">
           <h3 style="font-size:1.15rem; color:var(--admin-primary); margin-bottom:10px;">১. সম্পূর্ণ ডাটা ব্যাকআপ ডাউনলোড করুন</h3>
           <p style="font-size:0.9rem; color:#64748b; margin-bottom:16px;">
-            এডমিন প্যানেলে করা সমস্ত পরিবর্তন (প্রোডাক্ট, সেটিংস, টিম, ইউজার ইত্যাদি) একটি একক <code>site_data_backup.json</code> ফাইল আকারে ডাউনলোড করে সুরক্ষিত রাখুন।
+            এডমিন প্যানেলে করা সমস্ত পরিবর্তন একটি একক <code>site_data_backup.json</code> ফাইল আকারে ডাউনলোড করে সুরক্ষিত রাখুন।
           </p>
           <button class="btn btn-success" id="exportDataBtn">
             📥 ডাউনলোড করুন (Export site_data_backup.json)
@@ -359,7 +472,7 @@
         <div class="admin-card" style="border-left:4px solid #ef4444;">
           <h3 style="font-size:1.15rem; color:#dc2626; margin-bottom:10px;">৩. ফ্যাক্টরি রিসেট (Reset to Default)</h3>
           <p style="font-size:0.9rem; color:#64748b; margin-bottom:16px;">
-            এডমিন প্যানেলে করা সমস্ত কাস্টম পরিবর্তন মুছে ফেলে মূল ডিফল্ট ডাটা আবার ফেরত আনুন।
+            এডমিন প্যানেলে করা সমস্ত কাস্টম পরিবর্তন মুছে ফেলে মূল ডিফল্ট ডাটা ফেরত আনুন।
           </p>
           <button class="btn btn-danger" id="resetDefaultsBtn">
             🔄 ফ্যাক্টরি রিসেট করুন
@@ -369,7 +482,7 @@
     </main>
   </div>
 
-  <!-- Product Modal (Add / Edit) -->
+  <!-- Product Modal (Add / Edit) with Individual Price Hide Toggle -->
   <div class="admin-modal-overlay" id="productModal">
     <div class="admin-modal">
       <div class="admin-modal-header">
@@ -402,29 +515,31 @@
               </select>
             </div>
             <div class="form-group">
+              <label class="form-label">মূল্য (Price - উদাঃ ৳ ৪,৫০০ বা আলোচনা সাপেক্ষ)</label>
+              <input type="text" id="pm_price" class="form-control" placeholder="৳ ৪,৫০০">
+            </div>
+            <div class="form-group full-width" style="background:#f8fafc; padding:12px; border-radius:6px; border:1px solid #e2e8f0;">
+              <label style="display:flex; align-items:center; gap:8px; font-weight:700; font-size:0.88rem; cursor:pointer;">
+                <input type="checkbox" id="pm_hidePrice" checked>
+                <span>🔒 এই নির্দিষ্ট পণ্যের মূল্য ওয়েবসাইটে গোপন (হাইড) রাখুন [Default: Checked]</span>
+              </label>
+            </div>
+            <div class="form-group full-width">
               <label class="form-label">ছবি ফাইলের পাথ বা URL</label>
               <input type="text" id="pm_image" class="form-control" placeholder="assets/images/products/example.webp">
             </div>
             <div class="form-group full-width">
               <label class="form-label">স্পেসিফিকেশন (কমা দিয়ে আলাদা করুন)</label>
-              <input type="text" id="pm_specs" class="form-control" placeholder="Size: 4 Inch, Material: SS304, Heat Resistant">
-            </div>
-            <div class="form-group full-width">
-              <label class="form-label">বর্ণনা (ইংরেজি)</label>
-              <textarea id="pm_description" class="form-control" rows="2"></textarea>
+              <input type="text" id="pm_specs" class="form-control" placeholder="Size: 4 Inch, Material: SS304">
             </div>
             <div class="form-group full-width">
               <label class="form-label">বর্ণনা (বাংলা)</label>
               <textarea id="pm_descriptionBn" class="form-control" rows="2"></textarea>
             </div>
-            <div class="form-group full-width">
-              <label class="form-label">হোয়াটসঅ্যাপ ডিফল্ট বার্তা (WhatsApp Prefilled Msg)</label>
-              <input type="text" id="pm_whatsappMsg" class="form-control">
-            </div>
             <div class="form-group">
               <label style="display:flex; align-items:center; gap:8px; font-weight:700; font-size:0.88rem; cursor:pointer;">
                 <input type="checkbox" id="pm_featured">
-                <span>হোমপেজে ফিচার্ড হিসেবে প্রদর্শন করুন</span>
+                <span>হোমপেজে ফিচার্ড হিসেবে রাখুন</span>
               </label>
             </div>
           </div>
@@ -437,7 +552,7 @@
     </div>
   </div>
 
-  <!-- User / Admin Modal (Add / Edit) -->
+  <!-- User / Admin Modal -->
   <div class="admin-modal-overlay" id="userModal">
     <div class="admin-modal" style="max-width:480px;">
       <div class="admin-modal-header">
@@ -477,7 +592,7 @@
 
   <!-- Team Member Modal -->
   <div class="admin-modal-overlay" id="teamModal">
-    <div class="admin-modal" style="max-width:540px;">
+    <div class="admin-modal" style="max-width:520px;">
       <div class="admin-modal-header">
         <h3 id="teamModalTitle">টিম মেম্বার তথ্য</h3>
         <button class="btn btn-sm" onclick="RMT_ADMIN.closeModals()">✕</button>
@@ -494,12 +609,8 @@
             <input type="text" id="tm_nameBn" class="form-control" required>
           </div>
           <div class="form-group">
-            <label class="form-label">পদবী (ইংরেজি) *</label>
+            <label class="form-label">পদবী *</label>
             <input type="text" id="tm_role" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">পদবী (বাংলা) *</label>
-            <input type="text" id="tm_roleBn" class="form-control" required>
           </div>
           <div class="form-group">
             <label class="form-label">মোবাইল নম্বর</label>
@@ -507,11 +618,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">ছবি ফাইলের পাথ</label>
-            <input type="text" id="tm_image" class="form-control" placeholder="assets/images/team/name.webp">
-          </div>
-          <div class="form-group">
-            <label class="form-label">সংক্ষিপ্ত পরিচিতি (বাংলা)</label>
-            <textarea id="tm_bioBn" class="form-control" rows="2"></textarea>
+            <input type="text" id="tm_image" class="form-control" placeholder="assets/images/team/rezaul-karim.webp">
           </div>
         </form>
       </div>
@@ -522,7 +629,7 @@
     </div>
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast Notice -->
   <div class="toast-notice" id="toastNotice">সফলভাবে সংরক্ষিত হয়েছে!</div>
 
   <script src="js/admin.js" defer></script>

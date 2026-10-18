@@ -15,7 +15,9 @@
     "description": "Precision engineered boiler air nozzles designed for fluidized bed boilers in auto rice mills, ensuring uniform combustion and high thermal efficiency.",
     "descriptionBn": "অটো রাইস মিলের এফবিসি বয়লারের জন্য উচ্চ তাপসহনশীল এয়ার নজল, যা সঠিক বাতাস প্রবাহ ও সর্বোচ্চ জ্বালানি দক্ষতা নিশ্চিত করে।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Fluidized Bed Air Nozzles* (বয়লার এয়ার নজল (হাই হিট রেজিস্ট্যান্ট)). Model/ID: p-boiler-01. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-02",
@@ -33,7 +35,9 @@
     "description": "Sensitive capsule draft pressure gauge for accurate monitoring of boiler furnace draft, flue gas, and combustion air pressure.",
     "descriptionBn": "বয়লার ফার্নেস ও এয়ার ডাক্টের অতি সূক্ষ্ম বাতাসের চাপ ও ড্রাফট নিখুঁতভাবে পরিমাপের নির্ভরযোগ্য ক্যাপসুল গেজ।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Low Pressure Draft Gauge (0-1000 mmWC)* (বয়লার ড্রাফট ও এয়ার প্রেসার গেজ (০-১০০০ mmWC)). Model/ID: p-boiler-02. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-03",
@@ -51,7 +55,9 @@
     "description": "Vital safety fitting for fire-tube boilers that melts under low water conditions to extinguish combustion fire and prevent boiler explosion.",
     "descriptionBn": "বয়লারে পানির স্তর নিচে নেমে গেলে স্বয়ংক্রিয়ভাবে গলে গিয়ে ফার্নেসে বাষ্প ঢুকিয়ে আগুন নিভিয়ে বিস্ফোরণ রোধ করার বিশ্বস্ত নিরাপত্তা প্লাগ।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Double Fusible Plug (Safety Fitting)* (বয়লার ফিউসিবল প্লাগ ডাবল (নিরাপত্তা যন্ত্রাংশ)). Model/ID: p-boiler-03. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-04",
@@ -69,7 +75,9 @@
     "description": "Reliable standard single core fusible safety plug for industrial steam boiler safety compliance.",
     "descriptionBn": "ইন্ডাস্ট্রিয়াল স্টিম বয়লারের স্ট্যান্ডার্ড সিঙ্গেল কোর ফিউসিবল সেফটি প্লাগ।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Single Fusible Plug* (বয়লার ফিউসিবল প্লাগ সিঙ্গেল). Model/ID: p-boiler-04. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-05",
@@ -87,7 +95,9 @@
     "description": "Heavy-duty round twisted wire brush for de-scaling soot, carbon deposits, and slag inside boiler smoke tubes.",
     "descriptionBn": "বয়লারের স্মোক টিউবের ভেতরের সুট, কার্বন ও স্কেল পরিষ্কার করার মজবুত স্প্রিং স্টিল ওয়্যার ব্রাশ।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Tube Cleaning Steel Wire Brush* (বয়লার টিউব ক্লিনিং স্টিল ওয়্যার ব্রাশ). Model/ID: p-boiler-05. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-06",
@@ -105,7 +115,9 @@
     "description": "Heavy duty bourdon tube steam pressure gauge with high vibration resistance for rice mill steam boilers and parboiling pipelines.",
     "descriptionBn": "রাইস মিলের স্টিম লাইন ও বয়লার পাইপলাইনে নিখুঁত ও নির্ভরযোগ্য বাষ্পের চাপ প্রদর্শনের জন্য ৪ ইঞ্চি প্রেসার গেজ।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Industrial Steam Pressure Gauge 4 Inch* (ইন্ডাস্ট্রিয়াল স্টিম প্রেসার গেজ ৪ ইঞ্চি). Model/ID: p-boiler-06. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-07",
@@ -123,7 +135,9 @@
     "description": "Large dial high-accuracy master steam pressure gauge for main boiler header and high-pressure steam distribution control.",
     "descriptionBn": "মেইন বয়লার হেডার ও দূর থেকে স্পষ্ট চাপ পর্যবেক্ষণের জন্য ৬ ইঞ্চি ডায়াল সাইজের প্রিমিয়াম স্টিম গেজ।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Steam Pressure Gauge 6 Inch* (হেভি ডিউটি স্টিম প্রেসার গেজ ৬ ইঞ্চি). Model/ID: p-boiler-07. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-08",
@@ -141,7 +155,9 @@
     "description": "Automated precise chemical metering pump to dose anti-scaling, anti-corrosion, and oxygen-scavenging chemicals into boiler feed water.",
     "descriptionBn": "বয়লারের পানি শোধনাগার এবং বয়লার টিউব ক্ষয় ও স্কেল জমা রোধে কেমিক্যাল নির্দিষ্ট মাত্রায় ইনজেক্ট করার অটোমেটিক ডোজিং পাম্প।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Water Chemical Dosing Pump* (বয়লার ওয়াটার কেমিক্যাল ডোজিং পাম্প). Model/ID: p-boiler-08. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-09",
@@ -159,7 +175,9 @@
     "description": "High-temperature and high-pressure mechanical face seal preventing feed water leakage in multi-stage boiler water supply pumps.",
     "descriptionBn": "মাল্টি-স্টেজ হাই প্রেসার বয়লার ফিড পাম্পের উচ্চ তাপমাত্রা ও চাপে পানি লিকেজ রোধে টেকসই মেকানিক্যাল সিল।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Feed Water Pump Mechanical Seal* (বয়লার ফিড ওয়াটার পাম্প মেকানিক্যাল সিল). Model/ID: p-boiler-09. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-10",
@@ -177,7 +195,9 @@
     "description": "Stainless steel disc type non-return check valve to prevent backflow of high pressure steam and boiling water into the pump.",
     "descriptionBn": "উচ্চ চাপের গরম পানি ও স্টিমের উল্টো প্রবাহ রোধে বয়লার ফিড লাইনের জন্য স্টেইনলেস স্টিলের তৈরি নন-রিটার্ন ভাল্ব।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Boiler Feed Pump SS Disc Non-Return Valve (NRV)* (বয়লার ফিড পাম্প এসএস ডিস্ক টাইপ নন-রিটার্ন ভাল্ব). Model/ID: p-boiler-10. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-11",
@@ -195,7 +215,9 @@
     "description": "Precision magnetic snap-action switch providing high and low water alarm and feed pump automatic cut-in/cut-out signals.",
     "descriptionBn": "বয়লারের পানির স্তর কমে গেলে পাম্প অন-অফ এবং বিপৎসীমা সংকেত পাঠানোর জন্য বিখ্যাত মুব্রে ম্যাগনেটিক সুইচ।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Mobrey Boiler Water Level Magnetic Switch* (মুব্রে বয়লার ওয়াটার লেভেল ম্যাগনেটিক সুইচ). Model/ID: p-boiler-11. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-boiler-12",
@@ -213,7 +235,9 @@
     "description": "Stainless steel magnetic float arm and rod for transfer of water level position across non-magnetic chamber walls.",
     "descriptionBn": "বয়লারের স্টিম চেম্বার থেকে ম্যাগনেটিক সুইচে নির্ভুল সিগন্যাল রূপান্তরের এসএস ম্যাগনেটিক রড ও ফ্লোট অ্যাসেম্বলি।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Mobrey Level Controller Float Magnetic Rod Assembly* (মুব্রে লেভেল কন্ট্রোলার ফ্লোট ম্যাগনেটিক রড). Model/ID: p-boiler-12. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-comp-01",
@@ -230,7 +254,9 @@
     "description": "Comprehensive maintenance replacement parts for industrial screw air compressors used in auto rice mill pneumatic sorters and actuators.",
     "descriptionBn": "অটো রাইস মিলের কালার সোর্টার ও নিউমেটিক সিলিন্ডার চালিত স্ক্রু কম্প্রেসরের যাবতীয় মেইনটেন্যান্স পার্টস।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Air Compressor Maintenance Spares Kit* (স্ক্রু এয়ার কম্প্রেসর মেইনটেন্যান্স ও স্পেয়ার পার্টস). Model/ID: p-comp-01. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-comp-02",
@@ -248,7 +274,9 @@
     "description": "High efficiency intake air filter cartridge ensuring dust-free air enters the compressor screw air-end, maximizing air-end lifespan.",
     "descriptionBn": "বায়ু থেকে ধূলিকণা ও ভুসি ছেঁকে স্ক্রু এয়ারএন্ডের নিরাপত্তা নিশ্চিত করার হাই-এফিশিয়েন্সি এয়ার ফিল্টার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Industrial Screw Compressor Intake Air Filter* (স্ক্রু কম্প্রেসর ইনটেক এয়ার ফিল্টার). Model/ID: p-comp-02. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-comp-03",
@@ -265,7 +293,9 @@
     "description": "Wide inventory of compressor air filters in various dimensions ready for immediate dispatch to auto rice mills across Bangladesh.",
     "descriptionBn": "বাংলাদেশের যেকোনো ব্র্যান্ডের স্ক্রু কম্প্রেসরের উপযোগী বিভিন্ন সাইজ ও ক্ষমতার রেডি স্টক এয়ার ফিল্টার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Compressor Air Filters (Assorted Stock)* (স্ক্রু কম্প্রেসর এয়ার ফিল্টার কালেকশন (সকল সাইজ)). Model/ID: p-comp-03. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-comp-04",
@@ -283,7 +313,9 @@
     "description": "Premium synthetic rotary screw compressor lubricant formulated for extreme operating temperatures in industrial rice mill operations.",
     "descriptionBn": "টানা চালিত স্ক্রু কম্প্রেসরের দীর্ঘস্থায়িত্ব, কম ঘর্ষণ এবং হিট রেজিস্ট্যান্সের জন্য প্রিমিয়াম সিন্থেটিক লুব্রিকেন্ট।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *High-Grade Screw Compressor Synthetic Oil (4000/8000 Hrs)* (স্ক্রু কম্প্রেসর সিন্থেটিক লুব্রিকেন্ট অয়েল). Model/ID: p-comp-04. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-comp-05",
@@ -301,7 +333,9 @@
     "description": "Precision balanced twin-rotor compressor head (air-end) delivering steady continuous compressed air for sorting machines.",
     "descriptionBn": "কালার সোর্টার ও মিলের সার্বিক বাতাসের জন্য সর্বোচ্চ প্রেসার সরবরাহকারী রোটোরি স্ক্রু এয়ার-এন্ড হেড।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Compressor Rotary Air-End Head* (স্ক্রু কম্প্রেসর রোটোরি এয়ার-এন্ড হেড). Model/ID: p-comp-05. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-comp-06",
@@ -319,7 +353,9 @@
     "description": "Timed electronic solenoid auto-drain valve to automatically purge accumulated water condensate from compressor air tanks and moisture traps.",
     "descriptionBn": "কম্প্রেসরের এয়ার ট্যাংক ও ড্রায়ার থেকে জমে থাকা পানি স্বয়ংক্রিয়ভাবে বাইরে নিষ্কাশনকারী টাইমার সোলেনয়েড ভাল্ব।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Electronic Auto Drain Solenoid Valve* (কম্প্রেসর অটো ড্রেন সোলেনয়েড ভাল্ব). Model/ID: p-comp-06. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mill-01",
@@ -337,7 +373,9 @@
     "description": "Hardened alloy steel slotted screen shell for water mist silky polishers, giving rice grains a brilliant pearly shine with minimal broken rice.",
     "descriptionBn": "সিল্কি পলিশারে চাউল চকচকে ও মসৃণ করার জন্য বিশেষ অ্যালয় স্টিলের টেকসই ছিদ্রযুক্ত স্ক্রিন শেল।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Rice Silky Polisher Screen Shell* (রাইস সিল্কি পলিশার স্ক্রিন শেল). Model/ID: p-mill-01. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mill-02",
@@ -355,7 +393,9 @@
     "description": "Complete matched assembly of feeding screw worm shaft and screen shell for water silky polishing machines.",
     "descriptionBn": "পানি স্প্রে সিল্কি পলিশারের ধান/চাউল ফিডিং ওয়ার্ম স্ক্রু ও ফ্রেম শেল কমপ্লিট সেট।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Silky Polisher Shell & Screw Worm Shaft Assembly* (সিল্কি শেল ও স্ক্রু ওয়ার্ম শ্যাফ্ট অ্যাসেম্বলি). Model/ID: p-mill-02. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mill-03",
@@ -372,7 +412,9 @@
     "description": "Dual-fluid atomizing spray nozzle that mixes pressurized air and water into ultra-fine micro-mist for brilliant rice polishing.",
     "descriptionBn": "পলিশিং চেম্বারে পানি ও বাতাসের নিখুঁত সংমিশ্রণে অতি সূক্ষ্ম কুয়াশার মতো স্প্রে তৈরি করে চাউলের গ্লেজ বৃদ্ধি করার স্প্রেয়ার নজল।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Silky Mist Polisher Water & Air Mixing Sprayer* (সিল্কি ওয়াটার ও এয়ার মিক্সিং স্প্রেয়ার নজল). Model/ID: p-mill-03. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mill-04",
@@ -390,7 +432,9 @@
     "description": "Precision balanced abrasive emery stone roller for vertical and horizontal rice whitening machines, gently removing bran without grain stress.",
     "descriptionBn": "চাউলের কুঁড়া বা লাল আবরণ আলতোভাবে তুলে ফেলে ধবধবে সাদা করতে অভিজ্ঞ মিলারদের প্রথম পছন্দের এমেরি স্টোন রোলার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Rice Whitener Emery Stone Polishing Roller* (রাইস হোয়াইটনার এমেরি স্টোন রোলার). Model/ID: p-mill-04. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mill-05",
@@ -408,7 +452,9 @@
     "description": "Complete selection of precision punched perforations for paddy cleaners, hullers, polishers, and bran separators.",
     "descriptionBn": "ধান ক্লিনার, হালার, হোয়াইটনার ও কুঁড়া চালনির জন্য বিভিন্ন সাইজের গোল ও খাঁজকাটা স্ক্রিন।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Rice Milling & Sifter Screens (All Hole Sizes)* (রাইস মিলের সকল সাইজের সিভ ও স্ক্রিন চালনি). Model/ID: p-mill-05. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mill-06",
@@ -426,7 +472,9 @@
     "description": "Embossed dimple textured screen that utilizes specific gravity and vibration to cleanly separate stones from paddy grain.",
     "descriptionBn": "নির্দিষ্ট গ্র্যাভিটি ও কম্পনের মাধ্যমে চাল বা ধান থেকে নিখুঁতভাবে পাথর আলাদা করার ডিম্পল স্ক্রিন শিট।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Paddy Destoner Dimple Perforated Screen* (প্যাডি ডি-স্টোনার ডিম্পল স্ক্রিন শিট). Model/ID: p-mill-06. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mill-07",
@@ -444,7 +492,9 @@
     "description": "Precision variable speed indicator and regulator panel meter to control paddy and rice feed rate into milling machines.",
     "descriptionBn": "মেশিনে ধান বা চাউল সরবরাহের গতি নিখুঁতভাবে নিয়ন্ত্রণ করার ডিজিটাল স্পিড কন্ট্রোলার মিটার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Screw Feeder Digital Speed Controller Meter* (স্ক্রু ফিডার স্পিড কন্ট্রোলার ডিজিটাল মিটার). Model/ID: p-mill-07. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mag-01",
@@ -462,7 +512,9 @@
     "description": "High-intensity rare-earth permanent magnetic grate designed to trap all ferrous tramp iron, nails, and wire from grain flow in hoppers.",
     "descriptionBn": "খাদ্য নিরাপত্তা নিশ্চিত করতে হপারের ভেতর দিয়ে যাওয়া ধান/চাল থেকে পেরেক, তার ও লোহার গুঁড়া শতভাগ আটকানোর শক্তিশালী এসএস ম্যাগনেট।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Sanitary Stainless Steel Hopper Magnet (SS304)* (হপার ম্যাগনেট এসএস ৩০৪ (ফুড গ্রেড শক্তিশালী চৌম্বক)). Model/ID: p-mag-01. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-mag-02",
@@ -480,7 +532,9 @@
     "description": "Robust magnetic trap grid for raw grain intake pits and chutes to protect mill rollers and destoner screens from iron debris damage.",
     "descriptionBn": "ইনটেক পিট ও চালনির মুখে স্থাপনযোগ্য লোহার যন্ত্রাংশকে ধ্বংসের হাত থেকে রক্ষাকারী হেভি ডিউটি ম্যাগনেট।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Industrial Hopper Magnet MS Frame* (ইন্ডাস্ট্রিয়াল হপার ম্যাগনেট এমএস ফ্রেম). Model/ID: p-mag-02. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-01",
@@ -498,7 +552,9 @@
     "description": "High accuracy RTD platinum sensor probe for monitoring steam temperature, drying hot air, and boiler flue gas heat.",
     "descriptionBn": "ধান শুকানো, পারবয়লিং ড্রায়ার ও স্টিম পাইপলাইনের তাপমাত্রা নিখুঁতভাবে মনিটরিং করার স্টেইনলেস স্টিল সেন্সর।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *PT100 RTD Industrial Temperature Sensor Probe* (পিটি১০০ আরটিডি ইন্ডাস্ট্রিয়াল টেম্পারেচার সেন্সর). Model/ID: p-elec-01. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-02",
@@ -516,7 +572,9 @@
     "description": "Intelligent PID temperature controller with dual digital LED readout for precise automated temperature regulation in paddy dryers and boilers.",
     "descriptionBn": "ধান ড্রায়ার ও বয়লারে কাঙ্ক্ষিত তাপমাত্রা স্বয়ংক্রিয়ভাবে ধরে রাখার জন্য বিশ্বস্ত ডিজিটাল পিআইডি কন্ট্রোলার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Digital PID Temperature Controller Meter (TC-513)* (ডিজিটাল টেম্পারেচার কন্ট্রোলার মিটার (টিসি-৫১৩)). Model/ID: p-elec-02. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-03",
@@ -534,7 +592,9 @@
     "description": "Specialized transition delay timer relay ensuring smooth starting of high-horsepower auto rice mill induction motors without power tripping.",
     "descriptionBn": "মিলের বড় হর্সপাওয়ারের মোটরগুলোকে মসৃণভাবে চালু করে অতিরিক্ত বিদ্যুৎ লোড ও ড্রপ ঠেকানোর স্টার-ডেল্টা টাইমার রিলে।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Star-Delta Motor Starter Timer Relay* (স্টার-ডেল্টা মোটর স্টার্টার টাইমার রিলে). Model/ID: p-elec-03. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-04",
@@ -552,7 +612,9 @@
     "description": "Essential industrial electrical protection relay to instantly trip motors during phase outage or reversal, preventing costly motor burnouts.",
     "descriptionBn": "বিদ্যুতের যেকোনো একটি ফেজ চলে গেলে বা ভোল্টেজ ওঠা-নামা করলে সাথে সাথে মোটর বন্ধ করে লাখ টাকার মোটর পোড়া থেকে বাঁচানোর ডিভাইস।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Motor Phase Failure & Voltage Protection Relay* (মোটর ফেজ ফেইলিওর ও সিকোয়েন্স প্রোটেকশন রিলে). Model/ID: p-elec-04. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-05",
@@ -570,7 +632,9 @@
     "description": "Front-mounting auxiliary contact block expanding the switching capability of industrial magnetic motor starters in mill control panels.",
     "descriptionBn": "রাইস মিলের মূল মোটর কন্ট্রোল প্যানেলে ম্যাগনেটিক কন্টাক্টরের সাথে সংযুক্ত করার ফ্রন্ট মাউন্টিং অক্সিলারি ব্লক।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Magnetic Contactor Auxiliary Contact Block (2NO + 2NC)* (ম্যাগনেটিক কন্টাক্টর অক্সিলারি কন্টাক্ট ব্লক (২NO + ২NC)). Model/ID: p-elec-05. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-06",
@@ -588,7 +652,9 @@
     "description": "Heavy-duty copper wound control circuit transformer supplying safe, isolated auxiliary voltage to mill contactors and solenoids.",
     "descriptionBn": "কন্ট্রোল প্যানেল, সেন্সর ও সোলেনয়েড ভাল্বে নিরাপদ বিদ্যুৎ সরবরাহের জন্য স্টেপ-ডাউন কপার ওয়্যার ট্রান্সফরমার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Step-Down Industrial Control Power Transformer* (কন্ট্রোল পাওয়ার স্টেপ-ডাউন ট্রান্সফরমার). Model/ID: p-elec-06. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-07",
@@ -606,7 +672,9 @@
     "description": "Precision current monitoring meter displaying real-time motor load on rice mill whitening, polishing, and boiler fan panels.",
     "descriptionBn": "মিলের প্রতিটি মোটরের ওপর কতখানি লোড পড়ছে তা সার্বক্ষণিক পর্যবেক্ষণের জন্য প্যানেল অ্যাম্পিয়ার মিটার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Analog / Digital AC Panel Ampere Meter* (প্যানেল এসি অ্যাম্পিয়ার মিটার). Model/ID: p-elec-07. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-elec-08",
@@ -624,7 +692,9 @@
     "description": "Heavy duty electrical switchboard voltage meter indicating 3-phase line voltage to protect mill equipment from abnormal supply.",
     "descriptionBn": "মেইন্টার্মিনালে ৩-ফেজ বিদ্যুতের সঠিক ভোল্টেজ যাচাই করার নির্ভরযোগ্য প্যানেল ভোল্ট মিটার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Three-Phase AC Panel Voltage Meter* (থ্রি-ফেজ এসি ভোল্টেজ মিটার). Model/ID: p-elec-08. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-vent-01",
@@ -642,7 +712,9 @@
     "description": "High CFM industrial wall exhaust fans designed for auto rice mills, removing steam, dust, and excess heat to maintain clean plant air.",
     "descriptionBn": "রাইস মিলের বয়লার রুম, মিলিং ফ্লোর ও পারবয়লিং এরিয়া থেকে ধুলোবালি ও অতিরিক্ত তাপ দ্রুত বের করে ঠান্ডা রাখার পাওয়ারফুল ফ্যান।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Industrial Ventilation & Exhaust Fans* (ইন্ডাস্ট্রিয়াল হেভি ডিউটি এক্সহস্ট ফ্যান (সকল সাইজ)). Model/ID: p-vent-01. Please send pricing, stock availability, and technical details.",
-    "featured": true
+    "featured": true,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   },
   {
     "id": "p-eng-01",
@@ -660,6 +732,8 @@
     "description": "High performance engine filters protecting industrial backup generators from fuel contaminants during grid power outages in rice mills.",
     "descriptionBn": "লোডশেডিংয়ের সময় মিল সচল রাখতে ব্যবহৃত ব্যাকআপ জেনারেটর ও ইঞ্জিনের জন্য সর্বোচ্চ মানের ফুয়েল ও অয়েল ফিল্টার।",
     "whatsappMsg": "Hello Rice Mill Trade, I am interested in *Heavy Duty Diesel Generator Fuel & Oil Filter* (ডিজেল জেনারেটর ইঞ্জিন ফুয়েল ও লুব ফিল্টার). Model/ID: p-eng-01. Please send pricing, stock availability, and technical details.",
-    "featured": false
+    "featured": false,
+    "price": "৳ আলোচনা সাপেক্ষ",
+    "hidePrice": true
   }
 ]

@@ -1,9 +1,8 @@
-﻿node_modules/
+node_modules/
 dist/
 build/
 .env
 .env.local
-videos/
-*.mp4
+assets/videos/Parbolling_Project.mp4
 .DS_Store
 Thumbs.db

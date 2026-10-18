@@ -1,6 +1,7 @@
 /**
  * Rice Mill Trade - Official Admin Control Logic
- * Complete CRUD operations, real-time persistence, user management, and backup.
+ * Complete CRUD operations, real-time persistence, user management,
+ * global & individual price hiding, theme customizer, social media links, and cache clearing.
  */
 
 const RMT_ADMIN = (() => {
@@ -40,6 +41,13 @@ const RMT_ADMIN = (() => {
   async function loadAllData() {
     // 1. Site info
     state.site = await getEntityData('site', '../data/site.json');
+    // Ensure nested objects exist
+    if (!state.site) state.site = {};
+    if (!state.site.settings) state.site.settings = { hideAllPrices: true };
+    if (!state.site.company) state.site.company = {};
+    if (!state.site.social) state.site.social = {};
+    if (!state.site.theme) state.site.theme = { primaryColor: '#0f3460', secondaryColor: '#e67e22' };
+
     // 2. Products
     state.products = await getEntityData('products', '../data/products.json');
     // 3. Services
@@ -90,7 +98,14 @@ const RMT_ADMIN = (() => {
 
     // Set Current Date
     const dElem = document.getElementById('currentDateDisplay');
-    if (dElem) dElem.textContent = new Date().toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (dElem) {
+      dElem.textContent = new Date().toLocaleDateString('bn-BD', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
 
     setupNavigation();
     setupForms();
@@ -101,6 +116,9 @@ const RMT_ADMIN = (() => {
   function renderAll() {
     renderStats();
     populateSiteForm();
+    populateThemeControls();
+    populatePriceControls();
+    renderHeroSlidesList();
     renderProductsTable();
     renderServicesTable();
     renderTeamTable();
@@ -121,9 +139,10 @@ const RMT_ADMIN = (() => {
     if (bCount) bCount.textContent = state.brochures.length;
   }
 
-  // Populate Site Settings Form
+  // Populate Site Settings & Social Media Form
   function populateSiteForm() {
     const c = (state.site && state.site.company) || {};
+    const soc = (state.site && state.site.social) || {};
     const setVal = (id, val) => {
       const el = document.getElementById(id);
       if (el) el.value = val || '';
@@ -139,11 +158,16 @@ const RMT_ADMIN = (() => {
     setVal('cfg_businessHours', c.businessHours || 'Sat - Thu: 9:00 AM - 8:00 PM');
     setVal('cfg_mainAddress', c.mainOfficeAddress || 'Protikkha (4th Floor), House #13, Road #10, Nikunja-2, Khelkhet, Dhaka-1229');
     setVal('cfg_manikganjAddress', c.manikganjOfficeAddress || '1: 47/1, Autpara, Betila, Manikganj Sadar, Manikganj');
-    setVal('cfg_mainMap', c.mainOfficeMapEmbed || '');
-    setVal('cfg_manikganjMap', c.manikganjOfficeMapEmbed || '');
+
+    // Social Media Links
+    setVal('cfg_facebook', soc.facebook || '');
+    setVal('cfg_youtube', soc.youtube || '');
+    setVal('cfg_linkedin', soc.linkedin || '');
+    setVal('cfg_instagram', soc.instagram || '');
+    setVal('cfg_twitter', soc.twitter || '');
   }
 
-  // Save Site Settings
+  // Save Site Settings & Social Media
   function handleSaveSiteSettings() {
     const getVal = (id) => (document.getElementById(id) ? document.getElementById(id).value.trim() : '');
 
@@ -158,15 +182,136 @@ const RMT_ADMIN = (() => {
       email: getVal('cfg_email'),
       businessHours: getVal('cfg_businessHours'),
       mainOfficeAddress: getVal('cfg_mainAddress'),
-      manikganjOfficeAddress: getVal('cfg_manikganjAddress'),
-      mainOfficeMapEmbed: getVal('cfg_mainMap'),
-      manikganjOfficeMapEmbed: getVal('cfg_manikganjMap')
+      manikganjOfficeAddress: getVal('cfg_manikganjAddress')
+    };
+
+    state.site.social = {
+      ...state.site.social,
+      facebook: getVal('cfg_facebook'),
+      youtube: getVal('cfg_youtube'),
+      linkedin: getVal('cfg_linkedin'),
+      instagram: getVal('cfg_instagram'),
+      twitter: getVal('cfg_twitter')
     };
 
     saveEntity('site', state.site);
   }
 
-  // Render Products Table
+  // Price Controls
+  function populatePriceControls() {
+    const isHidden = state.site.settings ? (state.site.settings.hideAllPrices !== false) : true;
+    const chk = document.getElementById('globalHidePricesCheckbox');
+    if (chk) chk.checked = isHidden;
+    updateGlobalPriceStatusUI(isHidden);
+  }
+
+  function updateGlobalPriceStatusUI(isHidden) {
+    const txt = document.getElementById('globalPriceStatusText');
+    if (txt) {
+      if (isHidden) {
+        txt.style.color = '#d97706';
+        txt.textContent = 'সকল পণ্যের মূল্য গোপন (হাইড) রয়েছে — গ্রাহকরা সরাসরি হোয়াটসঅ্যাপে কোটেশন জানতে পারবেন।';
+      } else {
+        txt.style.color = '#15803d';
+        txt.textContent = 'সকল পণ্যের নির্ধারিত মূল্য ওয়েবসাইটে সরাসরি প্রদর্শিত হচ্ছে।';
+      }
+    }
+  }
+
+  function handleToggleGlobalPriceHide(e) {
+    const isChecked = e.target.checked;
+    if (!state.site.settings) state.site.settings = {};
+    state.site.settings.hideAllPrices = isChecked;
+    saveEntity('site', state.site);
+    updateGlobalPriceStatusUI(isChecked);
+    renderProductsTable();
+    showToast(isChecked ? 'সকল পণ্যের মূল্য হাইড করা হয়েছে!' : 'সকল পণ্যের মূল্য উন্মুক্ত করা হয়েছে!');
+  }
+
+  // Theme Controls
+  function populateThemeControls() {
+    let customTheme = null;
+    try {
+      const stored = localStorage.getItem('rmt_custom_theme');
+      if (stored) customTheme = JSON.parse(stored);
+    } catch(e){}
+
+    const theme = customTheme || (state.site && state.site.theme) || { primaryColor: '#0f3460', secondaryColor: '#e67e22' };
+    const p = theme.primaryColor || '#0f3460';
+    const s = theme.secondaryColor || '#e67e22';
+
+    const pPicker = document.getElementById('theme_primaryColor');
+    const pHex = document.getElementById('theme_primaryColorHex');
+    const sPicker = document.getElementById('theme_secondaryColor');
+    const sHex = document.getElementById('theme_secondaryColorHex');
+
+    if (pPicker) pPicker.value = p;
+    if (pHex) pHex.value = p;
+    if (sPicker) sPicker.value = s;
+    if (sHex) sHex.value = s;
+  }
+
+  function setThemePreset(primary, secondary) {
+    const pPicker = document.getElementById('theme_primaryColor');
+    const pHex = document.getElementById('theme_primaryColorHex');
+    const sPicker = document.getElementById('theme_secondaryColor');
+    const sHex = document.getElementById('theme_secondaryColorHex');
+
+    if (pPicker) pPicker.value = primary;
+    if (pHex) pHex.value = primary;
+    if (sPicker) sPicker.value = secondary;
+    if (sHex) sHex.value = secondary;
+
+    handleSaveTheme();
+  }
+
+  function handleSaveTheme() {
+    const p = document.getElementById('theme_primaryColorHex')?.value.trim() || '#0f3460';
+    const s = document.getElementById('theme_secondaryColorHex')?.value.trim() || '#e67e22';
+
+    const themeObj = {
+      primaryColor: p,
+      secondaryColor: s,
+      accentColor: '#25d366'
+    };
+
+    localStorage.setItem('rmt_custom_theme', JSON.stringify(themeObj));
+    if (!state.site.theme) state.site.theme = {};
+    state.site.theme.primaryColor = p;
+    state.site.theme.secondaryColor = s;
+    saveEntity('site', state.site);
+
+    showToast('থিম ও কালার সফলভাবে সংরক্ষিত হয়েছে!');
+  }
+
+  // Render Hero Slides in Admin
+  function renderHeroSlidesList() {
+    const container = document.getElementById('adminHeroSlidesList');
+    if (!container) return;
+
+    const slides = (state.site && state.site.heroSlides) || [];
+    if (slides.length === 0) {
+      container.innerHTML = '<p style="color:#64748b;">কোনো হিরো ব্যানার পাওয়া যায়নি।</p>';
+      return;
+    }
+
+    container.innerHTML = slides.map((s, idx) => `
+      <div style="display:flex; align-items:center; gap:16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 16px;">
+        <span style="font-weight:700; color:var(--admin-primary); font-size:1.1rem; width:30px;">#${idx + 1}</span>
+        <img src="../${s.image}" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid #cbd5e1;" onerror="this.src='../assets/images/brand/logo.png'">
+        <div style="flex:1;">
+          <strong style="color:#1e293b; font-size:0.95rem;">${s.title}</strong>
+          <div style="font-size:0.8rem; color:#64748b; margin-top:2px;">${s.badge} | ${s.subtitle}</div>
+          <div style="margin-top:4px;">
+            ${s.video ? `<span style="background:#dcfce7; color:#15803d; font-size:0.75rem; font-weight:700; padding:2px 8px; border-radius:4px;">🎬 সক্রিয় ব্যাকগ্রাউন্ড অ্যানিমেটেড ভিডিও (${s.video})</span>` : `<span style="background:#f1f5f9; color:#64748b; font-size:0.75rem; padding:2px 8px; border-radius:4px;">🖼️ হাই-রেজুলেশন WebP ইমেজ</span>`}
+          </div>
+        </div>
+        <span style="font-size:0.82rem; color:#64748b;">স্লাইড ${idx + 1} / ${slides.length}</span>
+      </div>
+    `).join('');
+  }
+
+  // Render Products Table (8 columns)
   function renderProductsTable() {
     const tbody = document.getElementById('adminProductsTableBody');
     if (!tbody) return;
@@ -185,33 +330,52 @@ const RMT_ADMIN = (() => {
     }
 
     if (list.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px; color:#64748b;">কোনো প্রোডাক্ট পাওয়া যায়নি।</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:30px; color:#64748b;">কোনো প্রোডাক্ট পাওয়া যায়নি।</td></tr>`;
       return;
     }
 
-    tbody.innerHTML = list.map(p => `
-      <tr>
-        <td><img src="../${p.image}" class="table-img" onerror="this.src='../assets/images/brand/logo.png'"></td>
-        <td><code>${p.id}</code></td>
-        <td><strong>${p.name}</strong></td>
-        <td>${p.nameBn || '-'}</td>
-        <td><span style="background:#e2e8f0; padding:2px 8px; border-radius:4px; font-size:0.75rem;">${p.category}</span></td>
-        <td>
-          <button class="btn btn-sm ${p.featured ? 'btn-success' : 'btn-secondary'}" onclick="RMT_ADMIN.toggleFeatured('${p.id}')">
-            ${p.featured ? '★ ফিচার্ড' : '☆ সাধারণ'}
-          </button>
-        </td>
-        <td>
-          <div style="display:flex; gap:6px;">
-            <button class="btn btn-primary btn-sm" onclick="RMT_ADMIN.openEditProductModal('${p.id}')">✏️ এডিট</button>
-            <button class="btn btn-danger btn-sm" onclick="RMT_ADMIN.deleteProduct('${p.id}')">🗑️ মুছুন</button>
-          </div>
-        </td>
-      </tr>
-    `).join('');
+    tbody.innerHTML = list.map(p => {
+      const isPriceHidden = p.hidePrice !== false;
+      return `
+        <tr>
+          <td><img src="../${p.image}" class="table-img" onerror="this.src='../assets/images/brand/logo.png'"></td>
+          <td><code>${p.id}</code></td>
+          <td><strong>${p.name}</strong><br><small style="color:#64748b;">${p.nameBn || ''}</small></td>
+          <td><span style="background:#e2e8f0; padding:2px 8px; border-radius:4px; font-size:0.75rem;">${p.category}</span></td>
+          <td><strong>${p.price || 'আলোচনা সাপেক্ষ'}</strong></td>
+          <td>
+            <button class="btn btn-sm ${isPriceHidden ? 'btn-secondary' : 'btn-success'}" onclick="RMT_ADMIN.toggleProductPriceHide('${p.id}')" title="ক্লিক করে হাইড/আনহাইড পরিবর্তন করুন">
+              ${isPriceHidden ? '🔒 গোপন' : '👁️ উন্মুক্ত'}
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm ${p.featured ? 'btn-success' : 'btn-secondary'}" onclick="RMT_ADMIN.toggleFeatured('${p.id}')">
+              ${p.featured ? '★ ফিচার্ড' : '☆ সাধারণ'}
+            </button>
+          </td>
+          <td>
+            <div style="display:flex; gap:6px;">
+              <button class="btn btn-primary btn-sm" onclick="RMT_ADMIN.openEditProductModal('${p.id}')">✏️ এডিট</button>
+              <button class="btn btn-danger btn-sm" onclick="RMT_ADMIN.deleteProduct('${p.id}')">🗑️ মুছুন</button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
   }
 
-  // Product Actions
+  // Toggle Single Product Price Hide
+  function toggleProductPriceHide(pid) {
+    const p = state.products.find(item => item.id === pid);
+    if (p) {
+      p.hidePrice = (p.hidePrice === false) ? true : false;
+      saveEntity('products', state.products);
+      renderProductsTable();
+      showToast(p.hidePrice ? `'${p.name}' এর মূল্য হাইড করা হয়েছে!` : `'${p.name}' এর মূল্য উন্মুক্ত করা হয়েছে!`);
+    }
+  }
+
+  // Toggle Featured
   function toggleFeatured(pid) {
     const p = state.products.find(item => item.id === pid);
     if (p) {
@@ -234,6 +398,8 @@ const RMT_ADMIN = (() => {
     document.getElementById('productModalTitle').textContent = 'নতুন প্রোডাক্ট যোগ করুন';
     document.getElementById('productForm').reset();
     document.getElementById('pm_id').value = 'prod-' + Date.now().toString().slice(-4);
+    document.getElementById('pm_price').value = 'আলোচনা সাপেক্ষ';
+    document.getElementById('pm_hidePrice').checked = true; // Default hide price is true
     document.getElementById('productModal').classList.add('active');
   }
 
@@ -246,11 +412,11 @@ const RMT_ADMIN = (() => {
     document.getElementById('pm_name').value = p.name;
     document.getElementById('pm_nameBn').value = p.nameBn || '';
     document.getElementById('pm_category').value = p.category;
+    document.getElementById('pm_price').value = p.price || 'আলোচনা সাপেক্ষ';
+    document.getElementById('pm_hidePrice').checked = (p.hidePrice !== false); // Default hide price
     document.getElementById('pm_image').value = p.image;
     document.getElementById('pm_specs').value = (p.specs || []).join(', ');
-    document.getElementById('pm_description').value = p.description || '';
     document.getElementById('pm_descriptionBn').value = p.descriptionBn || '';
-    document.getElementById('pm_whatsappMsg').value = p.whatsappMsg || '';
     document.getElementById('pm_featured').checked = !!p.featured;
     document.getElementById('productModal').classList.add('active');
   }
@@ -265,12 +431,12 @@ const RMT_ADMIN = (() => {
     }
 
     const cat = document.getElementById('pm_category').value;
+    const price = document.getElementById('pm_price').value.trim() || 'আলোচনা সাপেক্ষ';
+    const hidePrice = document.getElementById('pm_hidePrice').checked;
     const img = document.getElementById('pm_image').value.trim() || 'assets/images/brand/logo.png';
     const specsStr = document.getElementById('pm_specs').value.trim();
     const specs = specsStr ? specsStr.split(',').map(s => s.trim()).filter(Boolean) : [];
-    const desc = document.getElementById('pm_description').value.trim();
     const descBn = document.getElementById('pm_descriptionBn').value.trim();
-    const wa = document.getElementById('pm_whatsappMsg').value.trim() || `Inquiry for ${name}`;
     const featured = document.getElementById('pm_featured').checked;
 
     const prodObj = {
@@ -278,17 +444,21 @@ const RMT_ADMIN = (() => {
       name,
       nameBn,
       category: cat,
+      price,
+      hidePrice,
       image: img,
       specs,
-      description: desc,
+      description: name,
       descriptionBn: descBn,
-      whatsappMsg: wa,
+      whatsappMsg: `Inquiry for ${name}`,
       featured
     };
 
     if (state.editingProductId) {
       const idx = state.products.findIndex(p => p.id === state.editingProductId);
-      if (idx !== -1) state.products[idx] = prodObj;
+      if (idx !== -1) {
+        state.products[idx] = { ...state.products[idx], ...prodObj };
+      }
     } else {
       state.products.unshift(prodObj);
     }
@@ -309,9 +479,8 @@ const RMT_ADMIN = (() => {
         <td style="font-size:1.5rem;">${s.icon || '⚙️'}</td>
         <td><strong>${s.title}</strong></td>
         <td>${s.titleBn}</td>
-        <td>${(s.features || []).length} টি ফিচার</td>
         <td>
-          <button class="btn btn-primary btn-sm" onclick="alert('সার্ভিসের শিরোনাম ও ফিচারসমূহ সেভ বাটনে চাপলে সরাসরি সংরক্ষিত হবে।')">তথ্য দেখুন</button>
+          <button class="btn btn-secondary btn-sm" onclick="alert('সার্ভিস: ${s.titleBn}\\nফিচারসমূহ: ${(s.features || []).join(', ')}')">ফিচারসমূহ দেখুন</button>
         </td>
       </tr>
     `).join('');
@@ -328,7 +497,6 @@ const RMT_ADMIN = (() => {
         <td><strong>${m.name}</strong><br><small style="color:var(--admin-secondary);">${m.nameBn || ''}</small></td>
         <td>${m.roleBn || m.role}</td>
         <td>${m.phone}</td>
-        <td>${m.email || 'N/A'}</td>
         <td>
           <button class="btn btn-danger btn-sm" onclick="RMT_ADMIN.deleteTeamMember('${m.id}')">মুছুন</button>
         </td>
@@ -446,6 +614,21 @@ const RMT_ADMIN = (() => {
     renderUsersTable();
   }
 
+  // Clear Browser Cache
+  async function clearBrowserCache() {
+    try {
+      sessionStorage.clear();
+      if ('caches' in window) {
+        const cacheNames = await caches.keys();
+        await Promise.all(cacheNames.map(name => caches.delete(name)));
+      }
+      alert('ব্রাউজার ক্যাশে সফলভাবে ক্লিয়ার হয়েছে! পেজটি নতুন করে রিলোড হচ্ছে...');
+      window.location.reload(true);
+    } catch(err) {
+      window.location.reload(true);
+    }
+  }
+
   // Export Data Bundle
   function exportAllData() {
     const bundle = {
@@ -499,6 +682,7 @@ const RMT_ADMIN = (() => {
     localStorage.removeItem('rmt_custom_team');
     localStorage.removeItem('rmt_custom_brochures');
     localStorage.removeItem('rmt_custom_admins');
+    localStorage.removeItem('rmt_custom_theme');
     alert('ফ্যাক্টরি রিসেট সম্পন্ন হয়েছে! পেজ রিলোড হচ্ছে...');
     window.location.reload();
   }
@@ -557,6 +741,39 @@ const RMT_ADMIN = (() => {
     const saveSiteBtn = document.getElementById('saveSiteSettingsBtn');
     if (saveSiteBtn) saveSiteBtn.addEventListener('click', handleSaveSiteSettings);
 
+    // Global Price Toggle
+    const globalHidePricesChk = document.getElementById('globalHidePricesCheckbox');
+    if (globalHidePricesChk) globalHidePricesChk.addEventListener('change', handleToggleGlobalPriceHide);
+
+    // Theme pickers sync
+    const pPicker = document.getElementById('theme_primaryColor');
+    const pHex = document.getElementById('theme_primaryColorHex');
+    if (pPicker && pHex) {
+      pPicker.addEventListener('input', (e) => pHex.value = e.target.value);
+      pHex.addEventListener('input', (e) => {
+        if (/^#[0-9A-Fa-f]{6}$/.test(e.target.value)) pPicker.value = e.target.value;
+      });
+    }
+
+    const sPicker = document.getElementById('theme_secondaryColor');
+    const sHex = document.getElementById('theme_secondaryColorHex');
+    if (sPicker && sHex) {
+      sPicker.addEventListener('input', (e) => sHex.value = e.target.value);
+      sHex.addEventListener('input', (e) => {
+        if (/^#[0-9A-Fa-f]{6}$/.test(e.target.value)) sPicker.value = e.target.value;
+      });
+    }
+
+    const saveThemeBtn = document.getElementById('saveThemeBtn');
+    if (saveThemeBtn) saveThemeBtn.addEventListener('click', handleSaveTheme);
+
+    // Cache Clear Buttons
+    const clearCacheBtn = document.getElementById('clearCacheBtn');
+    if (clearCacheBtn) clearCacheBtn.addEventListener('click', clearBrowserCache);
+
+    const topbarClearCacheBtn = document.getElementById('topbarClearCacheBtn');
+    if (topbarClearCacheBtn) topbarClearCacheBtn.addEventListener('click', clearBrowserCache);
+
     // Products
     const addProdBtn = document.getElementById('openAddProductBtn');
     if (addProdBtn) addProdBtn.addEventListener('click', openAddProductModal);
@@ -607,10 +824,12 @@ const RMT_ADMIN = (() => {
   return {
     init,
     switchTab,
+    setThemePreset,
     openAddProductModal,
     openEditProductModal,
     deleteProduct,
     toggleFeatured,
+    toggleProductPriceHide,
     openAddTeamModal,
     deleteTeamMember,
     openAddUserModal,
