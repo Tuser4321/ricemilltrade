@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
@@ -7,15 +7,16 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
   <header class="header">
     <div class="container navbar">
       <a href="index.html" class="logo">🌾 Rice Mill <span>Trade</span></a>
       <nav class="nav-menu" id="navMenu">
-        <a href="index.html" class="nav-link">হোম</a>
-        <a href="about.html" class="nav-link">আমাদের সম্পর্কে</a>
-        <a href="services.html" class="nav-link">সার্ভিসসমূহ</a>
-        <a href="products.html" class="nav-link">প্রোডাক্টস</a>
-        <a href="contact.html" class="nav-link active">যোগাযোগ</a>
+        <a href="index.html" class="nav-link" data-i18n="navHome">হোম</a>
+        <a href="about.html" class="nav-link" data-i18n="navAbout">আমাদের সম্পর্কে</a>
+        <a href="services.html" class="nav-link" data-i18n="navServices">সার্ভিসসমূহ</a>
+        <a href="products.html" class="nav-link" data-i18n="navProducts">প্রোডাক্টস</a>
+        <a href="contact.html" class="nav-link active" data-i18n="navContact">যোগাযোগ</a>
       </nav>
       <div class="header-actions">
         <button class="lang-btn" id="langToggle">English</button>
@@ -23,31 +24,44 @@
       </div>
     </div>
   </header>
+
   <div class="page-header">
     <div class="container">
-      <h1>আমাদের সাথে যোগাযোগ করুন</h1>
+      <h1 data-i18n="contactHeader">আমাদের সাথে যোগাযোগ করুন</h1>
       <p>B2B কোটেশন বা যেকোনো তথ্যের জন্য ফর্ম পূরণ করুন</p>
     </div>
   </div>
+
   <section class="section">
     <div class="container contact-container">
+      
+      <!-- Contact Info -->
       <div class="contact-info">
         <h2 style="margin-bottom:25px;">অফিস ঠিকানা ও সাপোর্ট</h2>
+        
         <div class="info-box">
-          <h3>🏢 প্রধান কার্যালয়</h3>
+          <h3>🏢 প্রধান কার্যালয় (Dhaka Office)</h3>
           <p>Protikkha (4th Floor), House #13, Road #10, Nikunja-2, Khilkhet, Dhaka-1229</p>
         </div>
+
         <div class="info-box">
-          <h3>🏬 মানিকগঞ্জ অফিস</h3>
+          <h3>🏬 মানিকগঞ্জ অফিস (Old Office)</h3>
           <p>Ward no. 1, Autpara, Betila, Manikganj Sadar, Manikganj, Dhaka</p>
         </div>
+
         <div class="info-box">
           <h3>📞 ফোন ও হোয়াটসঅ্যাপ</h3>
           <p>মোবাইল: 01348249343</p>
           <p>WhatsApp: +8801348249343</p>
           <p>ইমেইল: ricemilltrade@gmail.com</p>
         </div>
+
+        <a href="https://wa.me/8801348249343" target="_blank" class="btn btn-secondary" style="margin-top:10px;">
+          💬 হোয়াটসঅ্যাপে সরাসরি মেসেজ দিন
+        </a>
       </div>
+
+      <!-- B2B Form -->
       <div class="card">
         <h3 style="margin-bottom:20px;">B2B প্রাইস কোটেশন রিকোয়েস্ট</h3>
         <form id="contactForm">
@@ -56,18 +70,50 @@
             <input type="text" id="name" class="form-control" required placeholder="আপনার নাম লিখুন">
           </div>
           <div class="form-group">
+            <label for="company">কোম্পানি / মিলের নাম *</label>
+            <input type="text" id="company" class="form-control" required placeholder="মিল বা ব্যবসার নাম">
+          </div>
+          <div class="form-group">
             <label for="phone">মোবাইল নম্বর *</label>
             <input type="tel" id="phone" class="form-control" required placeholder="017XXXXXXXX">
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;">কোটেশন জমা দিন</button>
+          <div class="form-group">
+            <label for="service">প্রয়োজনীয় সার্ভিস / প্রোডাক্ট</label>
+            <select id="service" class="form-control">
+              <option value="Spare Parts">স্পেয়ার পার্টস</option>
+              <option value="Mill Installation">রাইস মিল ইনস্টলেশন</option>
+              <option value="Solar Project">সোলার প্রজেক্ট</option>
+              <option value="Maintenance">মেইনটেনেন্স ও সার্ভিসিং</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">বিস্তারিত বার্তা</label>
+            <textarea id="message" rows="4" class="form-control" placeholder="আপনার প্রয়োজনীয় যন্ত্রাংশ বা সেবার বিবরণ দিন..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">কোটেশন জমা দিন (WhatsApp-এ)</button>
         </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Google Map Location Embed -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <h3 style="margin-bottom: 20px;">গুগল ম্যাপে আমাদের লোকেশন (Nikunja-2)</h3>
+      <div style="border-radius: 10px; overflow: hidden; box-shadow: var(--box-shadow);">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.0981144005113!2d90.4152!3d23.8324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c65d68d1da23%3A0x2803b0c60d8a57e3!2sNikunja%202%2C%20Dhaka!5e0!2m3!1sen!2sbd!4v1680000000000!5m2!1sen!2sbd" width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </section>
+
   <footer class="footer">
     <div class="container footer-bottom">
       <p>&copy; 2026 Rice Mill Trade. All Rights Reserved.</p>
     </div>
   </footer>
-  <a href="https://wa.me/8801348249343" class="whatsapp-float" aria-label="Contact via WhatsApp">💬</a>
-  <script src="assets/js/app.js" defer></script>
+
+  <a href="https://wa.me/8801348249343" class="whatsapp-float">💬</a>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

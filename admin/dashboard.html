@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Rice Mill Trade</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">🌾 Rice Mill <span>Admin</span></div>
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item active" data-section="section-dashboard">📊 ড্যাশবোর্ড</a>
+      <a href="#site-control" class="nav-item" data-section="section-site-control">🌐 সাইট কন্ট্রোল</a>
+      <a href="#products" class="nav-item" data-section="section-products">📦 প্রোডাক্টস</a>
+      <a href="#team" class="nav-item" data-section="section-team">👥 টিম মেম্বার্স</a>
+      <a href="#theme" class="nav-item" data-section="section-theme">🎨 থিম ও কালার</a>
+      <a href="#backup" class="nav-item" data-section="section-backup">💾 ডাটা ব্যাকআপ ও রিস্টোর</a>
+    </nav>
+  </aside>
+  <div class="main-wrapper">
+    <header class="topbar">
+      <button class="toggle-sidebar-btn" id="toggleSidebar">☰</button>
+      <div class="user-profile">
+        <span class="user-role-badge" id="displayRole">Superadmin</span>
+        <span id="displayName">Rezaul Karim</span>
+        <button class="btn btn-outline-danger btn-sm" id="logoutBtn">লগআউট</button>
+      </div>
+    </header>
+    <main class="content-container">
+      <section id="section-dashboard" class="content-section active">
+        <h2 class="section-heading">ওভারভিউ ও স্ট্যাটিস্টিকস</h2>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-icon" style="background:#e0f2fe; color:#0284c7;">📦</div><div><h3 id="statProducts">0</h3><p>মোট প্রোডাক্টস</p></div></div>
+          <div class="stat-card"><div class="stat-icon" style="background:#fef3c7; color:#d97706;">🛠️</div><div><h3 id="statServices">6</h3><p>সক্রিয় সার্ভিসেস</p></div></div>
+          <div class="stat-card"><div class="stat-icon" style="background:#dcfce7; color:#15803d;">👥</div><div><h3 id="statTeam">0</h3><p>টিম মেম্বার</p></div></div>
+        </div>
+      </section>
