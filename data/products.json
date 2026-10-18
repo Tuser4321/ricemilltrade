@@ -1,0 +1,62 @@
+[
+  {
+    "id": "prod-101",
+    "name": "Paddy Dehusker Rubber Roller 10 Inch",
+    "nameBn": "ধান ভানানো রাবার রোলার ১০ ইঞ্চি",
+    "model": "RMT-RR-10",
+    "category": "spare-parts",
+    "description": "Heavy-duty high elasticity rubber roller for high efficiency dehusking with minimal grain breakage.",
+    "descriptionBn": "সর্বোচ্চ কার্যক্ষমতা সম্পন্ন রাবার রোলার, যা চাউল ভাঙা ছাড়া দ্রুততম সময়ে তুষ পৃথক করে।",
+    "image": "assets/images/prod-101.jpg",
+    "specs": ["Size: 10 Inch", "Material: Premium Synthetic Rubber", "Durability: 150+ Tons"],
+    "features": ["Heat resistant", "Zero rice cracking", "Long operational life"]
+  },
+  {
+    "id": "prod-102",
+    "name": "Rice Whitener Emery Roller",
+    "nameBn": "রাইস হোয়াইটনার এমেরি রোলার",
+    "model": "RMT-WR-350",
+    "category": "spare-parts",
+    "description": "Precision silicon carbide emery roller for superior rice polishing and uniform whiteness.",
+    "descriptionBn": "চাউলে মসৃণ ও আকর্ষণীয় উজ্জ্বলতা আনার জন্য সিলিকন কার্বাইডযুক্ত টেকসই হোয়াইটনার রোলার।",
+    "image": "assets/images/prod-102.jpg",
+    "specs": ["Grit Size: 30/36/46", "Inner Diameter: Standard", "Balance: Dynamic Balanced"],
+    "features": ["High polishing effect", "Low energy consumption", "Even wear out"]
+  },
+  {
+    "id": "prod-103",
+    "name": "Reconditioned Satake Color Sorter 6 Chute",
+    "nameBn": "রীকন্ডিশন্ড সাতাশ কালার সোর্টার ৬ শুট",
+    "model": "SATAKE-CS-6",
+    "category": "reconditioned",
+    "description": "Fully refurbished Japanese color sorter machine with ultra-high resolution CCD cameras.",
+    "descriptionBn": "জাপানি প্রযুক্তির সম্পূর্ণ ওভারহোল্ডকৃত কালার সোর্টার, যা চাউলের মান শতভাগ নিখুঁত করে।",
+    "image": "assets/images/prod-103.jpg",
+    "specs": ["Chutes: 6", "Capacity: 4-6 Ton/Hour", "Camera: 2048 Pixel CCD"],
+    "features": ["High accuracy", "Low rejection loss", "1 Year Service Warranty"]
+  },
+  {
+    "id": "prod-104",
+    "name": "Heavy Industrial Solar Inverter 50KW",
+    "nameBn": "ইন্ডাস্ট্রিয়াল সোলার ইনভার্টার ৫০ কিলোওয়াট",
+    "model": "RMT-SLR-50K",
+    "category": "solar",
+    "description": "High-capacity grid-tied solar inverter designed specifically for heavy industrial motor loads.",
+    "descriptionBn": "রাইস মিল ও ভারী ইন্ডাস্ট্রির উচ্চ লোড সহ্যক্ষমতাসম্পন্ন থ্রি-ফেজ অন-গ্রিড ইনভার্টার।",
+    "image": "assets/images/prod-104.jpg",
+    "specs": ["Power Output: 50KW", "Phase: Three Phase", "Efficiency: 98.6%"],
+    "features": ["MPPT Tracking", "IP65 Waterproof", "Remote Monitoring"]
+  },
+  {
+    "id": "prod-105",
+    "name": "Paddy Cleaner Vibrating Screen Mesh",
+    "nameBn": "ধান পরিষ্কারক ভাইব্রেটিং স্ক্রিন মেস",
+    "model": "RMT-VSM-02",
+    "category": "spare-parts",
+    "description": "Stainless steel heavy mesh screen for removing straw, stones, and dust from raw paddy.",
+    "descriptionBn": "কাঁচা ধান থেকে ময়লা, খড় ও পাথর দ্রুত আলাদা করতে স্টেইনলেস স্টিলের তৈরি স্ক্রিন।",
+    "image": "assets/images/prod-105.jpg",
+    "specs": ["Material: SS 304", "Mesh Hole: Custom Available", "Frame: Reinforced Iron"],
+    "features": ["Anti-clogging design", "High throughput", "Rust proof"]
+  }
+]

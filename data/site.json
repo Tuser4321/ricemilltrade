@@ -1,0 +1,32 @@
+{
+  "company": {
+    "name": "Rice Mill Trade",
+    "tagline": "Your reliable partner in your business",
+    "taglineBn": "আপনার ব্যবসায় বিশ্বস্ত সহযোগী",
+    "phone": "01348249343",
+    "whatsapp": "8801348249343",
+    "email": "ricemilltrade@gmail.com",
+    "mainAddress": "Protikkha 4th Floor, House #13, Road #10, Nikunja-2, Khelkhet, Dhaka-1229",
+    "mainAddressBn": "প্রতীক্ষা (৪র্থ তলা), বাসা #১৩, রোড #১০, নিকুঞ্জ-২, খিলক্ষেত, ঢাকা-১২২৯",
+    "oldAddress": "Ward no. 1, Autpara, Betila, Manikganj Sadar, Manikganj, Dhaka",
+    "oldAddressBn": "ওয়ার্ড নং ১, আউটপাড়া, বেটিলা, মানিকগঞ্জ সদর, মানিকগঞ্জ, ঢাকা"
+  },
+  "features": {
+    "whatsappInquiry": true,
+    "solarOfferings": true,
+    "b2bQuotation": true
+  },
+  "design": {
+    "primaryColor": "#1a5f7a",
+    "secondaryColor": "#e8a33d",
+    "fontFamily": "Segoe UI, Noto Sans Bengali, sans-serif",
+    "logoUrl": "assets/images/logo.png"
+  },
+  "admins": [
+    {
+      "username": "admin",
+      "password": "Rezaul9270",
+      "role": "superadmin"
+    }
+  ]
+}

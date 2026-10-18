@@ -1,0 +1,35 @@
+[
+  {
+    "id": "tm-01",
+    "name": "Rezaul Karim",
+    "nameBn": "রেজাউল করিম",
+    "title": "Managing Director",
+    "titleBn": "ব্যবস্থাপনা পরিচালক",
+    "bio": "Over 15 years of operational expertise in auto rice mill engineering and industrial equipment supply.",
+    "image": "assets/images/team-1.jpg",
+    "email": "rezaul@ricemilltrade.com",
+    "phone": "01348249343"
+  },
+  {
+    "id": "tm-02",
+    "name": "Engr. Mahmudul Hasan",
+    "nameBn": "ইঞ্জি. মাহমুদুল হাসান",
+    "title": "Chief Technical Officer",
+    "titleBn": "প্রধান কারিগরি কর্মকর্তা",
+    "bio": "Expert in automated industrial plant setup, mechanical alignment, and precision spare parts custom fitting.",
+    "image": "assets/images/team-2.jpg",
+    "email": "tech@ricemilltrade.com",
+    "phone": "01348249343"
+  },
+  {
+    "id": "tm-03",
+    "name": "Tushar Ibrahim",
+    "nameBn": "তুষার ইব্রাহিম",
+    "title": "Head of Operations & Systems",
+    "titleBn": "হেড অব অপারেশনস ও সিস্টেমস",
+    "bio": "Specialist in B2B client management, supply chain coordination, and industrial solar projects execution.",
+    "image": "assets/images/team-3.jpg",
+    "email": "operations@ricemilltrade.com",
+    "phone": "01348249343"
+  }
+]
