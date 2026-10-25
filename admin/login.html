@@ -72,13 +72,6 @@
       <p>ওয়েবসাইট কন্ট্রোল ও ম্যানেজমেন্ট প্যানেল</p>
     </div>
 
-    <div class="hint-box">
-      <strong>ডিফল্ট লগইন ইউজার ও পাসওয়ার্ড:</strong><br>
-      • ইউজার: <code>admin</code> | পাসওয়ার্ড: <code>Rezaul9270</code> (Superadmin)<br>
-      • ইউজার: <code>amirul</code> | পাসওয়ার্ড: <code>Amirul2026</code> (Admin)<br>
-      • ইউজার: <code>helal</code> | পাসওয়ার্ড: <code>Helal2026</code> (Manager)
-    </div>
-
     <form id="loginForm">
       <div class="form-group" style="margin-bottom: 16px;">
         <label class="form-label" style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:6px;">ইউজারনেম (Username)</label>
@@ -111,9 +104,7 @@
 
       // Load admin list from localStorage or data/site.json
       let admins = [
-        { username: "admin", password: "Rezaul9270", name: "Rezaul Karim", role: "superadmin" },
-        { username: "amirul", password: "Amirul2026", name: "MD. Amirul Islam", role: "admin" },
-        { username: "helal", password: "Helal2026", name: "Md. Helal Miah", role: "manager" }
+        { username: "admin", password: "Rezaul9270", name: "Rezaul Karim", role: "superadmin" }
       ];
 
       const customAdmins = localStorage.getItem('rmt_custom_admins');

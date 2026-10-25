@@ -1499,3 +1499,29 @@ button, input, select, textarea {
   height: 17px;
   fill: currentColor;
 }
+/* Price Hidden Bar */
+.price-hidden-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  color: #0369a1;
+  font-weight: 600;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.price-phone-link {
+  color: #0f3460;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1.5px solid #0f3460;
+}
+.price-phone-link:hover {
+  color: #e67e22;
+  border-color: #e67e22;
+}

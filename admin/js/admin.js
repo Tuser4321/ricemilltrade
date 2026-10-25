@@ -64,9 +64,7 @@ const RMT_ADMIN = (() => {
       state.admins = state.site.admins;
     } else {
       state.admins = [
-        { username: "admin", password: "Rezaul9270", name: "Rezaul Karim", role: "superadmin" },
-        { username: "amirul", password: "Amirul2026", name: "MD. Amirul Islam", role: "admin" },
-        { username: "helal", password: "Helal2026", name: "Md. Helal Miah", role: "manager" }
+        { username: "admin", password: "Rezaul9270", name: "Rezaul Karim", role: "superadmin" }
       ];
     }
   }

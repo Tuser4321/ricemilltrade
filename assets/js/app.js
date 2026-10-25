@@ -413,10 +413,10 @@ const RMT_APP = (() => {
     const catName = isBn ? (p.categoryBn || p.category) : p.category;
     const waUrl = getWhatsAppUrl(p.whatsappMsg || `Inquiry about ${p.name} (ID: ${p.id}).`);
 
-    const priceHidden = isPriceHidden(p);
-    let priceHtml = priceHidden
-      ? `<span class="price-badge price-hidden">🔒 ${t('callForPrice')}</span>`
-      : `<span class="price-badge price-visible">🏷️ ${p.price || 'Call'}</span>`;
+    const priceHtml = `<div class="price-hidden-bar">
+    <span>📞 মূল্য জানতে কল করুন:</span>
+    <a href="tel:01348249343" class="price-phone-link">01348249343</a>
+  </div>`;
 
     return `
       <article class="product-card fade-in">
@@ -478,7 +478,22 @@ const RMT_APP = (() => {
     }
 
     const waBtn = document.getElementById('modalWhatsAppBtn');
-    if (waBtn) waBtn.href = waUrl;
+    if (waBtn) {
+      waBtn.href = waUrl;
+      // Add phone call link above WhatsApp button if not already present
+      const existingCallBtn = document.getElementById('modalCallBtn');
+      if (!existingCallBtn) {
+        const callBtn = document.createElement('a');
+        callBtn.id = 'modalCallBtn';
+        callBtn.href = 'tel:01348249343';
+        callBtn.className = 'btn btn-secondary';
+        callBtn.style.cssText = 'width:100%; margin-bottom:8px; display:block; text-align:center;';
+        callBtn.innerHTML = '📞 01348249343 সরাসরি কল করুন';
+        waBtn.parentNode.insertBefore(callBtn, waBtn);
+      } else {
+        existingCallBtn.href = 'tel:01348249343';
+      }
+    }
 
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
