@@ -194,6 +194,13 @@ const RMT_APP = (() => {
     state.services = services || [];
     state.brochures = brochures || [];
 
+    // Parse URL query parameter for category filtering
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get('category') || urlParams.get('cat');
+    if (catParam) {
+      state.activeCategory = catParam;
+    }
+
     applyTheme();
     setupLanguage();
     setupNav();
@@ -595,6 +602,11 @@ const RMT_APP = (() => {
     }
 
     const filterPills = document.querySelectorAll('.filter-btn');
+    if (state.activeCategory !== 'all') {
+      filterPills.forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-category') === state.activeCategory);
+      });
+    }
     filterPills.forEach(btn => {
       btn.addEventListener('click', () => {
         filterPills.forEach(b => b.classList.remove('active'));

@@ -6,3 +6,6 @@ build/
 assets/videos/Parbolling_Project.mp4
 .DS_Store
 Thumbs.db
+.aider*
+awesome-llm-apps/
+
