@@ -1,7 +1,7 @@
 /**
  * Rice Mill Trade - Official Admin Control Logic
- * Complete CRUD operations, real-time persistence, user management,
- * global & individual price hiding, theme customizer, social media links, and cache clearing.
+ * Complete CRUD operations for Products, Services, Catalogs/Brochures, Team,
+ * Theme Customization, Price Hiding, Single Admin Security, and Backup.
  */
 
 const RMT_ADMIN = (() => {
@@ -14,6 +14,8 @@ const RMT_ADMIN = (() => {
     brochures: [],
     admins: [],
     editingProductId: null,
+    editingServiceId: null,
+    editingBrochureId: null,
     editingTeamId: null
   };
 
@@ -26,10 +28,14 @@ const RMT_ADMIN = (() => {
     }
     try {
       state.session = JSON.parse(s);
+      if (!state.session || !state.session.username) {
+        window.location.replace('login.html');
+        return false;
+      }
       const nameElem = document.getElementById('displayName');
       const roleElem = document.getElementById('displayRole');
       if (nameElem) nameElem.textContent = state.session.name || state.session.username;
-      if (roleElem) roleElem.textContent = state.session.role || 'Admin';
+      if (roleElem) roleElem.textContent = state.session.role || 'Superadmin';
       return true;
     } catch (e) {
       window.location.replace('login.html');
@@ -41,7 +47,6 @@ const RMT_ADMIN = (() => {
   async function loadAllData() {
     // 1. Site info
     state.site = await getEntityData('site', '../data/site.json');
-    // Ensure nested objects exist
     if (!state.site) state.site = {};
     if (!state.site.settings) state.site.settings = { hideAllPrices: true };
     if (!state.site.company) state.site.company = {};
@@ -50,22 +55,36 @@ const RMT_ADMIN = (() => {
 
     // 2. Products
     state.products = await getEntityData('products', '../data/products.json');
+    if (!Array.isArray(state.products)) state.products = [];
+
     // 3. Services
     state.services = await getEntityData('services', '../data/services.json');
+    if (!Array.isArray(state.services)) state.services = [];
+
     // 4. Team
     state.team = await getEntityData('team', '../data/team.json');
-    // 5. Brochures
+    if (!Array.isArray(state.team)) state.team = [];
+
+    // 5. Brochures / Catalog
     state.brochures = await getEntityData('brochures', '../data/brochures.json');
-    // 6. Admins
+    if (!Array.isArray(state.brochures)) state.brochures = [];
+
+    // 6. Master Admin
     const customAdmins = localStorage.getItem('rmt_custom_admins');
     if (customAdmins) {
-      try { state.admins = JSON.parse(customAdmins); } catch(e){}
-    } else if (state.site && state.site.admins) {
-      state.admins = state.site.admins;
-    } else {
-      state.admins = [
-        { username: "admin", password: "Rezaul9270", name: "Rezaul Karim", role: "superadmin" }
-      ];
+      try {
+        const parsed = JSON.parse(customAdmins);
+        if (Array.isArray(parsed) && parsed.length > 0) state.admins = parsed;
+      } catch(e){}
+    }
+    if (!state.admins || state.admins.length === 0) {
+      if (state.site && Array.isArray(state.site.admins) && state.site.admins.length > 0) {
+        state.admins = state.site.admins;
+      } else {
+        state.admins = [
+          { username: "admin", password: "Rezaul9270", name: "Rezaul Karim", role: "superadmin" }
+        ];
+      }
     }
   }
 
@@ -94,7 +113,7 @@ const RMT_ADMIN = (() => {
 
     await loadAllData();
 
-    // Set Current Date
+    // Set Current Date in Bengali
     const dElem = document.getElementById('currentDateDisplay');
     if (dElem) {
       dElem.textContent = new Date().toLocaleDateString('bn-BD', {
@@ -119,25 +138,27 @@ const RMT_ADMIN = (() => {
     renderHeroSlidesList();
     renderProductsTable();
     renderServicesTable();
-    renderTeamTable();
     renderBrochuresTable();
-    renderUsersTable();
+    renderTeamTable();
+    populateSecurityForm();
   }
 
   // Render Stats
   function renderStats() {
     const pCount = document.getElementById('statProducts');
     const sCount = document.getElementById('statServices');
-    const tCount = document.getElementById('statTeam');
     const bCount = document.getElementById('statBrochures');
+    const tCount = document.getElementById('statTeam');
 
     if (pCount) pCount.textContent = state.products.length;
     if (sCount) sCount.textContent = state.services.length;
-    if (tCount) tCount.textContent = state.team.length;
     if (bCount) bCount.textContent = state.brochures.length;
+    if (tCount) tCount.textContent = state.team.length;
   }
 
-  // Populate Site Settings & Social Media Form
+  // ==========================================
+  // Site Settings & Social Media
+  // ==========================================
   function populateSiteForm() {
     const c = (state.site && state.site.company) || {};
     const soc = (state.site && state.site.social) || {};
@@ -165,7 +186,6 @@ const RMT_ADMIN = (() => {
     setVal('cfg_twitter', soc.twitter || '');
   }
 
-  // Save Site Settings & Social Media
   function handleSaveSiteSettings() {
     const getVal = (id) => (document.getElementById(id) ? document.getElementById(id).value.trim() : '');
 
@@ -195,7 +215,9 @@ const RMT_ADMIN = (() => {
     saveEntity('site', state.site);
   }
 
+  // ==========================================
   // Price Controls
+  // ==========================================
   function populatePriceControls() {
     const isHidden = state.site.settings ? (state.site.settings.hideAllPrices !== false) : true;
     const chk = document.getElementById('globalHidePricesCheckbox');
@@ -208,7 +230,7 @@ const RMT_ADMIN = (() => {
     if (txt) {
       if (isHidden) {
         txt.style.color = '#d97706';
-        txt.textContent = 'সকল পণ্যের মূল্য গোপন (হাইড) রয়েছে — গ্রাহকরা সরাসরি হোয়াটসঅ্যাপে কোটেশন জানতে পারবেন।';
+        txt.textContent = 'সকল পণ্যের মূল্য গোপন (হাইড) রয়েছে — গ্রাহকরা সরাসরি হোয়াটসঅ্যাপে বা ফোনে কোটেশন জানতে পারবেন।';
       } else {
         txt.style.color = '#15803d';
         txt.textContent = 'সকল পণ্যের নির্ধারিত মূল্য ওয়েবসাইটে সরাসরি প্রদর্শিত হচ্ছে।';
@@ -226,7 +248,9 @@ const RMT_ADMIN = (() => {
     showToast(isChecked ? 'সকল পণ্যের মূল্য হাইড করা হয়েছে!' : 'সকল পণ্যের মূল্য উন্মুক্ত করা হয়েছে!');
   }
 
+  // ==========================================
   // Theme Controls
+  // ==========================================
   function populateThemeControls() {
     let customTheme = null;
     try {
@@ -309,7 +333,9 @@ const RMT_ADMIN = (() => {
     `).join('');
   }
 
-  // Render Products Table (8 columns)
+  // ==========================================
+  // Product Management (CRUD)
+  // ==========================================
   function renderProductsTable() {
     const tbody = document.getElementById('adminProductsTableBody');
     if (!tbody) return;
@@ -362,7 +388,6 @@ const RMT_ADMIN = (() => {
     }).join('');
   }
 
-  // Toggle Single Product Price Hide
   function toggleProductPriceHide(pid) {
     const p = state.products.find(item => item.id === pid);
     if (p) {
@@ -373,7 +398,6 @@ const RMT_ADMIN = (() => {
     }
   }
 
-  // Toggle Featured
   function toggleFeatured(pid) {
     const p = state.products.find(item => item.id === pid);
     if (p) {
@@ -397,7 +421,7 @@ const RMT_ADMIN = (() => {
     document.getElementById('productForm').reset();
     document.getElementById('pm_id').value = 'prod-' + Date.now().toString().slice(-4);
     document.getElementById('pm_price').value = 'আলোচনা সাপেক্ষ';
-    document.getElementById('pm_hidePrice').checked = true; // Default hide price is true
+    document.getElementById('pm_hidePrice').checked = true;
     document.getElementById('productModal').classList.add('active');
   }
 
@@ -411,7 +435,7 @@ const RMT_ADMIN = (() => {
     document.getElementById('pm_nameBn').value = p.nameBn || '';
     document.getElementById('pm_category').value = p.category;
     document.getElementById('pm_price').value = p.price || 'আলোচনা সাপেক্ষ';
-    document.getElementById('pm_hidePrice').checked = (p.hidePrice !== false); // Default hide price
+    document.getElementById('pm_hidePrice').checked = (p.hidePrice !== false);
     document.getElementById('pm_image').value = p.image;
     document.getElementById('pm_specs').value = (p.specs || []).join(', ');
     document.getElementById('pm_descriptionBn').value = p.descriptionBn || '';
@@ -467,24 +491,255 @@ const RMT_ADMIN = (() => {
     renderStats();
   }
 
-  // Render Services Table
+  // ==========================================
+  // Service Management (CRUD)
+  // ==========================================
   function renderServicesTable() {
     const tbody = document.getElementById('adminServicesTableBody');
     if (!tbody) return;
 
-    tbody.innerHTML = state.services.map((s, idx) => `
+    if (state.services.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px; color:#64748b;">কোনো সার্ভিস অন্তর্ভুক্ত নেই। "নতুন সার্ভিস যোগ করুন" এ ক্লিক করুন।</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = state.services.map((s) => {
+      const featCount = (s.featuresBn || s.features || []).length;
+      return `
+        <tr>
+          <td style="font-size:1.6rem; text-align:center;">${s.icon || '⚙️'}</td>
+          <td><strong>${s.title}</strong></td>
+          <td>${s.titleBn || '-'}</td>
+          <td>
+            <span style="background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:4px; font-size:0.8rem; font-weight:600;">
+              ${featCount} টি ফিচার
+            </span>
+          </td>
+          <td>
+            <div style="display:flex; gap:6px;">
+              <button class="btn btn-primary btn-sm" onclick="RMT_ADMIN.openEditServiceModal('${s.id}')">✏️ এডিট</button>
+              <button class="btn btn-danger btn-sm" onclick="RMT_ADMIN.deleteService('${s.id}')">🗑️ মুছুন</button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function openAddServiceModal() {
+    state.editingServiceId = null;
+    document.getElementById('serviceModalTitle').textContent = 'নতুন সার্ভিস যোগ করুন';
+    document.getElementById('serviceForm').reset();
+    document.getElementById('sm_id').value = 'srv-' + Date.now().toString().slice(-4);
+    document.getElementById('sm_icon').value = '⚙️';
+    document.getElementById('serviceModal').classList.add('active');
+  }
+
+  function openEditServiceModal(sid) {
+    const s = state.services.find(item => item.id === sid);
+    if (!s) return;
+    state.editingServiceId = sid;
+    document.getElementById('serviceModalTitle').textContent = 'সার্ভিস এডিট: ' + (s.titleBn || s.title);
+    document.getElementById('sm_id').value = s.id;
+    document.getElementById('sm_icon').value = s.icon || '⚙️';
+    document.getElementById('sm_title').value = s.title || '';
+    document.getElementById('sm_titleBn').value = s.titleBn || '';
+    document.getElementById('sm_summary').value = s.summary || '';
+    document.getElementById('sm_summaryBn').value = s.summaryBn || '';
+    document.getElementById('sm_whatsappMsg').value = s.whatsappMsg || '';
+
+    const fb = Array.isArray(s.featuresBn) ? s.featuresBn.join('\n') : '';
+    const fe = Array.isArray(s.features) ? s.features.join('\n') : '';
+    document.getElementById('sm_featuresBn').value = fb;
+    document.getElementById('sm_features').value = fe;
+
+    document.getElementById('serviceModal').classList.add('active');
+  }
+
+  function handleSaveServiceModal() {
+    const sid = document.getElementById('sm_id').value.trim() || 'srv-' + Date.now();
+    const title = document.getElementById('sm_title').value.trim();
+    const titleBn = document.getElementById('sm_titleBn').value.trim();
+
+    if (!title || !titleBn) {
+      alert('সার্ভিসের ইংরেজি ও বাংলা শিরোনাম উভয়ই আবশ্যক!');
+      return;
+    }
+
+    const icon = document.getElementById('sm_icon').value.trim() || '⚙️';
+    const summary = document.getElementById('sm_summary').value.trim();
+    const summaryBn = document.getElementById('sm_summaryBn').value.trim();
+    const wa = document.getElementById('sm_whatsappMsg').value.trim() || `Inquiry for ${title}`;
+
+    const fbRaw = document.getElementById('sm_featuresBn').value;
+    const feRaw = document.getElementById('sm_features').value;
+
+    const featuresBn = fbRaw.split('\n').map(x => x.trim()).filter(Boolean);
+    const features = feRaw.split('\n').map(x => x.trim()).filter(Boolean);
+
+    const serviceObj = {
+      id: sid,
+      icon,
+      title,
+      titleBn,
+      summary,
+      summaryBn,
+      features,
+      featuresBn,
+      whatsappMsg: wa
+    };
+
+    if (state.editingServiceId) {
+      const idx = state.services.findIndex(s => s.id === state.editingServiceId);
+      if (idx !== -1) {
+        state.services[idx] = { ...state.services[idx], ...serviceObj };
+      }
+    } else {
+      state.services.push(serviceObj);
+    }
+
+    saveEntity('services', state.services);
+    closeModals();
+    renderServicesTable();
+    renderStats();
+  }
+
+  function deleteService(sid) {
+    const s = state.services.find(item => item.id === sid);
+    const name = s ? (s.titleBn || s.title) : sid;
+    if (!confirm(`আপনি কি সত্যিই '${name}' সার্ভিসটি মুছে ফেলতে চান?`)) return;
+
+    state.services = state.services.filter(item => item.id !== sid);
+    saveEntity('services', state.services);
+    renderServicesTable();
+    renderStats();
+  }
+
+  // ==========================================
+  // Brochures / Catalog Management (CRUD)
+  // ==========================================
+  function renderBrochuresTable() {
+    const tbody = document.getElementById('adminBrochuresTableBody');
+    if (!tbody) return;
+
+    if (state.brochures.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px; color:#64748b;">কোনো ক্যাটালগ বা ব্রোশার অন্তর্ভুক্ত নেই। "নতুন ক্যাটালগ যোগ করুন" এ ক্লিক করুন।</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = state.brochures.map((b) => `
       <tr>
-        <td style="font-size:1.5rem;">${s.icon || '⚙️'}</td>
-        <td><strong>${s.title}</strong></td>
-        <td>${s.titleBn}</td>
         <td>
-          <button class="btn btn-secondary btn-sm" onclick="alert('সার্ভিস: ${s.titleBn}\\nফিচারসমূহ: ${(s.features || []).join(', ')}')">ফিচারসমূহ দেখুন</button>
+          <strong>${b.title}</strong><br>
+          <small style="color:#64748b;">${b.titleBn || ''}</small>
+        </td>
+        <td>
+          <span style="background:#e0f2fe; color:#0369a1; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600;">
+            ${b.categoryBn || b.category || 'General'}
+          </span>
+        </td>
+        <td><strong>${b.fileSize || 'N/A'}</strong></td>
+        <td><code style="font-size:0.8rem;">${b.path}</code></td>
+        <td>
+          <div style="display:flex; gap:6px;">
+            <a href="../${b.path}" download="${b.filename || 'catalog.pdf'}" class="btn btn-secondary btn-sm" target="_blank">📥 প্রিভিউ</a>
+            <button class="btn btn-primary btn-sm" onclick="RMT_ADMIN.openEditBrochureModal('${b.id}')">✏️ এডিট</button>
+            <button class="btn btn-danger btn-sm" onclick="RMT_ADMIN.deleteBrochure('${b.id}')">🗑️ মুছুন</button>
+          </div>
         </td>
       </tr>
     `).join('');
   }
 
-  // Render Team Table
+  function openAddBrochureModal() {
+    state.editingBrochureId = null;
+    document.getElementById('brochureModalTitle').textContent = 'নতুন ক্যাটালগ যোগ করুন';
+    document.getElementById('brochureForm').reset();
+    document.getElementById('bm_id').value = 'doc-' + Date.now().toString().slice(-4);
+    document.getElementById('brochureModal').classList.add('active');
+  }
+
+  function openEditBrochureModal(bid) {
+    const b = state.brochures.find(item => item.id === bid);
+    if (!b) return;
+    state.editingBrochureId = bid;
+    document.getElementById('brochureModalTitle').textContent = 'ক্যাটালগ এডিট: ' + (b.titleBn || b.title);
+    document.getElementById('bm_id').value = b.id;
+    document.getElementById('bm_title').value = b.title || '';
+    document.getElementById('bm_titleBn').value = b.titleBn || '';
+    document.getElementById('bm_category').value = b.category || '';
+    document.getElementById('bm_categoryBn').value = b.categoryBn || '';
+    document.getElementById('bm_path').value = b.path || '';
+    document.getElementById('bm_filename').value = b.filename || '';
+    document.getElementById('bm_fileSize').value = b.fileSize || '';
+
+    document.getElementById('brochureModal').classList.add('active');
+  }
+
+  function handleSaveBrochureModal() {
+    const bid = document.getElementById('bm_id').value.trim() || 'doc-' + Date.now();
+    const title = document.getElementById('bm_title').value.trim();
+    const titleBn = document.getElementById('bm_titleBn').value.trim();
+
+    if (!title || !titleBn) {
+      alert('ক্যাটালগের ইংরেজি ও বাংলা শিরোনাম উভয়ই আবশ্যক!');
+      return;
+    }
+
+    const path = document.getElementById('bm_path').value.trim();
+    if (!path) {
+      alert('পিডিএফ ফাইলের পাথ আবশ্যক! (উদাঃ assets/documents/filename.pdf)');
+      return;
+    }
+
+    const category = document.getElementById('bm_category').value.trim() || 'General';
+    const categoryBn = document.getElementById('bm_categoryBn').value.trim() || category;
+    let filename = document.getElementById('bm_filename').value.trim();
+    if (!filename) {
+      filename = path.split('/').pop() || 'catalog.pdf';
+    }
+    const fileSize = document.getElementById('bm_fileSize').value.trim() || '1.0 MB';
+
+    const brochureObj = {
+      id: bid,
+      title,
+      titleBn,
+      filename,
+      path,
+      fileSize,
+      category,
+      categoryBn
+    };
+
+    if (state.editingBrochureId) {
+      const idx = state.brochures.findIndex(b => b.id === state.editingBrochureId);
+      if (idx !== -1) {
+        state.brochures[idx] = { ...state.brochures[idx], ...brochureObj };
+      }
+    } else {
+      state.brochures.push(brochureObj);
+    }
+
+    saveEntity('brochures', state.brochures);
+    closeModals();
+    renderBrochuresTable();
+    renderStats();
+  }
+
+  function deleteBrochure(bid) {
+    const b = state.brochures.find(item => item.id === bid);
+    const name = b ? (b.titleBn || b.title) : bid;
+    if (!confirm(`আপনি কি সত্যিই '${name}' ক্যাটালগটি মুছে ফেলতে চান?`)) return;
+
+    state.brochures = state.brochures.filter(item => item.id !== bid);
+    saveEntity('brochures', state.brochures);
+    renderBrochuresTable();
+    renderStats();
+  }
+
+  // ==========================================
+  // Team Management (CRUD)
+  // ==========================================
   function renderTeamTable() {
     const tbody = document.getElementById('adminTeamTableBody');
     if (!tbody) return;
@@ -521,98 +776,102 @@ const RMT_ADMIN = (() => {
     const name = document.getElementById('tm_name').value.trim();
     const nameBn = document.getElementById('tm_nameBn').value.trim();
     const role = document.getElementById('tm_role').value.trim();
-    const roleBn = document.getElementById('tm_roleBn').value.trim();
     const phone = document.getElementById('tm_phone').value.trim() || '01348249343';
     const image = document.getElementById('tm_image').value.trim() || 'assets/images/brand/logo.png';
-    const bioBn = document.getElementById('tm_bioBn').value.trim();
 
     if (!name || !nameBn) {
       alert('নাম পূরণ করা আবশ্যক!');
       return;
     }
 
-    state.team.push({ id, name, nameBn, role, roleBn, phone, image, bioBn, bio: bioBn });
+    state.team.push({ id, name, nameBn, role, roleBn: role, phone, image });
     saveEntity('team', state.team);
     closeModals();
     renderTeamTable();
     renderStats();
   }
 
-  // Render Brochures Table
-  function renderBrochuresTable() {
-    const tbody = document.getElementById('adminBrochuresTableBody');
-    if (!tbody) return;
+  // ==========================================
+  // Single Admin Security Management
+  // ==========================================
+  function populateSecurityForm() {
+    const admin = state.admins[0] || { name: "Rezaul Karim", username: "admin" };
+    const nameDisp = document.getElementById('secAdminNameDisplay');
+    const nameInput = document.getElementById('sec_adminName');
 
-    tbody.innerHTML = state.brochures.map((b, idx) => `
-      <tr>
-        <td><strong>${b.title}</strong><br><small style="color:#64748b;">${b.titleBn || ''}</small></td>
-        <td><span style="background:#e0f2fe; padding:2px 8px; border-radius:4px; font-size:0.75rem;">${b.category}</span></td>
-        <td>${b.fileSize}</td>
-        <td><code>${b.path}</code></td>
-        <td>
-          <a href="../${b.path}" download="${b.filename}" class="btn btn-secondary btn-sm">ডাউনলোড টেস্ট</a>
-        </td>
-      </tr>
-    `).join('');
+    if (nameDisp) nameDisp.textContent = admin.name || 'Rezaul Karim';
+    if (nameInput) nameInput.value = admin.name || 'Rezaul Karim';
   }
 
-  // Render Users & Admins
-  function renderUsersTable() {
-    const tbody = document.getElementById('adminUsersTableBody');
-    if (!tbody) return;
+  function handleSaveSecurityForm(e) {
+    e.preventDefault();
+    const currentPass = document.getElementById('sec_currentPassword').value;
+    const newPass = document.getElementById('sec_newPassword').value;
+    const confPass = document.getElementById('sec_confirmPassword').value;
+    const name = document.getElementById('sec_adminName').value.trim();
+    const msgBox = document.getElementById('secPasswordMessage');
 
-    tbody.innerHTML = state.admins.map((u, idx) => `
-      <tr>
-        <td><code>${u.username}</code></td>
-        <td><strong>${u.name || u.username}</strong></td>
-        <td><span class="user-role-badge">${u.role || 'admin'}</span></td>
-        <td><code>••••••••</code> (${u.password})</td>
-        <td>
-          ${u.username === 'admin' ? '<span style="color:#64748b; font-size:0.8rem;">ডিফল্ট সুপারএডমিন</span>' : `
-            <button class="btn btn-danger btn-sm" onclick="RMT_ADMIN.deleteUser('${u.username}')">রিমুভ</button>
-          `}
-        </td>
-      </tr>
-    `).join('');
-  }
+    const admin = state.admins[0] || { username: "admin", password: "Rezaul9270" };
 
-  function openAddUserModal() {
-    document.getElementById('userForm').reset();
-    document.getElementById('userModal').classList.add('active');
-  }
-
-  function handleSaveUserModal() {
-    const username = document.getElementById('um_username').value.trim().toLowerCase();
-    const name = document.getElementById('um_name').value.trim();
-    const password = document.getElementById('um_password').value;
-    const role = document.getElementById('um_role').value;
-
-    if (!username || !password) {
-      alert('ইউজারনেম ও পাসওয়ার্ড পূরণ করুন!');
+    if (currentPass !== admin.password) {
+      msgBox.style.display = 'block';
+      msgBox.style.background = '#fef2f2';
+      msgBox.style.color = '#dc2626';
+      msgBox.style.border = '1px solid #fecaca';
+      msgBox.textContent = 'বর্তমান পাসওয়ার্ড সঠিক নয়! দয়া করে সঠিক পাসওয়ার্ড দিন।';
       return;
     }
 
-    if (state.admins.some(a => a.username.toLowerCase() === username)) {
-      alert('এই ইউজারনেমটি ইতিমধ্যে বিদ্যমান! অন্য ইউজারনেম দিন।');
+    if (newPass.length < 4) {
+      msgBox.style.display = 'block';
+      msgBox.style.background = '#fef2f2';
+      msgBox.style.color = '#dc2626';
+      msgBox.style.border = '1px solid #fecaca';
+      msgBox.textContent = 'নতুন পাসওয়ার্ড কমপক্ষে ৪ অক্ষরের হতে হবে!';
       return;
     }
 
-    state.admins.push({ username, name: name || username, password, role });
+    if (newPass !== confPass) {
+      msgBox.style.display = 'block';
+      msgBox.style.background = '#fef2f2';
+      msgBox.style.color = '#dc2626';
+      msgBox.style.border = '1px solid #fecaca';
+      msgBox.textContent = 'নতুন পাসওয়ার্ড ও কনফার্ম পাসওয়ার্ড মিলছে না!';
+      return;
+    }
+
+    // Update Master Admin
+    admin.name = name || 'Rezaul Karim';
+    admin.password = newPass;
+    state.admins = [admin];
+
     localStorage.setItem('rmt_custom_admins', JSON.stringify(state.admins));
-    showToast('নতুন এডমিন সফলভাবে যোগ করা হয়েছে!');
-    closeModals();
-    renderUsersTable();
+
+    // Update active session
+    if (state.session) {
+      state.session.name = admin.name;
+      localStorage.setItem('rmt_admin_session', JSON.stringify(state.session));
+      const nameElem = document.getElementById('displayName');
+      if (nameElem) nameElem.textContent = admin.name;
+    }
+
+    msgBox.style.display = 'block';
+    msgBox.style.background = '#ecfdf5';
+    msgBox.style.color = '#059669';
+    msgBox.style.border = '1px solid #a7f3d0';
+    msgBox.textContent = 'পাসওয়ার্ড ও প্রোফাইল সফলভাবে আপডেট করা হয়েছে!';
+
+    document.getElementById('sec_currentPassword').value = '';
+    document.getElementById('sec_newPassword').value = '';
+    document.getElementById('sec_confirmPassword').value = '';
+
+    populateSecurityForm();
+    showToast('পাসওয়ার্ড সফলভাবে সংরক্ষিত হয়েছে!');
   }
 
-  function deleteUser(username) {
-    if (!confirm(`আপনি কি '${username}' এডমিনকে মুছে দিতে চান?`)) return;
-    state.admins = state.admins.filter(a => a.username !== username);
-    localStorage.setItem('rmt_custom_admins', JSON.stringify(state.admins));
-    showToast('এডমিন ইউজার মুছে ফেলা হয়েছে!');
-    renderUsersTable();
-  }
-
-  // Clear Browser Cache
+  // ==========================================
+  // Cache Clear & System
+  // ==========================================
   async function clearBrowserCache() {
     try {
       sessionStorage.clear();
@@ -646,7 +905,7 @@ const RMT_ADMIN = (() => {
     a.download = `site_data_backup_${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
-    showToast('ব্যাকআপ JSON ফাইল ডাউনলোড সম্পন্ন!');
+    showToast('সম্পূর্ণ ডাটা ব্যাকআপ ডাউনলোড সম্পন্ন!');
   }
 
   // Import Data Bundle
@@ -685,7 +944,9 @@ const RMT_ADMIN = (() => {
     window.location.reload();
   }
 
-  // Navigation & Modals
+  // ==========================================
+  // Navigation & Modals Setup
+  // ==========================================
   function setupNavigation() {
     const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
     navItems.forEach(item => {
@@ -708,6 +969,18 @@ const RMT_ADMIN = (() => {
         window.location.href = 'login.html';
       });
     }
+
+    // Modal background close
+    document.querySelectorAll('.admin-modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModals();
+      });
+    });
+
+    // ESC key closes modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModals();
+    });
   }
 
   function switchTab(sectionId) {
@@ -785,6 +1058,20 @@ const RMT_ADMIN = (() => {
     const catFilter = document.getElementById('adminProductCategoryFilter');
     if (catFilter) catFilter.addEventListener('change', renderProductsTable);
 
+    // Services
+    const addServiceBtn = document.getElementById('openAddServiceBtn');
+    if (addServiceBtn) addServiceBtn.addEventListener('click', openAddServiceModal);
+
+    const saveServiceModalBtn = document.getElementById('saveServiceModalBtn');
+    if (saveServiceModalBtn) saveServiceModalBtn.addEventListener('click', handleSaveServiceModal);
+
+    // Brochures / Catalogs
+    const addBrochureBtn = document.getElementById('openAddBrochureBtn');
+    if (addBrochureBtn) addBrochureBtn.addEventListener('click', openAddBrochureModal);
+
+    const saveBrochureModalBtn = document.getElementById('saveBrochureModalBtn');
+    if (saveBrochureModalBtn) saveBrochureModalBtn.addEventListener('click', handleSaveBrochureModal);
+
     // Team
     const addTeamBtn = document.getElementById('openAddTeamBtn');
     if (addTeamBtn) addTeamBtn.addEventListener('click', openAddTeamModal);
@@ -792,12 +1079,9 @@ const RMT_ADMIN = (() => {
     const saveTeamBtn = document.getElementById('saveTeamModalBtn');
     if (saveTeamBtn) saveTeamBtn.addEventListener('click', handleSaveTeamModal);
 
-    // Users
-    const addUserBtn = document.getElementById('openAddUserBtn');
-    if (addUserBtn) addUserBtn.addEventListener('click', openAddUserModal);
-
-    const saveUserBtn = document.getElementById('saveUserModalBtn');
-    if (saveUserBtn) saveUserBtn.addEventListener('click', handleSaveUserModal);
+    // Security Form
+    const secForm = document.getElementById('adminSecurityForm');
+    if (secForm) secForm.addEventListener('submit', handleSaveSecurityForm);
 
     // Backup & Export
     const exportBtn = document.getElementById('exportDataBtn');
@@ -823,15 +1107,24 @@ const RMT_ADMIN = (() => {
     init,
     switchTab,
     setThemePreset,
+    // Products
     openAddProductModal,
     openEditProductModal,
     deleteProduct,
     toggleFeatured,
     toggleProductPriceHide,
+    // Services
+    openAddServiceModal,
+    openEditServiceModal,
+    deleteService,
+    // Brochures / Catalogs
+    openAddBrochureModal,
+    openEditBrochureModal,
+    deleteBrochure,
+    // Team
     openAddTeamModal,
     deleteTeamMember,
-    openAddUserModal,
-    deleteUser,
+    // Utility
     exportAllData,
     closeModals
   };

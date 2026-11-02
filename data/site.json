@@ -108,20 +108,6 @@
       "password": "Rezaul9270",
       "name": "Rezaul Karim",
       "role": "superadmin"
-    },
-    {
-      "id": "adm-2",
-      "username": "amirul",
-      "password": "Amirul2026",
-      "name": "MD. Amirul Islam",
-      "role": "admin"
-    },
-    {
-      "id": "adm-3",
-      "username": "helal",
-      "password": "Helal2026",
-      "name": "Md. Helal Miah",
-      "role": "manager"
     }
   ]
 }

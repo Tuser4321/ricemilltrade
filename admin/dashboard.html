@@ -20,9 +20,9 @@
       <a class="nav-item" data-section="section-theme">🎨 স্মার্ট থিম ও কালার</a>
       <a class="nav-item" data-section="section-products">📦 প্রোডাক্ট ও প্রাইস কন্ট্রোল</a>
       <a class="nav-item" data-section="section-services">🛠️ সার্ভিসেস কন্ট্রোল</a>
+      <a class="nav-item" data-section="section-brochures">📄 ব্রোশার ও ক্যাটালগ</a>
       <a class="nav-item" data-section="section-team">👥 পরিচালনা পর্ষদ</a>
-      <a class="nav-item" data-section="section-brochures">📄 ব্রোশার ও মূল্যতালিকা</a>
-      <a class="nav-item" data-section="section-users">🔐 ইউজার ও এডমিন এক্সেস</a>
+      <a class="nav-item" data-section="section-security">🔐 এডমিন সিকিউরিটি</a>
       <a class="nav-item" data-section="section-backup">💾 ব্যাকআপ ও ক্যাশে</a>
     </nav>
     <div class="sidebar-footer">
@@ -67,7 +67,14 @@
             <div class="stat-icon" style="background:#fef3c7; color:#d97706;">🛠️</div>
             <div>
               <h3 id="statServices">6</h3>
-              <p>সক্রিয় ইঞ্জিনিয়ারিং সার্ভিস</p>
+              <p>সক্রিয় সার্ভিসেস</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#f3e8ff; color:#7e22ce;">📄</div>
+            <div>
+              <h3 id="statBrochures">6</h3>
+              <p>পিডিএফ ক্যাটালগ</p>
             </div>
           </div>
           <div class="stat-card">
@@ -75,13 +82,6 @@
             <div>
               <h3 id="statTeam">3</h3>
               <p>পরিচালনা পর্ষদের সদস্য</p>
-            </div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon" style="background:#f3e8ff; color:#7e22ce;">📄</div>
-            <div>
-              <h3 id="statBrochures">6</h3>
-              <p>পিডিএফ প্রাইস লিস্ট</p>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
             <div>
               <h4 style="color:var(--admin-primary); margin-bottom:4px;">🔒 গ্লোবাল প্রোডাক্ট প্রাইস কন্ট্রোল (মূল্য প্রদর্শন / গোপন সেটিংস)</h4>
               <p style="font-size:0.86rem; color:#64748b;">
-                বর্তমান অবস্থা: <strong id="globalPriceStatusText" style="color:#d97706;">সকল পণ্যের মূল্য গোপন (হাইড) রয়েছে</strong> — গ্রাহকরা সরাসরি হোয়াটসঅ্যাপে কোটেশন জানতে পারবেন।
+                বর্তমান অবস্থা: <strong id="globalPriceStatusText" style="color:#d97706;">সকল পণ্যের মূল্য গোপন (হাইড) রয়েছে</strong> — গ্রাহকরা সরাসরি হোয়াটসঅ্যাপে বা ফোনে কোটেশন জানতে পারবেন।
               </p>
             </div>
             <button class="btn btn-secondary" onclick="RMT_ADMIN.switchTab('section-products');">
@@ -109,14 +109,17 @@
             <button class="btn btn-primary" onclick="RMT_ADMIN.switchTab('section-products'); RMT_ADMIN.openAddProductModal();">
               ➕ নতুন প্রোডাক্ট যোগ করুন
             </button>
+            <button class="btn btn-primary" onclick="RMT_ADMIN.switchTab('section-services'); RMT_ADMIN.openAddServiceModal();">
+              🛠️ নতুন সার্ভিস যোগ করুন
+            </button>
+            <button class="btn btn-primary" onclick="RMT_ADMIN.switchTab('section-brochures'); RMT_ADMIN.openAddBrochureModal();">
+              📄 নতুন ক্যাটালগ যোগ করুন
+            </button>
             <button class="btn btn-secondary" onclick="RMT_ADMIN.switchTab('section-theme');">
               🎨 প্ল্যাটফর্ম থিম ও কালার কাস্টমাইজ
             </button>
-            <button class="btn btn-success" onclick="RMT_ADMIN.switchTab('section-users');">
-              👤 নতুন এডমিন ইউজার তৈরি করুন
-            </button>
-            <button class="btn btn-primary" onclick="RMT_ADMIN.exportAllData();">
-              💾 ডাটা ব্যাকআপ ডাউনলোড (JSON)
+            <button class="btn btn-secondary" onclick="RMT_ADMIN.exportAllData();">
+              💾 সম্পূর্ণ ডাটা ব্যাকআপ (JSON)
             </button>
             <a href="../index.html" target="_blank" class="btn btn-secondary">
               👁️ লাইভ ওয়েবসাইট ব্রাউজ করুন
@@ -193,8 +196,8 @@
                 <input type="url" id="cfg_youtube" class="form-control" placeholder="https://youtube.com/@channel">
               </div>
               <div class="form-group">
-                <label class="form-label">লিঙ্কডইন কোম্পানি পেজ (LinkedIn URL)</label>
-                <input type="url" id="cfg_linkedin" class="form-control" placeholder="https://linkedin.com/company/profile">
+                <label class="form-label">লিঙ্কডইন প্রোফাইল লিংক (LinkedIn URL)</label>
+                <input type="url" id="cfg_linkedin" class="form-control" placeholder="https://linkedin.com/in/profile">
               </div>
               <div class="form-group">
                 <label class="form-label">ইনস্টাগ্রাম লিংক (Instagram URL)</label>
@@ -327,7 +330,8 @@
       <!-- 5. Services Management -->
       <section id="section-services" class="content-section">
         <div class="section-heading">
-          <h2>🛠️ সেবাসমূহ ও সলিউশন কন্ট্রোল</h2>
+          <h2>🛠️ ইঞ্জিনিয়ারিং সেবাসমূহ কন্ট্রোল</h2>
+          <button class="btn btn-primary" id="openAddServiceBtn">➕ নতুন সার্ভিস যোগ করুন</button>
         </div>
 
         <div class="admin-card">
@@ -338,6 +342,7 @@
                   <th>আইকন</th>
                   <th>সার্ভিস শিরোনাম (EN)</th>
                   <th>সার্ভিস শিরোনাম (BN)</th>
+                  <th>মূল ফিচারসমূহ</th>
                   <th>অ্যাকশন</th>
                 </tr>
               </thead>
@@ -349,7 +354,34 @@
         </div>
       </section>
 
-      <!-- 6. Team Management -->
+      <!-- 6. Brochures & Catalog Management -->
+      <section id="section-brochures" class="content-section">
+        <div class="section-heading">
+          <h2>📄 ক্যাটালগ ও মূল্যতালিকা কন্ট্রোল</h2>
+          <button class="btn btn-primary" id="openAddBrochureBtn">➕ নতুন ক্যাটালগ যোগ করুন</button>
+        </div>
+
+        <div class="admin-card">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ক্যাটালগ শিরোনাম</th>
+                  <th>ক্যাটাগরি</th>
+                  <th>ফাইল সাইজ</th>
+                  <th>ফাইল পাথ</th>
+                  <th>অ্যাকশন</th>
+                </tr>
+              </thead>
+              <tbody id="adminBrochuresTableBody">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Team Management -->
       <section id="section-team" class="content-section">
         <div class="section-heading">
           <h2>👥 পরিচালনা পর্ষদ ও ম্যানেজমেন্ট</h2>
@@ -376,59 +408,53 @@
         </div>
       </section>
 
-      <!-- 7. Brochures & Downloads -->
-      <section id="section-brochures" class="content-section">
+      <!-- 8. Admin Security & Password -->
+      <section id="section-security" class="content-section">
         <div class="section-heading">
-          <h2>📄 ডাউনলোডযোগ্য ব্রোশার ও মূল্যতালিকা</h2>
+          <h2>🔐 প্রধান এডমিন সিকিউরিটি ও পাসওয়ার্ড</h2>
         </div>
 
-        <div class="admin-card">
-          <div class="table-responsive">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>শিরোনাম</th>
-                  <th>ক্যাটাগরি</th>
-                  <th>ফাইল সাইজ</th>
-                  <th>পাথ</th>
-                  <th>অ্যাকশন</th>
-                </tr>
-              </thead>
-              <tbody id="adminBrochuresTableBody">
-                <!-- Populated dynamically -->
-              </tbody>
-            </table>
+        <div class="admin-card" style="max-width: 650px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--admin-border);">
+            <div style="width:56px; height:56px; border-radius:50%; background:var(--admin-primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.6rem;">
+              👤
+            </div>
+            <div>
+              <h3 style="margin-bottom:4px; color:var(--admin-primary);" id="secAdminNameDisplay">Rezaul Karim</h3>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <span class="user-role-badge">Superadmin (মাস্টার এক্সেস)</span>
+                <span style="font-size:0.85rem; color:#64748b;">ইউজারনেম: <strong>admin</strong></span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      <!-- 8. Admins & User Management -->
-      <section id="section-users" class="content-section">
-        <div class="section-heading">
-          <h2>🔐 ইউজার ও এডমিন এক্সেস ম্যানেজমেন্ট</h2>
-          <button class="btn btn-primary" id="openAddUserBtn">➕ নতুন এডমিন যোগ করুন</button>
-        </div>
+          <form id="adminSecurityForm">
+            <div class="form-group" style="margin-bottom:16px;">
+              <label class="form-label">এডমিনের পূর্ণ নাম</label>
+              <input type="text" id="sec_adminName" class="form-control" value="Rezaul Karim" required>
+            </div>
 
-        <div class="admin-card">
-          <p style="font-size:0.9rem; color:#64748b; margin-bottom:18px;">
-            যে কাউকে নতুন এডমিন হিসেবে যুক্ত করতে পারেন বা তাদের পাসওয়ার্ড পরিবর্তন করতে পারেন।
-          </p>
-          <div class="table-responsive">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>ইউজারনেম</th>
-                  <th>পূর্ণ নাম</th>
-                  <th>রোল (Role)</th>
-                  <th>পাসওয়ার্ড</th>
-                  <th>অ্যাকশন</th>
-                </tr>
-              </thead>
-              <tbody id="adminUsersTableBody">
-                <!-- Populated dynamically -->
-              </tbody>
-            </table>
-          </div>
+            <div class="form-group" style="margin-bottom:16px;">
+              <label class="form-label">বর্তমান পাসওয়ার্ড (Current Password) *</label>
+              <input type="password" id="sec_currentPassword" class="form-control" placeholder="বর্তমান পাসওয়ার্ড দিন..." required>
+            </div>
+
+            <div class="form-group" style="margin-bottom:16px;">
+              <label class="form-label">নতুন পাসওয়ার্ড (New Password) *</label>
+              <input type="password" id="sec_newPassword" class="form-control" placeholder="নতুন পাসওয়ার্ড দিন..." required minlength="4">
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px;">
+              <label class="form-label">নতুন পাসওয়ার্ড নিশ্চিত করুন (Confirm New Password) *</label>
+              <input type="password" id="sec_confirmPassword" class="form-control" placeholder="নতুন পাসওয়ার্ড পুনরায় লিখুন..." required minlength="4">
+            </div>
+
+            <div id="secPasswordMessage" style="display:none; padding:10px 14px; border-radius:6px; font-size:0.88rem; margin-bottom:16px;"></div>
+
+            <button type="submit" class="btn btn-primary" style="padding:11px 24px;">
+              💾 পাসওয়ার্ড ও প্রোফাইল আপডেট করুন
+            </button>
+          </form>
         </div>
       </section>
 
@@ -552,40 +578,104 @@
     </div>
   </div>
 
-  <!-- User / Admin Modal -->
-  <div class="admin-modal-overlay" id="userModal">
-    <div class="admin-modal" style="max-width:480px;">
+  <!-- Service Modal (Add / Edit) -->
+  <div class="admin-modal-overlay" id="serviceModal">
+    <div class="admin-modal">
       <div class="admin-modal-header">
-        <h3 id="userModalTitle">এডমিন ইউজার যোগ করুন</h3>
+        <h3 id="serviceModalTitle">সার্ভিস তথ্য</h3>
         <button class="btn btn-sm" onclick="RMT_ADMIN.closeModals()">✕</button>
       </div>
       <div class="admin-modal-body">
-        <form id="userForm">
-          <div class="form-group">
-            <label class="form-label">ইউজারনেম (Username) *</label>
-            <input type="text" id="um_username" class="form-control" required placeholder="উদাঃ manager">
-          </div>
-          <div class="form-group">
-            <label class="form-label">পূর্ণ নাম (Full Name)</label>
-            <input type="text" id="um_name" class="form-control" placeholder="উদাঃ Md. Tariqul Islam">
-          </div>
-          <div class="form-group">
-            <label class="form-label">পাসওয়ার্ড (Password) *</label>
-            <input type="text" id="um_password" class="form-control" required placeholder="পাসওয়ার্ড দিন...">
-          </div>
-          <div class="form-group">
-            <label class="form-label">রোল (Role) *</label>
-            <select id="um_role" class="form-control">
-              <option value="superadmin">Superadmin (পূর্ণ এক্সেস)</option>
-              <option value="admin">Admin (প্রোডাক্ট ও সেটিংস কন্ট্রোল)</option>
-              <option value="manager">Manager (শুধুমাত্র ভিউ ও সাপোর্ট)</option>
-            </select>
+        <form id="serviceForm">
+          <input type="hidden" id="sm_id">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">আইকন (Emoji বা প্রতীক) *</label>
+              <input type="text" id="sm_icon" class="form-control" placeholder="⚙️" style="max-width:120px;" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">হোয়াটসঅ্যাপ ইনকোয়ারি বার্তা</label>
+              <input type="text" id="sm_whatsappMsg" class="form-control" placeholder="Hello Rice Mill Trade, I need consultation on...">
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">সার্ভিস শিরোনাম (ইংরেজি) *</label>
+              <input type="text" id="sm_title" class="form-control" required placeholder="উদাঃ Auto Rice Mill Plant Setup & Turnkey Engineering">
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">সার্ভিস শিরোনাম (বাংলা) *</label>
+              <input type="text" id="sm_titleBn" class="form-control" required placeholder="উদাঃ অটো রাইস মিল সম্পূর্ণ প্ল্যান্ট সেটআপ ও ইঞ্জিনিয়ারিং">
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">সার্ভিস সংক্ষিপ্ত বিবরণ (ইংরেজি)</label>
+              <textarea id="sm_summary" class="form-control" rows="2" placeholder="Short description in English..."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">সার্ভিস সংক্ষিপ্ত বিবরণ (বাংলা)</label>
+              <textarea id="sm_summaryBn" class="form-control" rows="2" placeholder="সংক্ষিপ্ত বিবরণ বাংলায় লিখুন..."></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">মূল ফিচারসমূহ (বাংলা - প্রতিটি ফিচার নতুন লাইনে লিখুন)</label>
+              <textarea id="sm_featuresBn" class="form-control" rows="4" placeholder="২০ টিপিডি থেকে ২০০+ টিপিডি মেগা প্ল্যান্ট ইঞ্জিনিয়ারিং&#10;সর্বনিম্ন খুদ ও সর্বোচ্চ চালের উৎপাদনমুখী ফ্লোচার্ট&#10;ডাস্ট-ফ্রি নিউমেটিক পাইপলাইন"></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">মূল ফিচারসমূহ (ইংরেজি - Each feature on a new line)</label>
+              <textarea id="sm_features" class="form-control" rows="4" placeholder="Complete 20 TPD to 200+ TPD Plant Engineering&#10;High Yield & Minimal Grain Breakage Flowcharts"></textarea>
+            </div>
           </div>
         </form>
       </div>
       <div class="admin-modal-footer">
         <button class="btn" onclick="RMT_ADMIN.closeModals()">বাতিল</button>
-        <button class="btn btn-primary" id="saveUserModalBtn">ইউজার সংরক্ষণ করুন</button>
+        <button class="btn btn-primary" id="saveServiceModalBtn">সংরক্ষণ করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brochure / Catalog Modal (Add / Edit) -->
+  <div class="admin-modal-overlay" id="brochureModal">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 id="brochureModalTitle">ক্যাটালগ ও ব্রোশার তথ্য</h3>
+        <button class="btn btn-sm" onclick="RMT_ADMIN.closeModals()">✕</button>
+      </div>
+      <div class="admin-modal-body">
+        <form id="brochureForm">
+          <input type="hidden" id="bm_id">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label class="form-label">ক্যাটালগের নাম (ইংরেজি) *</label>
+              <input type="text" id="bm_title" class="form-control" required placeholder="উদাঃ Boiler Spare Parts Official Catalog">
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">ক্যাটালগের নাম (বাংলা) *</label>
+              <input type="text" id="bm_titleBn" class="form-control" required placeholder="উদাঃ বয়লার স্পেয়ার পার্টস অফিসিয়াল ক্যাটালগ">
+            </div>
+            <div class="form-group">
+              <label class="form-label">ক্যাটাগরি (ইংরেজি) *</label>
+              <input type="text" id="bm_category" class="form-control" required placeholder="উদাঃ Boiler, Compressor, Milling...">
+            </div>
+            <div class="form-group">
+              <label class="form-label">ক্যাটাগরি (বাংলা)</label>
+              <input type="text" id="bm_categoryBn" class="form-control" placeholder="উদাঃ বয়লার, কম্প্রেসর, মিলিং পার্টস...">
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">পিডিএফ ফাইলের পাথ বা URL *</label>
+              <input type="text" id="bm_path" class="form-control" required placeholder="উদাঃ assets/documents/Boiler_spare_list.pdf">
+            </div>
+            <div class="form-group">
+              <label class="form-label">ডাউনলোড ফাইলের নাম</label>
+              <input type="text" id="bm_filename" class="form-control" placeholder="Boiler_spare_list.pdf">
+            </div>
+            <div class="form-group">
+              <label class="form-label">ফাইল সাইজ (উদাঃ 1.09 MB)</label>
+              <input type="text" id="bm_fileSize" class="form-control" placeholder="1.09 MB">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="admin-modal-footer">
+        <button class="btn" onclick="RMT_ADMIN.closeModals()">বাতিল</button>
+        <button class="btn btn-primary" id="saveBrochureModalBtn">সংরক্ষণ করুন</button>
       </div>
     </div>
   </div>

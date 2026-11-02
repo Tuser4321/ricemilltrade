@@ -20,9 +20,9 @@
       background: #ffffff;
       width: 100%;
       max-width: 440px;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      padding: 38px 32px;
+      border-radius: 14px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+      padding: 40px 32px;
       position: relative;
       overflow: hidden;
     }
@@ -34,7 +34,7 @@
     }
     .login-brand {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
     .login-brand img {
       max-height: 55px;
@@ -45,21 +45,28 @@
       font-size: 1.45rem;
       color: #0f3460;
       font-weight: 800;
+      margin-bottom: 4px;
     }
     .login-brand p {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: #64748b;
     }
-    .hint-box {
-      background: #f8fafc;
-      border: 1px dashed #cbd5e1;
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 0.82rem;
-      color: #475569;
-      margin-bottom: 20px;
+    .password-wrap {
+      position: relative;
     }
-    .hint-box strong {
+    .toggle-pass-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #64748b;
+      font-size: 1rem;
+      padding: 4px;
+    }
+    .toggle-pass-btn:hover {
       color: #0f3460;
     }
   </style>
@@ -67,42 +74,65 @@
 <body>
   <div class="login-card">
     <div class="login-brand">
-      <img src="../assets/images/brand/logo.png" alt="Rice Mill Trade">
+      <img src="../assets/images/brand/logo.png" alt="Rice Mill Trade" onerror="this.style.display='none'">
       <h2>Rice Mill Trade <span>Admin</span></h2>
       <p>ওয়েবসাইট কন্ট্রোল ও ম্যানেজমেন্ট প্যানেল</p>
     </div>
 
     <form id="loginForm">
-      <div class="form-group" style="margin-bottom: 16px;">
-        <label class="form-label" style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:6px;">ইউজারনেম (Username)</label>
-        <input type="text" id="username" class="form-control" placeholder="admin" required style="width:100%; padding:11px 14px; border:1.5px solid #cbd5e1; border-radius:6px;">
+      <div class="form-group" style="margin-bottom: 18px;">
+        <label class="form-label" style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:6px; color:#1e293b;">ইউজারনেম (Username)</label>
+        <input type="text" id="username" class="form-control" placeholder="admin" value="admin" required style="width:100%; padding:11px 14px; border:1.5px solid #cbd5e1; border-radius:6px;">
       </div>
 
-      <div class="form-group" style="margin-bottom: 22px;">
-        <label class="form-label" style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:6px;">পাসওয়ার্ড (Password)</label>
-        <input type="password" id="password" class="form-control" placeholder="••••••••" required style="width:100%; padding:11px 14px; border:1.5px solid #cbd5e1; border-radius:6px;">
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label class="form-label" style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:6px; color:#1e293b;">পাসওয়ার্ড (Password)</label>
+        <div class="password-wrap">
+          <input type="password" id="password" class="form-control" placeholder="••••••••" required style="width:100%; padding:11px 40px 11px 14px; border:1.5px solid #cbd5e1; border-radius:6px;">
+          <button type="button" class="toggle-pass-btn" id="togglePasswordBtn" title="পাসওয়ার্ড দেখুন">👁️</button>
+        </div>
       </div>
 
-      <div id="loginError" style="display:none; color:#dc2626; background:#fef2f2; padding:10px; border-radius:6px; font-size:0.85rem; margin-bottom:16px;"></div>
+      <div id="loginError" style="display:none; color:#dc2626; background:#fef2f2; border:1px solid #fecaca; padding:10px 14px; border-radius:6px; font-size:0.85rem; margin-bottom:18px;"></div>
 
-      <button type="submit" class="btn btn-primary" style="width:100%; padding:12px; font-size:1rem; font-weight:700; background:#0f3460; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+      <button type="submit" class="btn btn-primary" style="width:100%; padding:12px; font-size:1rem; font-weight:700; background:#0f3460; color:#fff; border:none; border-radius:6px; cursor:pointer; transition:background 0.2s;">
         লগইন করুন (Secure Sign In)
       </button>
 
-      <div style="text-align:center; margin-top:18px;">
+      <div style="text-align:center; margin-top:20px;">
         <a href="../index.html" style="font-size:0.85rem; color:#64748b; text-decoration:none;">← মূল ওয়েবসাইটে ফিরে যান</a>
       </div>
     </form>
   </div>
 
   <script>
+    // If already logged in, redirect straight to dashboard
+    try {
+      const sess = localStorage.getItem('rmt_admin_session');
+      if (sess && JSON.parse(sess).username) {
+        window.location.replace('dashboard.html');
+      }
+    } catch(e) {}
+
+    // Toggle password view
+    const toggleBtn = document.getElementById('togglePasswordBtn');
+    const passInput = document.getElementById('password');
+    if (toggleBtn && passInput) {
+      toggleBtn.addEventListener('click', () => {
+        const isPass = passInput.getAttribute('type') === 'password';
+        passInput.setAttribute('type', isPass ? 'text' : 'password');
+        toggleBtn.textContent = isPass ? '🙈' : '👁️';
+      });
+    }
+
+    // Login logic
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const u = document.getElementById('username').value.trim();
       const p = document.getElementById('password').value;
       const errBox = document.getElementById('loginError');
 
-      // Load admin list from localStorage or data/site.json
+      // Load master admin from localStorage or site.json fallback
       let admins = [
         { username: "admin", password: "Rezaul9270", name: "Rezaul Karim", role: "superadmin" }
       ];
@@ -110,7 +140,8 @@
       const customAdmins = localStorage.getItem('rmt_custom_admins');
       if (customAdmins) {
         try {
-          admins = JSON.parse(customAdmins);
+          const parsed = JSON.parse(customAdmins);
+          if (Array.isArray(parsed) && parsed.length > 0) admins = parsed;
         } catch (e) {}
       } else {
         try {
@@ -128,7 +159,7 @@
         localStorage.setItem('rmt_admin_session', JSON.stringify({
           username: found.username,
           name: found.name || found.username,
-          role: found.role || 'admin',
+          role: found.role || 'superadmin',
           loginTime: new Date().toISOString()
         }));
         window.location.href = 'dashboard.html';
